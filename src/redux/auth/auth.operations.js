@@ -1,58 +1,59 @@
-// import axios from "axios";
-// import {
-//   getCurrentUserError,
-//   getCurrentUserRequest,
-//   getCurrentUserSuccess,
-//   loginError,
-//   loginRequest,
-//   loginSuccess,
-//   logoutError,
-//   logoutRequest,
-//   logoutSuccess,
-//   registerError,
-//   registerRequest,
-//   registerSuccess,
-// } from "./auth.actions";
+import axios from "axios";
+import {
+  getCurrentUserError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  loginError,
+  loginRequest,
+  loginSuccess,
+  logoutError,
+  logoutRequest,
+  logoutSuccess,
+  registerError,
+  registerRequest,
+  registerSuccess,
+} from "./auth.actions";
 
-// // axios.defaults.baseURL = "https://connections-api.herokuapp.com/";
+axios.defaults.baseURL = "https://slimmom-backend.goit.global/";
 
-// const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = "";
-//   },
-// };
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = "";
+  },
+};
 
-// export const register = (credentials) => async (dispatch) => {
-//   dispatch(registerRequest());
-//   try {
-//     const response = await axios.post("/users/signup", credentials);
-//     token.set(response.data.token);
+export const register = (credentials) => async (dispatch) => {
+  dispatch(registerRequest());
+  try {
+    const response = await axios.post("auth/register", credentials);
+    console.log(response);
+    token.set(response.data.token);
 
-//     dispatch(registerSuccess(response.data));
-//   } catch (error) {
-//     dispatch(registerError(error.message));
-//   }
-// };
+    dispatch(registerSuccess(response.data));
+  } catch (error) {
+    dispatch(registerError(error.message));
+  }
+};
 
-// export const logIn = (credentials) => async (dispatch) => {
-//   dispatch(loginRequest());
-//   try {
-//     const response = await axios.post("/users/login", credentials);
-//     token.set(response.data.token);
+export const logIn = (credentials) => async (dispatch) => {
+  dispatch(loginRequest());
+  try {
+    const response = await axios.post("/auth/login", credentials);
+    // token.set(response.data.token);
 
-//     dispatch(loginSuccess(response.data));
-//   } catch (error) {
-//     dispatch(loginError(error.message));
-//   }
-// };
+    dispatch(loginSuccess(response.data));
+  } catch (error) {
+    dispatch(loginError(error.message));
+  }
+};
 
 // export const logOut = () => async (dispatch) => {
 //   dispatch(logoutRequest());
 //   try {
-//     const response = await axios.post("/users/logout");
+//     const response = await axios.post("/auth/logout");
 
 //     dispatch(logoutSuccess(response.data));
 //     token.unset();

@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import Loader from 'react-loader-spinner';
-import {  Route, Switch } from 'react-router';
+import {  Switch } from 'react-router';
 // import { Router  } from 'react-router-dom';
 import { lazy } from "react"
 
@@ -20,37 +20,33 @@ const DiaryPage = lazy(() => import('../../pages/diaryPage/DiaryPage'))
 
 const Main = () => {
     return (
-   <div>
-      <Suspense fallback={<Loader/>}>
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route
-            path="/registration"
-            component={RegistrationPage}
-            redirectTo="/"
-            restricted
-          />
-            <Route
-            exact
-            path="/login"
-            component={LoginPage}
-            redirectTo="/"
-            restricted
-          />
-          <Route
-            path="/calculator"
-            component={CalculatorPage}
-            redirectTo="/"
+      <div>
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <PublicRoutes exact path="/" component={MainPage} />
+            <PublicRoutes
+              path="/registration"
+              component={RegistrationPage}
+              redirectTo="/login"
+              restricted
             />
-            
-            <Route
-            path="/diary"
-            component={DiaryPage}
-            redirectTo="/"
-          />
-        </Switch>
-      </Suspense>
-    </div>
+            <PublicRoutes
+              exact
+              path="/login"
+              component={LoginPage}
+              redirectTo="/userInfo"
+              restricted
+            />
+            <PrivateRoutes
+              path="/calculator"
+              component={CalculatorPage}
+              redirectTo="/"
+            />
+
+            <PrivateRoutes path="/diary" component={DiaryPage} redirectTo="/" />
+          </Switch>
+        </Suspense>
+      </div>
     );
 }
 
