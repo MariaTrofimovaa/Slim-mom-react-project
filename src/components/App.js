@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from './header/Header';
+import Main from './main/Main';
 
 const App = () => {
     return (
-        <h1>MAIN</h1>
+        <>
+            <Header/>
+            <Main />
+        </>
     );
 }
 
