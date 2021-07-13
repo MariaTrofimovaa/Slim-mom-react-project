@@ -34,10 +34,10 @@ const App = () => {
     <div className={styles.container}>
       <Header />
       <Main />
-      {showModal && (
+      {/* {showModal && (
         <Modal onClick={onOpenModal} onClose={onToggleModal}></Modal>
-      )}
-      <RightSideBar />
+      )} */}
+      {/* <RightSideBar /> */}
     </div>
   );
 };

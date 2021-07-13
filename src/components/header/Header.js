@@ -1,11 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
-
 
 const Header = () => {
   return (
     <div>
-
       <nav className={styles.headerNavigation}>
         <svg className={styles.logo}>
           <use href="./images/sprite.svg#">LOGO</use>
@@ -14,8 +13,13 @@ const Header = () => {
           Slim<span className={styles.theSpan}>Mom</span>
         </p>
         <ul className={styles.regisrationList}>
-          <li className={styles.regisrationListItem}>Вход</li>
-          <li className={styles.regisrationListItem}>Регистрация</li>
+          <li className={styles.regisrationListItem}>
+            <NavLink to="/login">ВХОД</NavLink>
+          </li>
+
+          <li className={styles.regisrationListItem}>
+            <NavLink to="/registration">РЕГИСТРАЦИЯ</NavLink>
+          </li>
         </ul>
         {/* <ul className={styles.exitList}>
           <li className={styles.exitListItem}>Nic</li>
@@ -27,7 +31,6 @@ const Header = () => {
           </svg>
         </button> */}
       </nav>
-
     </div>
   );
 };
