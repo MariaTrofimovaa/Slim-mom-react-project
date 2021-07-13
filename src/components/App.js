@@ -6,7 +6,7 @@ import Modal from "./modal/Modal";
 import RightSideBar from "../components/rightSideBar/RightSideBar";
 
 const initialState = {
-  showModal: true,
+  showModal: false,
 };
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
     }));
   };
 
-  const onOpenModal = (event) => {
+   const onOpenModal = (event) => {
     setState((prevState) => ({
       ...prevState,
       largeImageURL: event.target.dataset.img,
