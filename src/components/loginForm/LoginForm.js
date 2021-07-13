@@ -113,11 +113,7 @@ import style from "./LoginForm.module.css";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
-// const registrationValues = {
-//   email: "",
-//   password: "",
-//   username: "",
-// };
+
 const loginValues = {
   email: "",
   password: "",
