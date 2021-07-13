@@ -30,74 +30,73 @@ const RegistrationForm = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.registerContainer}>
-        <div className={styles.formContainer}>
-          <h1 className={styles.authTitle}>Регистрация</h1>
-          <form onSubmit={onHandleSubmit} className={styles.registerForm}>
-            <label htmlFor="" className={styles.label}>
-              {/* Имя* */}
-              <input
-                id="username"
-                name="username"
-                type="text"
-                className={styles.inputData}
-                placeholder="Имя*"
-                value={user.username}
-                onChange={onHandleChange}
-                required
-              />
-            </label>
+      {/* <div className={styles.registerContainer}> */}
+      <div className={styles.formContainer}>
+        <h1 className={styles.authTitle}>Регистрация</h1>
+        <form onSubmit={onHandleSubmit} className={styles.registerForm}>
+          <label htmlFor="" className={styles.label}>
+            {/* Имя* */}
+            <input
+              id="username"
+              name="username"
+              type="text"
+              className={styles.inputData}
+              placeholder="Имя*"
+              value={user.username}
+              onChange={onHandleChange}
+              required
+            />
+          </label>
 
-            <label htmlFor="email" className={styles.label}>
-              {/* Логин* */}
-              <input
-                id="email"
-                name="email"
-                type="mail"
-                className={styles.inputData}
-                placeholder="Логин*"
-                value={user.email}
-                onChange={onHandleChange}
-                required
-              />
-            </label>
+          <label htmlFor="email" className={styles.label}>
+            {/* Логин* */}
+            <input
+              id="email"
+              name="email"
+              type="mail"
+              className={styles.inputData}
+              placeholder="Логин*"
+              value={user.email}
+              onChange={onHandleChange}
+              required
+            />
+          </label>
 
-            <label htmlFor="password" className={styles.label}>
-              {/* Пароль* */}
-              <input
-                id="password"
-                name="password"
-                type="password"
-                className={styles.inputData}
-                placeholder="Пароль*"
-                value={user.password}
-                onChange={onHandleChange}
-                required
-              />
-            </label>
-          </form>
-        </div>
+          <label htmlFor="password" className={styles.label}>
+            {/* Пароль* */}
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className={styles.inputData}
+              placeholder="Пароль*"
+              value={user.password}
+              onChange={onHandleChange}
+              required
+            />
+          </label>
+        </form>
+      </div>
 
-        <div className={styles.buttonContainer}>
-          <button className={styles.authButton} type="submit">
-            {location.pathname === "/registration" ? "Регистрация" : "Bход"}
-          </button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.authButton} type="submit">
+          {location.pathname === "/registration" ? "Регистрация" : "Bход"}
+        </button>
 
-          
-          {location.pathname === "/registration" ? (
-            <Link to="/login" className={styles.authLink}>
-              {location.pathname === "/registration" ? "Вход" : "Регистрация"}
-            </Link>
-          ) : (
-            <Link to="/registration" className={styles.authLink}>
-              {location.pathname === "/registration"
-                ? "Уже есть аккаунт"
-                : "Хочу зарегистрироваться"}
-            </Link>
-          )}
-        </div>
+        {location.pathname === "/registration" ? (
+          <Link to="/login" className={styles.authLink}>
+            {location.pathname === "/registration" ? "Вход" : "Регистрация"}
+          </Link>
+        ) : (
+          <Link to="/registration" className={styles.authLink}>
+            {location.pathname === "/registration"
+              ? "Уже есть аккаунт"
+              : "Хочу зарегистрироваться"}
+          </Link>
+        )}
+      </div>
 
-        {/* <div className={styles.btnWrapper}>
+      {/* <div className={styles.btnWrapper}>
             <button type="submit" className={styles.submitBtn}>
               Регистрация
             </button>
@@ -107,7 +106,8 @@ const RegistrationForm = () => {
               Вход
             </Link>
          </div>  */}
-      </div>
+
+      {/* </div> */}
     </div>
   );
 };
