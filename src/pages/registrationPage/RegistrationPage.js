@@ -1,9 +1,16 @@
 import React from 'react';
+import RegistrationForm from '../../components/registrationForm/RegistrationForm';
 
 const RegistrationPage = () => {
     return (
-        <h1>RegistrationPage</h1>
+        <div>
+        <RegistrationForm/>
+        </div>
     );
 }
 
 export default RegistrationPage;
+
+// добавить уведомление об ошибке
+
+// bg-image
