@@ -4,38 +4,23 @@ import Main from "./main/Main";
 import styles from "./App.module.css";
 import Modal from "./modal/Modal";
 import RightSideBar from "../components/rightSideBar/RightSideBar";
-
-const initialState = {
-  showModal: true,
-};
+import KkalInfo from "./kkalInfo/KkalInfo";
 
 const App = () => {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState(true);
 
   const onToggleModal = () => {
-    setState((prevState) => ({
-      ...prevState,
-      showModal: !prevState.showModal,
-    }));
+    setState((prevState) => !prevState);
   };
-
-  const onOpenModal = (event) => {
-    setState((prevState) => ({
-      ...prevState,
-      largeImageURL: event.target.dataset.img,
-      tags: event.target.alt,
-    }));
-    onToggleModal();
-  };
-
-  const { showModal } = state;
 
   return (
     <div className={styles.container}>
       <Header />
       <Main />
-      {showModal && (
-        <Modal onClick={onOpenModal} onClose={onToggleModal}></Modal>
+      {state && (
+        <Modal onClick={onToggleModal} onClose={onToggleModal}>
+          <KkalInfo />
+        </Modal>
       )}
       <RightSideBar />
     </div>
