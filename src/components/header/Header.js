@@ -19,7 +19,9 @@ const Header = () => {
           <use href="./images/sprite.svg#">LOGO</use>
           </svg> */}
           <li className={styles.text}>
-            {/* <img src="../../img/Group18.png" alt="logo" /> */}
+            <svg className={styles.logo}>
+              <use href="./images/sprite.svg#">LOGO</use>
+            </svg>
           </li>
         </ul>
         <ul className={styles.regisrationList}>
