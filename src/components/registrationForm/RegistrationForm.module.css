@@ -1,21 +1,21 @@
-/* .container {
+.container {
   max-width: 320px;
   margin: 0 auto;
   padding: 0 4.69%;
-} */
+}
 
-.registerContainer {
+/* .registerContainer {
   display: flex;
   flex-direction: column;
 
-  /* font-family: GothamPro-Bold; */
+
   font-size: 14px;
   line-height: 0.93;
   letter-spacing: 0.04em;
   position: relative;
   width: 100vw;
   height: 100vh;
-}
+} */
 
 .formContainer {
   z-index: 2;
@@ -78,10 +78,6 @@
   outline: none;
 }
 
-/* .input:not(:placeholder-shown) ~ .name {
-  top: -30px;
-  font-size: 12px;
-} */
 
 .buttonContainer {
   display: flex;
@@ -140,34 +136,12 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* .btnWrapper {
-  margin-top: 35px;
-}
-
-.authText {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 15px;
-  letter-spacing: 0.04em;
-  color: greyColor;
-  text-align: center;
-  margin-top: 18px;
-} */
-
-/* .submitBtn {
-    padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #1163c0;
-  border-radius: 4px;
-} */
 
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
     padding: 0 87px;
-   
+
     display: block;
     z-index: 1;
     width: inherit;
@@ -180,7 +154,7 @@
     background: url(../../img/leavesLoginTablet@1x.png),
       url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
       url(../../img/spot.png);
-    
+
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: 0px -184px, 477px 215px, 277px 400px, 247px 240px;
 
@@ -190,9 +164,13 @@
     padding-top: 157px;
   }
 
-  .registerContainer {
+  .formContainer{
     align-items: flex-start;
   }
+
+  /* .registerContainer {
+    align-items: flex-start;
+  } */
 
   .authTitle {
     margin-bottom: 40px;
@@ -215,15 +193,7 @@
   .container {
     max-width: 1280px;
     padding: 0 115px;
-  }
-
-  .formContainer {
-    /* width: 1280px; */
-    /* margin: 0 auto; */
-    /* background-size: cover;
-    position: absolute;
-    top: 0;
-    right: 0; */
+  
     background: url(../../img/leavesLogin@1x.png),
       url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
       url(../../img/spot.png);
@@ -231,8 +201,8 @@
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: 274px -26px, right 176px, 712px 340px, right top;
 
-    /* width: 1280px; */
-    /* padding: 115px;
-    padding-top: 362px; */
+    width: 1280px; 
+    padding: 115px;
+    padding-top: 362px;
   }
 }

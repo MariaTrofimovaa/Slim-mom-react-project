@@ -17,6 +17,7 @@ const App = () => {
     <div className={styles.container}>
       <Header />
       <Main />
+
       {state && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
           <KkalInfo />
