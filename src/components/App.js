@@ -7,7 +7,7 @@ import RightSideBar from "../components/rightSideBar/RightSideBar";
 import KkalInfo from "./kkalInfo/KkalInfo";
 
 const App = () => {
-  const [state, setState] = useState(true);
+  const [state, setState] = useState(false);
 
   const onToggleModal = () => {
     setState((prevState) => !prevState);
