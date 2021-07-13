@@ -23,7 +23,7 @@ const App = () => {
           <KkalInfo />
         </Modal>
       )}
-      <RightSideBar />
+      {/* <RightSideBar /> */}
     </div>
   );
 };

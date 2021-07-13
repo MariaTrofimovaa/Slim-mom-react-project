@@ -51,7 +51,10 @@ class DiaryAddProductForm extends Component {
     console.log(this.state.searchWord);
     const searchedProducts = await axios.get(
       `https://slimmom-backend.goit.global/product&search=${this.state.searchWord}`
+
+      // `https://slimmom-backend.goit.global/product?search=${this.state.searchWord}`
     );
+    console.log(searchedProducts);
 
     this.setState({ foundProducts: searchedProducts.data.results });
   };
