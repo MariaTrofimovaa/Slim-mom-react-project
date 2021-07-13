@@ -3,6 +3,7 @@ import Header from "./header/Header";
 import Main from "./main/Main";
 import styles from "./App.module.css";
 import Modal from "./modal/Modal";
+import RightSideBar from "../components/rightSideBar/RightSideBar";
 
 const initialState = {
   showModal: true,
@@ -28,6 +29,7 @@ const App = () => {
   };
 
   const { showModal } = state;
+
   return (
     <div className={styles.container}>
       <Header />
@@ -35,6 +37,7 @@ const App = () => {
       {showModal && (
         <Modal onClick={onOpenModal} onClose={onToggleModal}></Modal>
       )}
+      <RightSideBar />
     </div>
   );
 };
