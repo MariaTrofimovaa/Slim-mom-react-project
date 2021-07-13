@@ -8,7 +8,7 @@ const InitialState = {
   password: "",
 };
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const [user, setUser] = useState(InitialState);
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const RegistrationForm = () => {
 
   return (
     <>
-      <h1 className={styles.title}>Вход</h1>
+      <h1 className={styles.authTitle}>Вход</h1>
       <form onSubmit={onHandleSubmit} className={styles.registerForm}>
         <label htmlFor="email" className={styles.label}>
           Логин*
@@ -57,11 +57,15 @@ const RegistrationForm = () => {
         </label>
 
         <button type="submit" className={styles.submitBtn}>
-          Войти
+          Вход
         </button>
+
+        <button type="button">Регистрация</button>
       </form>
     </>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
+
+// Регитрация - как ссылка (ведет на страницу Registration)

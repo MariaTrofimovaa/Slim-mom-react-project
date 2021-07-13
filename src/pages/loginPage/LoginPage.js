@@ -8,3 +8,5 @@ const LoginPage = () => {
 }
 
 export default LoginPage;
+
+// bg-image

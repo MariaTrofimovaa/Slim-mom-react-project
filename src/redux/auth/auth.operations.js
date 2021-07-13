@@ -1,8 +1,8 @@
 import axios from "axios";
 import {
-  getCurrentUserError,
-  getCurrentUserRequest,
-  getCurrentUserSuccess,
+  // getCurrentUserError,
+  // getCurrentUserRequest,
+  // getCurrentUserSuccess,
   loginError,
   loginRequest,
   loginSuccess,
@@ -50,18 +50,20 @@ export const logIn = (credentials) => async (dispatch) => {
   }
 };
 
-// export const logOut = () => async (dispatch) => {
-//   dispatch(logoutRequest());
-//   try {
-//     const response = await axios.post("/auth/logout");
+export const logOut = () => async (dispatch, getState) => {
+  dispatch(logoutRequest());
+  try {
+    // сщхраняем токен
+    token.set(getState().auth.token)
+    const response = await axios.post("/auth/logout");
 
-//     dispatch(logoutSuccess(response.data));
-//     token.unset();
-//     window.location.reload();
-//   } catch (error) {
-//     dispatch(logoutError(error.message));
-//   }
-// };
+    dispatch(logoutSuccess(response.data))
+    token.unset();
+    window.location.reload();
+  } catch (error) {
+    dispatch(logoutError(error.message));
+  }
+};
 
 // export const getCurrentUser = () => async (dispatch, getState) => {
 //   const {

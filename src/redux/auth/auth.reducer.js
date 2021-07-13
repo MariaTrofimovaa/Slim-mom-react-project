@@ -10,18 +10,17 @@ import {
   registerSuccess,
 } from "./auth.actions";
 
-// const InitialState = { name: "", email: "" };
 
 const user = createReducer({}, {
-  [registerSuccess]: (_, { payload }) => payload,
+  [registerSuccess]: (_, { payload }) => payload.user,
   [loginSuccess]: (_, { payload }) => payload.user,
-  [getCurrentUserSuccess]: (_, { payload }) => payload,
+  // [getCurrentUserSuccess]: (_, { payload }) => payload,
   [logoutSuccess]: () => ({}),
 });
 
 const token = createReducer(null, {
-  [registerSuccess]: (_, { payload }) => payload.token,
-  [loginSuccess]: (_, { payload }) => payload.token,
+  [registerSuccess]: (_, { payload }) => null,
+  [loginSuccess]: (_, { payload }) => payload.accessToken,
   [logoutSuccess]: () => null,
 });
 
