@@ -7,15 +7,15 @@ const BasicFormSchema = Yup.object().shape({
     .integer(),
   age: Yup.number()
     .required("Обязательное поле ввода")
-    .min(100, "Введите Ваш возраст от 18лет")
+    .min(18, "Введите Ваш возраст от 18лет")
     .integer(),
   weight: Yup.number()
     .required("Обязательное поле ввода")
-    .min(100, "Введите Ваш текущий вес от 20кг")
+    .min(20, "Введите Ваш текущий вес от 20кг")
     .integer(),
   desiredWeight: Yup.number()
     .required("Обязательное поле ввода")
-    .min(100, "Введите Ваш желаемый вес от 20кг")
+    .min(20, "Введите Ваш желаемый вес от 20кг")
     .integer(),
 });
 export default BasicFormSchema;
