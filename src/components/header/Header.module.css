@@ -1,0 +1,36 @@
+.headerNavigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.logo {
+  width: 46px;
+  height: 46px;
+}
+
+.regisrationList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.regisrationListItem {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 13px;
+  text-align: right;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9b9faa;
+}
+
+.regisrationListItem:not(:last-child) {
+  margin-right: 15px;
+}
+
+@media screen and (min-width: 768px) {
+}

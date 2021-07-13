@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import Loader from "react-loader-spinner";
+
 import { Switch } from "react-router";
+
 // import { Router  } from 'react-router-dom';
 import { lazy } from "react";
 
@@ -48,6 +50,7 @@ const Main = () => {
           />
 
           <PrivateRoutes path="/diary" component={DiaryPage} redirectTo="/" />
+
         </Switch>
       </Suspense>
     </div>
