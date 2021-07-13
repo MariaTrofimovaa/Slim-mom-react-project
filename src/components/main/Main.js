@@ -50,7 +50,6 @@ const Main = () => {
           />
 
           <PrivateRoutes path="/diary" component={DiaryPage} redirectTo="/" />
-
         </Switch>
       </Suspense>
     </div>

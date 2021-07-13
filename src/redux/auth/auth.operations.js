@@ -30,7 +30,7 @@ export const register = (credentials) => async (dispatch) => {
   try {
     const response = await axios.post("auth/register", credentials);
     console.log(response);
-    token.set(response.data.token);
+    token.set(response.data.accessToken);
 
     dispatch(registerSuccess(response.data));
   } catch (error) {
@@ -42,7 +42,13 @@ export const logIn = (credentials) => async (dispatch) => {
   dispatch(loginRequest());
   try {
     const response = await axios.post("/auth/login", credentials);
-    // token.set(response.data.token);
+
+    token.set(response.data.accessToken);
+    console.log(response.data.accessToken);
+
+    console.log(response.data);
+
+   
 
     dispatch(loginSuccess(response.data));
   } catch (error) {
@@ -54,10 +60,10 @@ export const logOut = () => async (dispatch, getState) => {
   dispatch(logoutRequest());
   try {
     // сщхраняем токен
-    token.set(getState().auth.token)
+    token.set(getState().auth.token);
     const response = await axios.post("/auth/logout");
 
-    dispatch(logoutSuccess(response.data))
+    dispatch(logoutSuccess(response.data));
     token.unset();
     window.location.reload();
   } catch (error) {
