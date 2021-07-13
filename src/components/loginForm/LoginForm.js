@@ -29,13 +29,13 @@ const LoginForm = () => {
       <h1 className={styles.authTitle}>Вход</h1>
       <form onSubmit={onHandleSubmit} className={styles.registerForm}>
         <label htmlFor="email" className={styles.label}>
-          Логин*
+          {/* Логин* */}
           <input
             id="email"
             name="email"
             type="mail"
             className={styles.inputData}
-            // placeholder="Логин*"
+            placeholder="Логин*"
             value={user.email}
             onChange={onHandleChange}
             required
@@ -43,13 +43,13 @@ const LoginForm = () => {
         </label>
 
         <label htmlFor="password" className={styles.label}>
-          Пароль*
+          {/* Пароль* */}
           <input
             id="password"
             name="password"
             type="password"
             className={styles.inputData}
-            // placeholder="Пароль*"
+            placeholder="Пароль*"
             value={user.password}
             onChange={onHandleChange}
             required
