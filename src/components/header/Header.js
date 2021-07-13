@@ -2,23 +2,39 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
+import logo from "../../img/svg/logo.svg";
+
 const Header = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <nav className={styles.headerNavigation}>
-        <svg className={styles.logo}>
+        <ul className={styles.listLogo}>
+          <li>
+            <NavLink className={styles.link} to="/">
+              <svg className={styles.logo}>
+                <use href="../../img/svg/sprite.svg#icon-logo"></use>
+              </svg>
+            </NavLink>
+          </li>
+          {/* <svg className={styles.logo}>
           <use href="./images/sprite.svg#">LOGO</use>
-        </svg>
-        <p className={styles.text1}>
-          Slim<span className={styles.theSpan}>Mom</span>
-        </p>
+          </svg> */}
+          <li className={styles.text}>
+            <svg className={styles.logo}>
+              <use href="./images/sprite.svg#">LOGO</use>
+            </svg>
+          </li>
+        </ul>
         <ul className={styles.regisrationList}>
           <li className={styles.regisrationListItem}>
-            <NavLink to="/login">ВХОД</NavLink>
+            <NavLink className={styles.link} to="/login">
+              ВХОД
+            </NavLink>
           </li>
-
           <li className={styles.regisrationListItem}>
-            <NavLink to="/registration">РЕГИСТРАЦИЯ</NavLink>
+            <NavLink className={styles.link} to="/registration">
+              РЕГИСТРАЦИЯ
+            </NavLink>
           </li>
         </ul>
         {/* <ul className={styles.exitList}>
