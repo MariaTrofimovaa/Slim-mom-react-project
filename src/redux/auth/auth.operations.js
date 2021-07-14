@@ -1,8 +1,8 @@
 import axios from "axios";
 import {
-  // getCurrentUserError,
-  // getCurrentUserRequest,
-  // getCurrentUserSuccess,
+  getCurrentUserError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
   loginError,
   loginRequest,
   loginSuccess,
@@ -48,8 +48,6 @@ export const logIn = (credentials) => async (dispatch) => {
 
     console.log(response.data);
 
-   
-
     dispatch(loginSuccess(response.data));
   } catch (error) {
     dispatch(loginError(error.message));
@@ -59,7 +57,7 @@ export const logIn = (credentials) => async (dispatch) => {
 export const logOut = () => async (dispatch, getState) => {
   dispatch(logoutRequest());
   try {
-    // сщхраняем токен
+    // сохраняем токен
     token.set(getState().auth.token);
     const response = await axios.post("/auth/logout");
 
@@ -71,21 +69,34 @@ export const logOut = () => async (dispatch, getState) => {
   }
 };
 
+
+export const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+  if (!persistedToken) {
+    return;
+  }
+  token.set(persistedToken);
+  dispatch(getCurrentUserRequest());
+  try {
+    const response = await axios.get("/user");
+    dispatch(getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(getCurrentUserError(error.message));
+  }
+};
+
+
+
 // export const getCurrentUser = () => async (dispatch, getState) => {
-//   const {
-//     auth: { token: persistedToken },
-//   } = getState();
-//   if (!persistedToken) {
-//     return;
-//   }
-
-//   token.set(persistedToken);
-
+//   token.set(getState().auth.accessToken);
+//   // console.log(getState().auth.data.accessToken);
 //   dispatch(getCurrentUserRequest());
 //   try {
-//     const response = await axios.get("/users/current");
-//     dispatch(getCurrentUserSuccess(response.data));
+//     const { data } = await axios.get("/user");
+//     dispatch(getCurrentUserSuccess(data));
 //   } catch (error) {
-//     dispatch(getCurrentUserError(error.message));
+//     dispatch(getCurrentUserError(error));
 //   }
 // };

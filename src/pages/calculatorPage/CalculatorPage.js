@@ -27,8 +27,8 @@ const CalculatorPage = () => {
   const onSubmit = async (values) => {
     const data = transformString(values);
     const res = await axios.post(`${BASE_URL}/daily-rate/${userId}`, data);
-    // console.log(userId);
-    // console.log(res.data.dailyRate);
+    console.log(userId);
+    console.log(res.data.dailyRate);
     setData(res.data.dailyRate);
   };
 

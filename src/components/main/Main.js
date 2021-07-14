@@ -1,9 +1,6 @@
 import React, { Suspense } from "react";
 import Loader from "react-loader-spinner";
-
 import { Switch } from "react-router";
-
-// import { Router  } from 'react-router-dom';
 import { lazy } from "react";
 
 // import {routes} from "../../routes/routes"
