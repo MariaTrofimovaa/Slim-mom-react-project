@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import Modal from "./modal/Modal";
 import RightSideBar from "../components/rightSideBar/RightSideBar";
 import KkalInfo from "./kkalInfo/KkalInfo";
+import UserInfo from "./userInfo/UserInfo";
 
 const App = () => {
   const [state, setState] = useState(false);
@@ -23,6 +24,7 @@ const App = () => {
           <KkalInfo />
         </Modal>
       )}
+      <UserInfo />
       <RightSideBar />
     </div>
   );
