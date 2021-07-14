@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import Loader from "react-loader-spinner";
 
 import { Switch } from "react-router";
 
@@ -9,6 +8,7 @@ import { lazy } from "react";
 // import {routes} from "../../routes/routes"
 import PrivateRoutes from "../../routes/PrivateRoutes";
 import PublicRoutes from "../../routes/PublicRoutes";
+import AppLoader from "../loader/Loader";
 // import RegistrationPage from '../../pages/registrationPage/RegistrationPage';
 // import LoginPage from '../../pages/loginPage/LoginPage';
 // import CalculatorPage from '../../pages/calculatorPage/CalculatorPage';
@@ -27,7 +27,7 @@ const DiaryPage = lazy(() => import("../../pages/diaryPage/DiaryPage"));
 const Main = () => {
   return (
     <div>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<AppLoader/>}>
         <Switch>
           <PublicRoutes exact path="/" component={MainPage} restricted />
           <PublicRoutes
