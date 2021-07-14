@@ -1,7 +1,14 @@
 import React from "react";
-
+import styles from "./UserInfo.module.css";
 const UserInfo = () => {
-  return <h1>UserInfo</h1>;
+  return (
+    <div className={styles.userInfo}>
+      <p className={styles.userLogin}>UserLogin</p>
+      <button type="button" className={styles.exitButton}>
+        Exit
+      </button>
+    </div>
+  );
 };
 
 export default UserInfo;

@@ -23,7 +23,7 @@ const RightSideBar = () => {
       <div className={styles.RightSideBarSummary}>
         <h2 className={styles.RightSideBarHeader}>Нерекомендуемые продукты</h2>
         <div className={styles.RightSideBarStatictics}>
-          <ul>
+          <ul className={styles.RightSideBarListDiet}>
             <li className={styles.RightSideBarItem}>
               Здесь будет отображаться Ваш рацион
             </li>
