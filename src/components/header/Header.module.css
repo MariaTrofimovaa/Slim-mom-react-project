@@ -18,6 +18,10 @@
   height: 46px;
 }
 
+/* .listLogo{
+  border-bottom: 2px solid #e0e0e0;
+} */
+
 .regisrationList {
   display: flex;
   justify-content: space-around;

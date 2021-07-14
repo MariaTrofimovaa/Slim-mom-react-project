@@ -6,6 +6,7 @@ import styles from "./DiaryPage.module.css";
 import { Component } from "react";
 import Calendar from "../../components/diaryDateCalendar/DiaryDateCalendar";
 // import Autocomplete from "react-autocomplete";
+import RightSideBar from "../../components/rightSideBar/RightSideBar";
 
 class DiaryPage extends Component {
   state = {
@@ -58,7 +59,10 @@ class DiaryPage extends Component {
           <DiaryAddProductForm />
           <DiaryProductList openModalProp={this.openModal} />
         </div>
-        <div className={styles.summary}>hgjshfusjhdbvjhsbvsbhjvhsb</div>
+
+        <div className={styles.summary}>
+          <RightSideBar />
+        </div>
       </section>
     );
   }
