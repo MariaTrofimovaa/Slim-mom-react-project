@@ -4,6 +4,9 @@ import storage from "redux-persist/lib/storage";
 import auth from "./auth/auth.reducer";
 import { ProductsReducer } from "./products/products.reducer";
 
+import dailyrateReducer from "./dailyrate/dailyrateReducer";
+
+
 const persistConfig = {
   key: "auth",
   storage,
@@ -15,6 +18,8 @@ const persistAuthReducer = persistReducer(persistConfig, auth);
 const rootReducer = combineReducers({
   products: ProductsReducer,
   // calculator: calculatorReducer,
+  rateInfo: dailyrateReducer,
+
   auth: persistAuthReducer,
 });
 

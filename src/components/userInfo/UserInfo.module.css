@@ -1,0 +1,19 @@
+.userInfo {
+  display: flex;
+  justify-content: flex-end;
+  width: 535px;
+  padding-top: 134px;
+}
+
+.userLogin {
+  padding-right: 22px;
+  margin-right: 22px;
+  border-right: 1px solid gray;
+}
+
+.exitButton {
+  cursor: pointer;
+  margin-right: 115px;
+  border: none;
+  background-color: inherit;
+}

@@ -1,12 +1,11 @@
 /* контейнер общий */
 
 .RightSideBarContainer {
-  padding: 40px 15px 40px 15px;
-  background-color: #f0f1f3;
-  max-width: 290px;
+  padding: 40px 10% 40px 10%;
+  /* background-color: #f0f1f3; */
 }
 /* заголовки секций */
-/* watafuck */
+
 .RightSideBarHeader {
   margin-bottom: 20px;
   color: #212121;
@@ -35,18 +34,19 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+  max-width: 290px;
 }
 
 @media screen and (min-width: 768px) {
   .RightSideBarContainer {
     display: flex;
-    justify-content: space-between;
     padding: 91px 37px 91px 87px;
-    background-color: #f0f1f3;
+    /* background-color: #f0f1f3; */
     background-image: url("../../img/leavesRotate@1x.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top 45% left 399px;
+    /* max-width: 768px; */
   }
 
   .RightSideBarHeader {
@@ -55,7 +55,7 @@
   .RightSideBarStatictics {
     width: 330px;
     margin-bottom: 0px;
-    margin-right: 30px;
+    margin-right: 60px;
   }
 }
 
@@ -63,12 +63,19 @@
   .RightSideBarContainer {
     display: flex;
     flex-direction: column;
-
-    padding: 0 350px 162px 90px;
-    background-color: #f0f1f3;
+    padding: 137px 175px 162px 90px;
+    /* background-color: #f0f1f3; */
     background-image: url("../../img/rightSideBar@2x.png");
     background-size: contain;
-    /* background-repeat: no-repeat; */
-    background-position: top 60% left 100%;
+    background-position: bottom 75px left 100%;
+    max-width: 535px;
+    /* position: absolute;
+    top: 84px; */
+  }
+  .RightSideBarStatictics {
+    margin-bottom: 40px;
+  }
+  .RightSideBarListDiet .RightSideBarItem {
+    height: 112px;
   }
 }

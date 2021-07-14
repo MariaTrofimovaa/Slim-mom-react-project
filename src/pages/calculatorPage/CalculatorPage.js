@@ -22,26 +22,25 @@ const CalculatorPage = () => {
   const token = useSelector(isAuthenticated);
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const onSubmit = async (values) => {
     const data = transformString(values);
     const res = await axios.post(`${BASE_URL}/daily-rate/${userId}`, data);
-    // console.log(userId);
     console.log(res.data.dailyRate);
     setData(res.data.dailyRate);
   };
 
-  const onLogOut = (e) => {
-    dispatch(logOut());
-  };
+  // const onLogOut = (e) => {
+  //   dispatch(logOut());
+  // };
 
   return (
     <>
       <DailyCaloriesForm onSubmit={onSubmit} />
-      <button type="submit" onClick={onLogOut}>
+      {/* <button type="submit" onClick={onLogOut}>
         Выйти
-      </button>
+      </button> */}
     </>
   );
 };
