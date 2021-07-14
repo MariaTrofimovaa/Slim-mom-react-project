@@ -1,26 +1,58 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { isAuthenticated } from "../../redux/auth/auth.selectors";
 import styles from "./Header.module.css";
 
 const Header = () => {
+  const authToken = useSelector(isAuthenticated);
   return (
-    <div>
+    <div className={styles.container}>
       <nav className={styles.headerNavigation}>
-        <svg className={styles.logo}>
-          <use href="./images/sprite.svg#">LOGO</use>
-        </svg>
-        <p className={styles.text1}>
-          Slim<span className={styles.theSpan}>Mom</span>
-        </p>
-        <ul className={styles.regisrationList}>
-          <li className={styles.regisrationListItem}>
-            <NavLink to="/login">ВХОД</NavLink>
+        <ul className={styles.listLogo}>
+          <li>
+            <NavLink className={styles.link} to="/diary">
+              <svg className={styles.logo}>
+                <use href="../../img/svg/sprite.svg#icon-logo"></use>
+              </svg>
+            </NavLink>
           </li>
 
-          <li className={styles.regisrationListItem}>
-            <NavLink to="/registration">РЕГИСТРАЦИЯ</NavLink>
+          <li className={styles.text}>
+            <svg className={styles.text}>
+              <use href="../../img/svg/sprite.svg#icon-SlimMom">LOGO</use>
+            </svg>
           </li>
         </ul>
+        {!authToken && (
+          <ul className={styles.regisrationList}>
+            <li className={styles.regisrationListItem}>
+              <NavLink className={styles.link} to="/login">
+                ВХОД
+              </NavLink>
+            </li>
+            <li className={styles.regisrationListItem}>
+              <NavLink className={styles.link} to="/registration">
+                РЕГИСТРАЦИЯ
+              </NavLink>
+            </li>
+          </ul>
+        )}
+        {/* 1231312 */}
+        {authToken && (
+          <ul className={styles.regisrationList}>
+            <li className={styles.navigationListItem}>
+              <NavLink className={styles.link} to="/diary">
+                ДНЕВНИК
+              </NavLink>
+            </li>
+            <li className={styles.navigationListItem}>
+              <NavLink className={styles.link} to="/calculator">
+                КАЛЬКУЛЯТОР
+              </NavLink>
+            </li>
+          </ul>
+        )}
         {/* <ul className={styles.exitList}>
           <li className={styles.exitListItem}>Nic</li>
           <li className={styles.exitListItem}>Выйти</li>
