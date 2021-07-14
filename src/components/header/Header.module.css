@@ -1,3 +1,8 @@
+.container {
+  width: 320px;
+  margin: 0 auto;
+}
+
 .headerNavigation {
   display: flex;
   justify-content: space-between;
@@ -8,9 +13,14 @@
 }
 
 .logo {
+  background-image: url("../../img/svg/logo.svg");
   width: 46px;
   height: 46px;
 }
+
+/* .listLogo{
+  border-bottom: 2px solid #e0e0e0;
+} */
 
 .regisrationList {
   display: flex;
@@ -18,19 +28,91 @@
   align-items: center;
 }
 
-.regisrationListItem {
+.link {
   font-weight: bold;
   font-size: 14px;
   line-height: 13px;
-  text-align: right;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #212121;
+}
+
+.text {
+  background-image: url("../../img/svg/Group18.svg");
+  width: 105px;
+  height: 16px;
+  display: none;
 }
 
 .regisrationListItem:not(:last-child) {
   margin-right: 15px;
 }
 
+.navigationListItem {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+
+  .headerNavigation {
+    padding-left: 70px;
+    padding-right: 88px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .text {
+    display: block;
+  }
+
+  .listLogo {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1280px) {
+    .container {
+      width: 1280px;
+    }
+
+    .headerNavigation {
+      justify-content: normal;
+      border-bottom: none;
+
+      padding-top: 82px;
+      padding-left: 90px;
+    }
+
+    .regisrationListItem:not(:last-child) {
+      border-left: 2px solid #e0e0e0;
+      padding-left: 22px;
+      margin-left: 22px;
+    }
+
+    .navigationListItem {
+      display: block;
+    }
+
+    .navigationListItem:not(:last-child) {
+      margin-right: 15px;
+      border-left: 2px solid #e0e0e0;
+      padding-left: 22px;
+      margin-left: 22px;
+    }
+    .logo {
+      width: 70px;
+      height: 66px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 6px -15px;
+    }
+  }
 }

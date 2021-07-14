@@ -8,7 +8,7 @@ const AppLoader = () => {
     <div className={styles.Loader}>
       <Loader
         style={styles}
-        type="ThreeDots"
+        type="Circles"
         color="#FC842D"
         height={100}
         width={100}
