@@ -20,16 +20,22 @@ class DiaryAddProductFormModal extends Component {
       <div className={styles.overlay} onClick={this.handleBackdropClick}>
         <div className={styles.modal}>
           <form className={styles.form}>
-            <label>
+            <label className={styles.labelName}>
               <input
                 placeholder="Введите название продукта"
                 type="name"
                 name="name"
+                className={styles.input}
               />
             </label>
 
-            <label>
-              <input placeholder="Граммы" type="grams" name="grams" />
+            <label lassName={styles.labelWeight}>
+              <input
+                className={styles.input}
+                placeholder="Граммы"
+                type="grams"
+                name="grams"
+              />
             </label>
             <br />
             <button type="submit" className={styles.formButton}>

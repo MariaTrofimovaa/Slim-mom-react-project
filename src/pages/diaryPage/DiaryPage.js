@@ -56,7 +56,7 @@ class DiaryPage extends Component {
           <DiaryAddProductForm />
           <DiaryProductList openModalProp={this.openModal} />
         </div>
-        <div className={styles.summary}>hgjshfusjhdbvjhsbvsbhjvhsb</div>
+        {/* <div className={styles.summary}>hgjshfusjhdbvjhsbvsbhjvhsb</div> */}
       </section>
     );
   }
