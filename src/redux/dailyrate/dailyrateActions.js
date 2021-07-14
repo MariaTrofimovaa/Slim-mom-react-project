@@ -1,13 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const getProductsRequest = createAction("dailyrate/getProductsRequest");
-const getProductsSuccess = createAction("dailyrate/getProductsSuccess");
-const getProductsError = createAction("dailyrate/getProductsError");
+const getDailyRateRequest = createAction("dailyRate/getDailyRateRequest");
+const getDailyRateSuccess = createAction("dailyRate/getDailyRateSuccess");
+const getDailyRateError = createAction("dailyRate/getDailyRateError");
 
-const actions = {
-  getProductsRequest,
-  getProductsSuccess,
-  getProductsError,
-};
-
-export default actions;
+export { getDailyRateRequest, getDailyRateSuccess, getDailyRateError };

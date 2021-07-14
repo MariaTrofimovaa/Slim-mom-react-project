@@ -1,23 +1,32 @@
 import { createReducer } from "@reduxjs/toolkit";
-import dailyrateActions from "./dailyrateActions";
+import { logoutSuccess } from "../auth/auth.actions";
+import { addProductSuccess } from "../products/products.actions";
+import { getDailyRateSuccess } from "./dailyrateActions";
 
 const initialState = {
-  id: null,
-  dailyRate: null,
-  productsArr: {
-    notAllowedProducts: [],
-  },
+  id: "",
+  dailyRate: "",
+  summaries: [
+    {
+      _id: "",
+      date: "",
+      kcalLeft: "",
+      kcalConsumed: "",
+      dailyRate: "",
+      percentsOfDailyRate: "",
+      userId: "",
+    },
+  ],
+  notAllowedProducts: [],
 };
 
 const dailyrateReducer = createReducer(initialState, {
-  [dailyrateActions.getProductsSuccess]: (state, { payload }) => ({
+  [getDailyRateSuccess]: (_, { payload }) => payload,
+  [addProductSuccess]: (state, { payload }) => ({
     ...state,
-    ...payload,
-    productsArr: {
-      ...state.productsArr,
-      notAllowedProducts: [...payload.notAllowedProducts],
-    },
+    summaries: [...state.summaries, payload.daySummary],
   }),
+  [logoutSuccess]: () => initialState,
 });
 
 export default dailyrateReducer;
