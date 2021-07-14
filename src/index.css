@@ -8,31 +8,33 @@ html {
 *::after {
   box-sizing: inherit;
 }
-/* 
+
 @font-face {
   font-family: "GothamPro-Bold";
-  src: url("./fonts/GothamPro-Bold.woff");
+  src: url("./components/shared/fonts/GothamPro-Bold.woff");
 }
+
+
 
 @font-face {
   font-family: "GothamPro-Light";
-  src: url("./fonts/GothamPro-Light.woff");
+  src: url("./components/shared/fonts/GothamPro-Light.woff");
 }
 
 @font-face {
   font-family: "GothamPro";
-  src: url("./fonts/GothamPro.woff");
+  src: url("./components/shared/fonts/GothamPro.woff");
 }
 
 @font-face {
   font-family: "Verdana-Bold";
-  src: url("./fonts/Verdana-Bold.woff");
+  src: url("./components/shared/fonts/Verdana-Bold.woff");
 }
 
 @font-face {
   font-family: "Verdana";
-  src: url("./fonts/Verdana.woff");
-} */
+  src: url("./components/shared/fonts/Verdana.woff");
+} 
 
 body {
   

@@ -4,6 +4,7 @@ import DiaryAddProductFormModal from "../../components/diaryAddProductForm/Diary
 import DiaryProductList from "../../components/diaryProductList/DiaryProductList";
 import styles from "./DiaryPage.module.css";
 import { Component } from "react";
+import Calendar from "../../components/diaryDateCalendar/DiaryDateCalendar";
 // import Autocomplete from "react-autocomplete";
 
 class DiaryPage extends Component {
@@ -43,7 +44,7 @@ class DiaryPage extends Component {
 
         <div className={styles.container}>
           <div className={styles.dateAndCalendar}>
-            <p className={styles.date}>20.06.2020</p>
+            <Calendar />
             <img
               className={styles.calendarImage}
               src="./calendar 1.svg"
@@ -53,6 +54,7 @@ class DiaryPage extends Component {
               <use href="./symbol-defs.svg.svg#calendar"></use>
             </svg>
           </div>
+
           <DiaryAddProductForm />
           <DiaryProductList openModalProp={this.openModal} />
         </div>
