@@ -1,6 +1,16 @@
+// import { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
 import styles from "./rightSideBar.module.css";
 
+
+
 const RightSideBar = () => {
+  // const [data, setData] = useState();
+  // const dispatch = useDispatch()
+
+  // dispatch(getDailyRateOperation());
+
   return (
     <div className={styles.RightSideBarContainer}>
       <div className={styles.RightSideBarSummary}>

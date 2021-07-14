@@ -61,7 +61,7 @@ class DiaryPage extends Component {
         </div>
 
         <div className={styles.summary}>
-          <RightSideBar />
+          <RightSideBar/>
         </div>
       </section>
     );
