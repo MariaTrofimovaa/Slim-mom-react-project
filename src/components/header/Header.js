@@ -38,6 +38,7 @@ const Header = () => {
             </li>
           </ul>
         )}
+        {/* 1231312 */}
         {authToken && (
           <ul className={styles.regisrationList}>
             <li className={styles.navigationListItem}>
