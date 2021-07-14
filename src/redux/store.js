@@ -7,9 +7,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import  persistStore  from "redux-persist/es/persistStore";
+import persistStore from "redux-persist/es/persistStore";
 import rootReducer from "./root.reducer";
-
 
 const middleware = [
   ...getDefaultMiddleware({
