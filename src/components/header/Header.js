@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
+import UserInfo from "../userInfo/UserInfo";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -38,20 +39,23 @@ const Header = () => {
             </li>
           </ul>
         )}
+
         {/* 1231312 */}
         {authToken && (
-          <ul className={styles.regisrationList}>
-            <li className={styles.navigationListItem}>
-              <NavLink className={styles.link} to="/diary">
-                ДНЕВНИК
-              </NavLink>
-            </li>
-            <li className={styles.navigationListItem}>
-              <NavLink className={styles.link} to="/calculator">
-                КАЛЬКУЛЯТОР
-              </NavLink>
-            </li>
-          </ul>
+          <>
+            <ul className={styles.regisrationList}>
+              <li className={styles.navigationListItem}>
+                <NavLink className={styles.link} to="/diary">
+                  ДНЕВНИК
+                </NavLink>
+              </li>
+              <li className={styles.navigationListItem}>
+                <NavLink className={styles.link} to="/calculator">
+                  КАЛЬКУЛЯТОР
+                </NavLink>
+              </li>
+            </ul>
+          </>
         )}
         {/* <ul className={styles.exitList}>
           <li className={styles.exitListItem}>Nic</li>
@@ -63,6 +67,7 @@ const Header = () => {
           </svg>
         </button> */}
       </nav>
+      <UserInfo />
     </div>
   );
 };
