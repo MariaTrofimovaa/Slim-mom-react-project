@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/auth/auth.operations";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
+
 import styles from "./UserInfo.module.css";
 
 const UserInfo = () => {

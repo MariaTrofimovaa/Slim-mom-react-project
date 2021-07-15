@@ -144,7 +144,11 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
 import { addProduct } from "../../redux/products/products.operations";
+
 import { getSelectedDate } from "../../redux/products/products.selectors";
+
+import { getCurrentUser } from "../../redux/auth/auth.operations";
+
 
 class DiaryAddProductForm extends Component {
   state = {
@@ -165,7 +169,7 @@ class DiaryAddProductForm extends Component {
       if (e.target.value) {
         const { token } = this.props;
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        console.log(this.state.searchWord);
+        // console.log(this.state.searchWord);
 
         const searchedProducts = await axios.get(
           `https://slimmom-backend.goit.global/product?search=${e.target.value}`
@@ -176,7 +180,7 @@ class DiaryAddProductForm extends Component {
       }
     } else if (e.target.name === "weight") {
       this.setState({ weight: Number(e.target.value) });
-      console.log(e.target.value);
+      // console.log(e.target.value);
     }
   };
 
@@ -198,16 +202,25 @@ class DiaryAddProductForm extends Component {
     const { token } = this.props;
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
+
     const date = this.props.selectedDate;
 
     this.props.addProductProp(...date, this.state.productId, this.state.weight);
 
     console.log(this.props.selectedDate);
+
+    this.props.addProductProp(
+      this.state.date,
+      this.state.productId,
+      this.state.weight
+    );
+    this.props.getCurrentUser();
+
     this.setState({ searchWord: "", productId: "", weight: "" });
   };
 
   render() {
-    console.log(this.state.foundProducts);
+    // console.log(this.state.foundProducts);
     return (
       <div>
         <form className={styles.productForm} onSubmit={this.handleSubmit}>
@@ -260,6 +273,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  getCurrentUser: () => dispatch(getCurrentUser()),
   addProductProp: (date, productId, weight) =>
     dispatch(addProduct(date, productId, weight)),
 });
