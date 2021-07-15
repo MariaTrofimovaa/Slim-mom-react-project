@@ -67,7 +67,9 @@ const Header = () => {
           </svg>
         </button> */}
       </nav>
-      <UserInfo />
+      <div className={styles.userInfoHeader}>
+        <UserInfo />
+      </div>
     </div>
   );
 };
