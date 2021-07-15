@@ -31,11 +31,11 @@ const DiaryProductList = ({
   // const lastProduct = product.find((item) => item[product.length - 1]);
 
   // console.log(product, "product");
-
   return (
     <div>
+      {!product.eatenProducts && <span>Список пуст</span>}
       <ul className={styles.calendarTable}>
-        {product.eatenProducts.map((item) => (
+        {product.eatenProducts?.map((item) => (
           <li key={item.id} className={styles.listItem}>
             <ul className={styles.list}>
               <li className={styles.foodName}>{item.title} </li>

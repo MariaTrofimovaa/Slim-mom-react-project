@@ -20,12 +20,21 @@ const persistAuthReducer = persistReducer(persistConfig, auth);
 
 const rootReducer = combineReducers({
   products: ProductsReducer,
-  // calculator: calculatorReducer,
   rateInfo: dailyrateReducer,
   selectedDate: selectedDateReducer,
-  dayInfo: getDayInfoReducer,
 
   auth: persistAuthReducer,
+  // user: user
 });
+
+// user:
+// - token
+// - notAllowedProducts
+
+// diary:
+// - selectedDate
+// - eatenProducts
+// - daySummary
+
 
 export default rootReducer;

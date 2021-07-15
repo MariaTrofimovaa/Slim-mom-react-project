@@ -1,6 +1,5 @@
-
 import { useEffect } from "react";
-import {  useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   dateSelector,
   kcalConsumedSelector,
@@ -14,6 +13,7 @@ import styles from "./rightSideBar.module.css";
 import {
   addProduct,
   deleteProduct,
+  getDayInfo,
 } from "../../redux/products/products.operations";
 import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
 
@@ -24,20 +24,18 @@ const RightSideBar = () => {
   const kcalConsumed = useSelector(kcalConsumedSelector);
   const percentsOfDailyRate = useSelector(percentsOfDailyRateSelector);
   const date = useSelector(dateSelector);
-   const currentDay =  new Date().toJSON().slice(0, 10);
+  const currentDay = new Date().toJSON().slice(0, 10);
   const dispatch = useDispatch();
 
-// import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
+  // import { useState } from "react";
+  // import { useDispatch } from "react-redux";
+  // import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
 
-
-
-
-  useEffect(() => {
-    dispatch(getDailyRateOperation());
-    // dispatch(deleteProduct());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // dispatch(addProduct());
+  //   dispatch(getDayInfo());
+  //   // dispatch(deleteProduct());
+  // }, [dispatch]);
 
   return (
     <div className={styles.RightSideBarContainer}>

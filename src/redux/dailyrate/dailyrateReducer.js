@@ -3,12 +3,14 @@ import { getCurrentUserSuccess, logoutSuccess } from "../auth/auth.actions";
 import {
   addProductSuccess,
   deleteProductSuccess,
+  getDayInfoSuccess,
 } from "../products/products.actions";
 import { getDailyRateSuccess } from "./dailyrateActions";
 
 const initialState = {
   id: "",
   dailyRate: "",
+  daySummary: {},
   summaries: {
     _id: "",
     date: "",
@@ -32,6 +34,8 @@ const dailyrateReducer = createReducer(initialState, {
     ...state,
     summaries: payload.daySummary,
   }),
+  // [getDayInfoSuccess]: (_, { payload }) => ({daySummary: payload.daySummary}),
+
   [deleteProductSuccess]: (_, { payload }) => payload,
 
   [logoutSuccess]: () => initialState,
