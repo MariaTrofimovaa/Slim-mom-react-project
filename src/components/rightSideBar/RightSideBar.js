@@ -3,9 +3,9 @@
 // import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
 import styles from "./rightSideBar.module.css";
 
-
-
 const RightSideBar = () => {
+  // const isAuth = useSelector(isAuthenticated);
+
   // const [data, setData] = useState();
   // const dispatch = useDispatch()
 
