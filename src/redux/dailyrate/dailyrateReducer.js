@@ -10,7 +10,6 @@ import { getDailyRateSuccess } from "./dailyrateActions";
 const initialState = {
   id: "",
   dailyRate: "",
-  daySummary: {},
   summaries: {
     _id: "",
     date: "",
@@ -24,7 +23,7 @@ const initialState = {
   notAllowedProducts: [],
 };
 
-const dailyrateReducer = createReducer(initialState, {
+const daySummaryInfo = createReducer(initialState, {
   [getDailyRateSuccess]: (_, { payload }) => payload,
   [getCurrentUserSuccess]: (state, { payload }) => ({
     ...state,
@@ -34,11 +33,17 @@ const dailyrateReducer = createReducer(initialState, {
     ...state,
     summaries: payload.daySummary,
   }),
-  // [getDayInfoSuccess]: (_, { payload }) => ({daySummary: payload.daySummary}),
+  [getDayInfoSuccess]: (state, { payload }) => ({
+    ...state,
+    summaries: payload.daySummary,
+  }),
 
-  [deleteProductSuccess]: (_, { payload }) => payload,
+  [deleteProductSuccess]: (state, { payload }) => ({
+    ...state,
+    summaries: payload.newDaySummary,
+  }),
 
   [logoutSuccess]: () => initialState,
 });
 
-export default dailyrateReducer;
+export default daySummaryInfo;

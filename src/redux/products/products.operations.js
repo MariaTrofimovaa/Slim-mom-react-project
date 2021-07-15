@@ -13,7 +13,7 @@ import {
 
 axios.defaults.baseURL = "https://slimmom-backend.goit.global";
 
-const addProduct = (date, productId, weight) => (dispatch) => {
+const addProduct = (date, productId, weight) =>  (dispatch) => {
   const product = { date, productId, weight };
   // console.log(product);
 
@@ -33,7 +33,9 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
 
   axios
     .delete(`/day`, { data: deletedProduct })
-    .then(() => dispatch(deleteProductSuccess(deletedProduct)))
+    .then((response) =>
+      dispatch(deleteProductSuccess({ ...deletedProduct, ...response.data }))
+    )
     .catch((error) => dispatch(deleteProductError(error.message)));
 };
 

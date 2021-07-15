@@ -5,6 +5,8 @@ import axios from "axios";
 import { useState } from "react";
 import DailyCaloriesForm from "../../components/dailyCaloriesForm/DailyCaloriesForm";
 import { getUserId, isAuthenticated } from "../../redux/auth/auth.selectors";
+import { useEffect } from "react";
+import { getDayInfo } from "../../redux/products/products.operations";
 
 const BASE_URL = "https://slimmom-backend.goit.global";
 
@@ -20,8 +22,13 @@ const CalculatorPage = () => {
   const [data, setData] = useState(null);
   const userId = useSelector(getUserId);
   const token = useSelector(isAuthenticated);
+  const dispatch = useDispatch();
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  const [startDate] = useState(new Date());
 
+  useEffect(() => {
+    dispatch(getDayInfo(startDate.toISOString().slice(0, 10)));
+  }, [dispatch, startDate]);
   // const dispatch = useDispatch();
 
   const onSubmit = async (values) => {

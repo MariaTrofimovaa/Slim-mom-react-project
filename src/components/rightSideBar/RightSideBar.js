@@ -19,6 +19,7 @@ import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations
 
 const RightSideBar = () => {
   const dailyKcal = useSelector(kcalSelector);
+  console.log(dailyKcal);
   const notAllowedProducts = useSelector(notAllowedProds);
   const kcalLeft = useSelector(kcalLeftSelector);
   const kcalConsumed = useSelector(kcalConsumedSelector);

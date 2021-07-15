@@ -209,11 +209,11 @@ class DiaryAddProductForm extends Component {
 
     console.log(this.props.selectedDate);
 
-    this.props.addProductProp(
-      this.state.date,
-      this.state.productId,
-      this.state.weight
-    );
+    // this.props.addProductProp(
+    //   this.state.date,
+    //   this.state.productId,
+    //   this.state.weight
+    // );
     this.props.getCurrentUser();
 
     this.setState({ searchWord: "", productId: "", weight: "" });

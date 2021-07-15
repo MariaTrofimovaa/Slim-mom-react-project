@@ -81,8 +81,9 @@
 }
 
 .moduleNotSuitableProductsInput {
-  margin-bottom: 20px;
-  margin-left: 15px;
+  margin: 0 auto;
+  width: 290px;
+  /* border-bottom: 1px solid #E0E0E0; */
 }
 
 @media screen and (min-width: 768px) {
