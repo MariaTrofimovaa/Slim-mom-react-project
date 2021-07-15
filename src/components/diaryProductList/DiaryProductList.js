@@ -1,33 +1,51 @@
 import styles from "./DiaryProductList.module.css";
 import { connect } from "react-redux";
-import { getProductSelector } from "../../redux/products/products.selectors";
+import {
+  getProductSelector,
+  getSelectedDate,
+  getDayInfo,
+} from "../../redux/products/products.selectors";
 import { deleteProduct } from "../../redux/products/products.operations";
 
-const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
+const DiaryProductList = ({
+  openModalProp,
+  product,
+  deleteProductProp,
+  dayInfo,
+}) => {
   function handleOpenModalClick(event) {
     openModalProp(event);
   }
 
+  // handleDelete = (e) => {
+  //   deleteProductProp(e.target.id);
+
+  //   dispatch(
+  //     deleteProductOperation({
+  //       dayId: id,
+  //       eatenProductId: e.target.id,
+  //     })
+  //   );
+  // };
+
+  // const lastProduct = product.find((item) => item[product.length - 1]);
+
+  // console.log(product, "product");
+
   return (
     <div>
       <ul className={styles.calendarTable}>
-        {product.map((item) => (
-          <li key={item.eatenProduct.id} className={styles.listItem}>
+        {product.eatenProducts.map((item) => (
+          <li key={item.id} className={styles.listItem}>
             <ul className={styles.list}>
-              <li className={styles.foodName}>{item.eatenProduct.title} </li>
-              <li className={styles.foodWeight}>
-                {item.eatenProduct.weight} г
-              </li>
-              <li className={styles.line}>
-                {Math.round(item.eatenProduct.kcal)} ккал
-              </li>
+              <li className={styles.foodName}>{item.title} </li>
+              <li className={styles.foodWeight}>{item.weight} г</li>
+              <li className={styles.line}>{Math.round(item.kcal)} ккал</li>
               <li>
                 <button
                   type="button"
                   className={styles.buttonDelete}
-                  onClick={() =>
-                    deleteProductProp(item.day.id, item.eatenProduct.id)
-                  }
+                  onClick={() => deleteProductProp(product.id, item.id)}
                 >
                   x
                 </button>
@@ -49,6 +67,8 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
 
 const mapStateToProps = (state) => ({
   product: getProductSelector(state),
+  selectedDate: getSelectedDate(state),
+  dayInfo: getDayInfo(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

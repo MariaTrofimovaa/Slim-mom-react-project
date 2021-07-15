@@ -1,3 +1,7 @@
 const getProductSelector = (state) => state.products;
 
-export { getProductSelector };
+const getSelectedDate = (state) => state.selectedDate;
+
+const getDayInfo = (state) => state.dayInfo;
+
+export { getProductSelector, getSelectedDate, getDayInfo };

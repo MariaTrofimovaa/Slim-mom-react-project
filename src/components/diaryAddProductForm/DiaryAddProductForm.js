@@ -144,14 +144,18 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
 import { addProduct } from "../../redux/products/products.operations";
+
+import { getSelectedDate } from "../../redux/products/products.selectors";
+
 import { getCurrentUser } from "../../redux/auth/auth.operations";
+
 
 class DiaryAddProductForm extends Component {
   state = {
     searchWord: "",
     foundProducts: [],
     product: "",
-    date: "2020-12-31",
+
     productId: "",
     weight: 0,
     selected: true,
@@ -198,12 +202,20 @@ class DiaryAddProductForm extends Component {
     const { token } = this.props;
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
+
+    const date = this.props.selectedDate;
+
+    this.props.addProductProp(...date, this.state.productId, this.state.weight);
+
+    console.log(this.props.selectedDate);
+
     this.props.addProductProp(
       this.state.date,
       this.state.productId,
       this.state.weight
     );
     this.props.getCurrentUser();
+
     this.setState({ searchWord: "", productId: "", weight: "" });
   };
 
@@ -257,6 +269,7 @@ class DiaryAddProductForm extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   token: isAuthenticated(state),
+  selectedDate: getSelectedDate(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
