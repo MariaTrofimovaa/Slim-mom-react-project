@@ -20,4 +20,4 @@ let schema = yup.object().shape({
 
 export default schema;
 
-//  email: yup.string().email(),
+  // email: yup.string().email().required("*Обязательное поле"),
