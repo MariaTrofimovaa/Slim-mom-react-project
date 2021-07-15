@@ -12,7 +12,7 @@ axios.defaults.baseURL = "https://slimmom-backend.goit.global";
 
 const addProduct = (date, productId, weight) => (dispatch) => {
   const product = { date, productId, weight };
-  console.log(product);
+  // console.log(product);
 
   dispatch(addProductRequest());
 

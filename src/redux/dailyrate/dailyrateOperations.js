@@ -1,29 +1,29 @@
+import axios from "axios";
 import getDailyRate from "../../services/api";
-import { getDailyRateError, getDailyRateRequest, getDailyRateSuccess } from "./dailyrateActions";
+import { addProduct } from "../products/products.operations";
+import {
+  getDailyRateError,
+  getDailyRateRequest,
+  getDailyRateSuccess,
+} from "./dailyrateActions";
 
-const getDailyRateOperation = (values) => async (dispatch) => {
+axios.defaults.baseURL = "https://slimmom-backend.goit.global";
+
+const getDailyRateOperation = (date, productId, weight) => async (dispatch) => {
+  const product = { date, productId, weight };
   dispatch(getDailyRateRequest());
+  const startDate = new Date();
+  const newDate = startDate.toISOString().slice(0, 10);
+
   try {
-    const response = getDailyRate();
-    dispatch(getDailyRateSuccess(response.data));
+    const {data} = await axios.post("/day", { date: newDate });
+    // console.log(response);
+    dispatch(getDailyRateSuccess(data));
   } catch (error) {
     dispatch(getDailyRateError(error));
   }
 };
 
-// import dailyrateActions from "./dailyrateActions";
-
-// import getDailyRate from "../../services/api";
-
-// const getDailyRateOperation = (rateCharacteristics) => (dispatch) => {
-//   dispatch(dailyrateActions.getProductsRequest());
-
-//   getDailyRate(rateCharacteristics)
-//     .then(({ data }) => {
-//       console.log(data);
-//       return dispatch(dailyrateActions.getProductsSuccess(data));
-//     })
-//     .catch((err) => dispatch(dailyrateActions.getProductsError(err)));
-// };
+// const getDayInfo = () => async(dispatch) => {}
 
 export { getDailyRateOperation };
