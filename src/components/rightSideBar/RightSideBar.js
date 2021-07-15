@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 import {
@@ -25,6 +26,13 @@ const RightSideBar = () => {
   const date = useSelector(dateSelector);
    const currentDay =  new Date().toJSON().slice(0, 10);
   const dispatch = useDispatch();
+
+// import { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
+
+
+
 
   useEffect(() => {
     dispatch(getDailyRateOperation());
