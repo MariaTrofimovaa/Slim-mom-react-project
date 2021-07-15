@@ -6,6 +6,9 @@ import {
   deleteProductRequest,
   deleteProductSuccess,
   deleteProductError,
+  getDayInfoRequest,
+  getDayInfoSuccess,
+  getDayInfoError,
 } from "./products.actions";
 
 axios.defaults.baseURL = "https://slimmom-backend.goit.global";
@@ -34,4 +37,20 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
     .catch((error) => dispatch(deleteProductError(error.message)));
 };
 
-export { addProduct, deleteProduct };
+const getDayInfo = (date) => (dispatch) => {
+  dispatch(getDayInfoRequest());
+
+  // const deletedProduct = { dayId, eatenProductId };
+  console.log(axios.defaults.headers.common.Authorization);
+
+  axios
+    .post(`/day/info`, { date })
+    .then((response) => {
+      console.log(response, "response");
+      dispatch(getDayInfoSuccess(response.data));
+    })
+
+    .catch((error) => dispatch(getDayInfoError(error.message)));
+};
+
+export { addProduct, deleteProduct, getDayInfo };
