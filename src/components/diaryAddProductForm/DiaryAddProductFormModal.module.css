@@ -1,5 +1,4 @@
 .overlay {
-  position: fixed;
   top: 180;
   left: 0;
   width: 100vw;
@@ -9,6 +8,7 @@
   align-items: center;
 
   z-index: 1200;
+  position: sticky;
 }
 
 .modal {
@@ -36,4 +36,22 @@
 
 .formButton {
   margin-top: 30px;
+}
+
+.closeModalButton {
+  background-color: transparent;
+  border-color: transparent;
+  text-align: left;
+  position: absolute;
+  top: -33px;
+  left: 15px;
+  color: #9b9faa;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .closeModalButton {
+    display: none;
+  }
 }

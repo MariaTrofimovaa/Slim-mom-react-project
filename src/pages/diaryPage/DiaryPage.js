@@ -13,9 +13,6 @@ const DiaryPage = () => {
   const [state, setState] = useState(false);
 
   const isWide = useMedia({ minWidth: "768px" });
-  // state = {
-  //   showModal: false,
-  // };
 
   const openModal = (event) => {
     setState(true);
