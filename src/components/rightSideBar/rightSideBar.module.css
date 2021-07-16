@@ -56,6 +56,10 @@
     /* max-width: 768px; */
   }
 
+  .RightSideBarSummary {
+    width: 330px;
+  }
+
   .RightSideBarHeader {
     margin-bottom: 22px;
   }

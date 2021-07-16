@@ -27,7 +27,7 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
   // const lastProduct = product.find((item) => item[product.length - 1]);
 
   // console.log(product, "product");
-  console.log("product :>> ", product);
+  // console.log("product :>> ", product);
   return (
     <div>
       {product.eatenProducts && !product.eatenProducts.length && (
@@ -41,6 +41,8 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
               <li className={styles.foodWeight}>{item.weight} г</li>
               <li className={styles.line}>{Math.round(item.kcal)} ккал</li>
               <li>
+                {console.log("item", item)}
+                {console.log(product)}
                 <button
                   type="button"
                   className={styles.buttonDelete}

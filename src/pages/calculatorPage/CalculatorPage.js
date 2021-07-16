@@ -59,7 +59,7 @@ const CalculatorPage = () => {
           age: userData?.age ?? "",
           weight: userData?.weight ?? "",
           desiredWeight: userData?.desiredWeight ?? "",
-          bloodType: userData?.bloodType ?? "1",
+          bloodType: userData?.bloodType ?? "",
         }}
       />
       {/* <button type="submit" onClick={onLogOut}>

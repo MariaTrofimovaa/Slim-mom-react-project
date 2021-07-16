@@ -44,7 +44,7 @@ const MainPage = () => {
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
           <DailyKkalIntake {...data} />
-          <RightSideBar {...data} />
+          {/* <RightSideBar {...data} /> */}
         </Modal>
       )}
     </>

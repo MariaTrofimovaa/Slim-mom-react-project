@@ -2,10 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
+import UserInfo from "../userInfo/UserInfo";
 import styles from "./Header.module.css";
+import useMedia from "use-media";
 
 const Navigation = ({ isModalOpen, setModalState }) => {
   const authToken = useSelector(isAuthenticated);
+  const isWide = useMedia({ minWidth: "768px" });
 
   return (
     <nav className={styles.headerNavigation}>
@@ -74,6 +77,10 @@ const Navigation = ({ isModalOpen, setModalState }) => {
           </ul>
         </>
       )}
+      {/* <div className={styles.useInfoNav}>
+        <UserInfo />
+      </div> */}
+
       {!isModalOpen && authToken && (
         <svg className={styles.burgerBtn} onClick={setModalState}>
           <use href="../../img/svg/sprite.svg#">LOGO</use>

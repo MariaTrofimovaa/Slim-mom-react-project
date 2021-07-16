@@ -104,7 +104,7 @@ const RightSideBar = () => {
         <ul className={styles.RightSideBarProducts}>
           <li>{notAllowedProducts.join(", ")}</li>
         </ul>
-        <div className={styles.RightSideBarStatictics}>
+        {/* <div className={styles.RightSideBarStatictics}> */}
           {!notAllowedProducts.length && (
             <ul className={styles.RightSideBarListDiet}>
               <li className={styles.RightSideBarItem}>
@@ -112,7 +112,7 @@ const RightSideBar = () => {
               </li>
             </ul>
           )}
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );

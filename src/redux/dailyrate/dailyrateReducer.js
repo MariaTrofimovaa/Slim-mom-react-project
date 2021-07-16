@@ -33,13 +33,17 @@ const daySummaryInfo = createReducer(initialState, {
   }),
   [addProductSuccess]: (state, { payload }) => ({
     ...state,
-    summaries: payload.daySummary,
+    summaries:
+      typeof payload.daySummary === "undefined"
+        ? payload.newSummary
+        : payload.daySummary,
   }),
 
   [getDayInfoSuccess]: (state, { payload }) => {
     if ("id" in payload) {
       return {
         ...state,
+        id: payload.id,
         summaries: payload.daySummary,
       };
     }

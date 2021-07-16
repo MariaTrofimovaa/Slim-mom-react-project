@@ -100,7 +100,7 @@
   width: 176px;
   height: 44px;
   display: flex;
-
+  text-decoration: none;
   align-items: center;
   justify-content: center;
   font-weight: bold;
