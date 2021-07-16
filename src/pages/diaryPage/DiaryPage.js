@@ -12,7 +12,7 @@ import useMedia from "use-media";
 const DiaryPage = () => {
   const [state, setState] = useState(false);
 
-  const isWide = useMedia({ minWidth: "1280px" });
+  const isWide = useMedia({ minWidth: "768px" });
   // state = {
   //   showModal: false,
   // };
@@ -27,7 +27,11 @@ const DiaryPage = () => {
 
   return (
     <section className={styles.diarySection}>
-      {state && <DiaryAddProductFormModal closeModal={closeModal} />}
+      {state && (
+        <DiaryAddProductFormModal closeModal={closeModal}>
+          <DiaryAddProductForm closeModal={closeModal} />
+        </DiaryAddProductFormModal>
+      )}
 
       <div className={styles.container}>
         <div className={styles.dateAndCalendar}>

@@ -20,7 +20,8 @@ class DiaryAddProductFormModal extends Component {
     return (
       <div className={styles.overlay} onClick={this.handleBackdropClick}>
         <div className={styles.modal}>
-          <DiaryAddProductForm />
+          {/* <DiaryAddProductForm /> */}
+          {this.props.children}
         </div>
       </div>
     );

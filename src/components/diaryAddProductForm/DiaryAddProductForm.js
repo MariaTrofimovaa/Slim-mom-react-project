@@ -68,6 +68,7 @@ class DiaryAddProductForm extends Component {
     console.log(this.props.selectedDate);
 
     this.props.getCurrentUser();
+    // this.props.closeModal();
 
     this.setState({ searchWord: "", productId: "", weight: "" });
   };
