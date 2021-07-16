@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,13 +13,13 @@
 
 .modal {
   width: 320px;
-  height: 500px;
+  height: 600px;
   background-color: #fff;
-  padding: 80px 15px 0px;
+  padding: 150px 15px 0px;
   text-align: center;
 }
 
-.input {
+/* .input {
   width: 290px;
   border-color: transparent;
   color: #9b9faa;
@@ -32,7 +32,7 @@
 
   margin-bottom: 30px;
   padding-bottom: 10px;
-}
+} */
 
 .formButton {
   margin-top: 30px;

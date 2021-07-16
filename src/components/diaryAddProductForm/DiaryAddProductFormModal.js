@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DiaryAddProductForm from "./DiaryAddProductForm";
 import styles from "./DiaryAddProductFormModal.module.css";
 
 class DiaryAddProductFormModal extends Component {
@@ -19,7 +20,9 @@ class DiaryAddProductFormModal extends Component {
     return (
       <div className={styles.overlay} onClick={this.handleBackdropClick}>
         <div className={styles.modal}>
-          <form className={styles.form}>
+          <DiaryAddProductForm />
+
+          {/* <form className={styles.form}>
             <label className={styles.labelName}>
               <input
                 placeholder="Введите название продукта"
@@ -41,7 +44,7 @@ class DiaryAddProductFormModal extends Component {
             <button type="submit" className={styles.formButton}>
               +
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     );
