@@ -30,7 +30,16 @@ const MainPage = () => {
   };
   return (
     <>
-      <DailyCaloriesForm onSubmit={onSubmit} />
+      <DailyCaloriesForm
+        onSubmit={onSubmit}
+        initialValues={{
+          height: "",
+          age: "",
+          weight: "",
+          desiredWeight: "",
+          bloodType: "1",
+        }}
+      />
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
           <DailyKkalIntake {...data} />

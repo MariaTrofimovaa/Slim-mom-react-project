@@ -4,9 +4,13 @@ import DailyCaloriesFormValidator from "./DailyCaloriesFormValidator";
 import styles from "./DailyCaloriesForm.module.css";
 import { useSelector } from "react-redux";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
-import RightSideBar from "../../components/rightSideBar/RightSideBar"
+import RightSideBar from "../../components/rightSideBar/RightSideBar";
 
-const DailyCaloriesForm = ({ onSubmit }) => {
+const DailyCaloriesForm = ({
+  onSubmit,
+  initialValues,
+  enableReinitialize = false,
+}) => {
   const isAuth = useSelector(isAuthenticated);
 
   return (
@@ -17,13 +21,8 @@ const DailyCaloriesForm = ({ onSubmit }) => {
         </h1>
         <div className={styles.inputWrapper}>
           <Formik
-            initialValues={{
-              height: "",
-              age: "",
-              weight: "",
-              desiredWeight: "",
-              bloodType: "1",
-            }}
+            enableReinitialize={enableReinitialize}
+            initialValues={initialValues}
             validationSchema={DailyCaloriesFormValidator}
             onSubmit={onSubmit}
             render={({ errors, touched }) => (

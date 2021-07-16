@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { getUserData } from "../auth/auth.selectors";
 import {
   addProductRequest,
   addProductSuccess,
@@ -13,7 +15,7 @@ import {
 
 axios.defaults.baseURL = "https://slimmom-backend.goit.global";
 
-const addProduct = (date, productId, weight) =>  (dispatch) => {
+const addProduct = (date, productId, weight) => (dispatch) => {
   const product = { date, productId, weight };
   // console.log(product);
 
@@ -39,9 +41,13 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
     .catch((error) => dispatch(deleteProductError(error.message)));
 };
 
-const getDayInfo = (date) => (dispatch) => {
+const getDayInfo = (date) => (dispatch, getState) => {
+  // const userData = useSelector(getUserData);
   dispatch(getDayInfoRequest());
+  // const dayInfo = getState().rateInfo.summaries.kcalLeft;
+  // const dayInfo = getState().auth.user;
 
+  // if (!dayInfo) return;
   // const deletedProduct = { dayId, eatenProductId };
   console.log(axios.defaults.headers.common.Authorization);
 

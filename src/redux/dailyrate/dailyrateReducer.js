@@ -1,5 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { getCurrentUserSuccess, logoutSuccess } from "../auth/auth.actions";
+import { updateCalculatorSuccess } from "../calculator/calculator.actions";
 import {
   addProductSuccess,
   deleteProductSuccess,
@@ -33,15 +34,50 @@ const daySummaryInfo = createReducer(initialState, {
     ...state,
     summaries: payload.daySummary,
   }),
-  [getDayInfoSuccess]: (state, { payload }) => ({
-    ...state,
-    summaries: payload.daySummary,
-  }),
+
+  [getDayInfoSuccess]: (state, { payload }) => {
+    
+
+    if ("id" in payload) {
+      return {
+        ...state,
+        summaries: payload.daySummary,
+      };
+    }
+
+    return {
+      ...state,
+      summaries: payload,
+    };
+  },
 
   [deleteProductSuccess]: (state, { payload }) => ({
     ...state,
     summaries: payload.newDaySummary,
   }),
+
+  [updateCalculatorSuccess]: (state, { payload }) => {
+    const day = payload.summaries.find(
+      (summary) => summary.date === state.summaries.date
+    );
+
+    if (day) {
+      return {
+        ...state,
+        summaries: day,
+        notAllowedProducts: payload.notAllowedProducts,
+      };
+    }
+    return {
+      ...state,
+      notAllowedProducts: payload.notAllowedProducts,
+      summaries: {
+        ...state.summaries,
+        dailyRate: payload.dailyRate,
+        kcalLeft: payload.dailyRate,
+      },
+    };
+  },
 
   [logoutSuccess]: () => initialState,
 });

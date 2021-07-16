@@ -15,7 +15,6 @@
 
 .formContainer {
   margin-top: 83px;
-  padding-left: 115px;
 
   display: flex;
   justify-content: space-between;
@@ -156,6 +155,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
+    padding-left: 0px;
   }
 
   .form {
@@ -181,7 +181,9 @@
   .container {
     max-width: 1280px;
     padding: 0 115px;
-    position: absolute;
+
+    /* position: absolute; */
+
     background: url(../../img/leavesLogin@1x.png),
       url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
       url(../../img/spot-login.png);

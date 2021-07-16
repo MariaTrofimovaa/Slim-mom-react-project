@@ -1,5 +1,15 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const addProductRequest = createAction("products/addProductRequest");
-const addProductSuccess = createAction("products/addProductSuccess");
-const addProductError = createAction("products/addProductError");
+const updateCalculatorRequest = createAction(
+  "calculator/updateCalculatorRequest"
+);
+const updateCalculatorSuccess = createAction(
+  "calculator/updateCalculatorSuccess"
+);
+const updateCalculatorError = createAction("calculator/updateCalculatorError");
+
+export {
+  updateCalculatorRequest,
+  updateCalculatorSuccess,
+  updateCalculatorError,
+};
