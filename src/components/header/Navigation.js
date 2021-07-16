@@ -3,9 +3,12 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
 import styles from "./Header.module.css";
+import UserInfo from "../userInfo/UserInfo";
+import useMedia from "use-media";
 
 const Navigation = ({ isModalOpen, setModalState }) => {
   const authToken = useSelector(isAuthenticated);
+  const isWide = useMedia({ minWidth: "768px" });
 
   return (
     <nav className={styles.headerNavigation}>
@@ -73,6 +76,11 @@ const Navigation = ({ isModalOpen, setModalState }) => {
             </li>
           </ul>
         </>
+      )}
+      {isWide && (
+        <div className={styles.userInfoNav}>
+          <UserInfo />
+        </div>
       )}
       {!isModalOpen && authToken && (
         <svg className={styles.burgerBtn} onClick={setModalState}>

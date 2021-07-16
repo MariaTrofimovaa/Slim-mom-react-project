@@ -6,10 +6,11 @@ import Modal from "../header/BurgerModal/BurgerModal";
 import { withRouter } from "react-router-dom";
 import Navigation from "./Navigation";
 import { useState } from "react";
+import useMedia from "use-media";
 
 const Header = () => {
   const [state, setState] = useState(false);
-
+  const isWide = useMedia({ minWidth: "320px", maxWidth: "767px" });
   const setModalState = () =>
     setState((prev) => ({ isModalOpen: !prev.isModalOpen }));
 
@@ -45,7 +46,7 @@ const Header = () => {
           </ul>
         </Modal>
       )}
-      <UserInfo />
+      {isWide && <UserInfo />}
     </div>
   );
 };
