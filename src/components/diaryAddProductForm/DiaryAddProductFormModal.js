@@ -16,10 +16,21 @@ class DiaryAddProductFormModal extends Component {
     }
   };
 
+  closeProductModal = (event) => {
+    this.props.closeModal();
+  };
+
   render() {
     return (
       <div className={styles.overlay} onClick={this.handleBackdropClick}>
         <div className={styles.modal}>
+          <button
+            onClick={this.closeProductModal}
+            type="button"
+            className={styles.closeModalButton}
+          >
+            X
+          </button>
           {/* <DiaryAddProductForm /> */}
           {this.props.children}
         </div>
