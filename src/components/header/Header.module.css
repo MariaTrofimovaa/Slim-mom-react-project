@@ -18,32 +18,31 @@
   height: 46px;
 }
 
+.text {
+  background-image: url("../../img/svg/Group18.svg");
+  width: 105px;
+  height: 16px;
+  display: none;
+}
+
 .burgerBtn {
   background-image: url("../../img/svg/burgerMenu.svg");
   width: 20px;
   height: 20px;
-  position: absolute;
-  right: 12px;
-  top: 34px;
-}
-
-.burgerBtn1 {
-  border: none;
-  background-color: transparent;
+  margin-right: 14px;
 }
 
 .burgerClose {
   background-image: url("../../img/svg/BurgerClose.svg");
   width: 20px;
   height: 20px;
-  position: absolute;
-  right: 12px;
-  top: 34px;
+  margin-right: 14px;
 }
 
-/* .listLogo{
-  border-bottom: 2px solid #e0e0e0;
-} */
+.burgerBtn1 {
+  border: none;
+  background-color: transparent;
+}
 
 .regisrationList {
   display: flex;
@@ -61,16 +60,17 @@
   text-decoration: none;
 }
 
-.link:hover,
-.link:focus {
+.linkActive {
   color: #212121;
 }
 
-.text {
-  background-image: url("../../img/svg/Group18.svg");
-  width: 105px;
-  height: 16px;
-  display: none;
+.linkActiveWhite {
+  color: white;
+}
+
+.link:hover,
+.link:focus {
+  color: #212121;
 }
 
 .regisrationListItem:not(:last-child) {
@@ -135,14 +135,6 @@
     margin-top: 104px;
   }
 
-  .burgerClose {
-    right: 10%;
-  }
-
-  .burgerBtn {
-    right: 10%;
-  }
-
   @media screen and (min-width: 1280px) {
     .container {
       max-width: 1280px;
@@ -152,9 +144,6 @@
     .headerNavigation {
       justify-content: normal;
       border-bottom: none;
-
-      /* padding-top: 82px;
-      padding-left: 90px; */
       padding: 82px 225px 0px 90px;
       min-width: 745px;
       width: 100%;
