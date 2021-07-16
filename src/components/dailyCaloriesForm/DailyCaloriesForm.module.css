@@ -9,7 +9,7 @@
 .calculator {
   min-width: 320px;
   margin: 0 auto;
-
+  padding-top: 30px;
   /* padding-top: 40px;
   padding-bottom: 60px;
   padding-left: 15px;
@@ -36,6 +36,7 @@
 .formContainer {
   width: 240px;
   margin-right: 0;
+
   padding-left: 15px;
   padding-bottom: 60px;
 }

@@ -27,6 +27,7 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
   // const lastProduct = product.find((item) => item[product.length - 1]);
 
   // console.log(product, "product");
+  console.log("product :>> ", product);
   return (
     <div>
       {!product.eatenProducts && <span>Список пуст</span>}
