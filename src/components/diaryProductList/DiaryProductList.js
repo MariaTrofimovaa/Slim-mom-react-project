@@ -1,204 +1,58 @@
 import styles from "./DiaryProductList.module.css";
-// import { Component } from "react";
+import { connect } from "react-redux";
+import {
+  getProductSelector,
+  getSelectedDate,
+  getDayInfo,
+} from "../../redux/products/products.selectors";
+import { deleteProduct } from "../../redux/products/products.operations";
 
-// class DiaryProductList extends Component {
-//   state = {
-//     showModal: false,
-//   };
-
-//   openModal = (event) => {
-//     this.setState({
-//       showModal: true,
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <ul className={styles.calendarTable}>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//           <li className={styles.listItem}>
-//             <ul className={styles.list}>
-//               <li className={styles.foodName}>Баклажан</li>
-//               <li className={styles.foodWeight}>100 г</li>
-//               <li className={styles.line}>320 ккал</li>
-//               <li>
-//                 <button className={styles.buttonDelete}>x</button>
-//               </li>
-//             </ul>
-//           </li>
-//         </ul>
-//         <button
-//           type="button"
-//           className={styles.button}
-//           onClick={this.openModal}
-//         >
-//           +
-//         </button>
-//       </div>
-//     );
-//   }
-// }
-
-// export default DiaryProductList;
-
-const DiaryProductList = ({ openModalProp }) => {
+const DiaryProductList = ({
+  openModalProp,
+  product,
+  deleteProductProp,
+  dayInfo,
+}) => {
   function handleOpenModalClick(event) {
     openModalProp(event);
   }
 
+  // handleDelete = (e) => {
+  //   deleteProductProp(e.target.id);
+
+  //   dispatch(
+  //     deleteProductOperation({
+  //       dayId: id,
+  //       eatenProductId: e.target.id,
+  //     })
+  //   );
+  // };
+
+  // const lastProduct = product.find((item) => item[product.length - 1]);
+
+  // console.log(product, "product");
   return (
     <div>
+      {!product.eatenProducts && <span>Список пуст</span>}
       <ul className={styles.calendarTable}>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
-        <li className={styles.listItem}>
-          <ul className={styles.list}>
-            <li className={styles.foodName}>Баклажан</li>
-            <li className={styles.foodWeight}>100 г</li>
-            <li className={styles.line}>320 ккал</li>
-            <li>
-              <button className={styles.buttonDelete}>x</button>
-            </li>
-          </ul>
-        </li>
+        {product.eatenProducts?.map((item) => (
+          <li key={item.id} className={styles.listItem}>
+            <ul className={styles.list}>
+              <li className={styles.foodName}>{item.title} </li>
+              <li className={styles.foodWeight}>{item.weight} г</li>
+              <li className={styles.line}>{Math.round(item.kcal)} ккал</li>
+              <li>
+                <button
+                  type="button"
+                  className={styles.buttonDelete}
+                  onClick={() => deleteProductProp(product.id, item.id)}
+                >
+                  x
+                </button>
+              </li>
+            </ul>
+          </li>
+        ))}
       </ul>
       <button
         type="button"
@@ -211,4 +65,16 @@ const DiaryProductList = ({ openModalProp }) => {
   );
 };
 
-export default DiaryProductList;
+const mapStateToProps = (state) => ({
+  product: getProductSelector(state),
+  selectedDate: getSelectedDate(state),
+  dayInfo: getDayInfo(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  // fetchContacts: () => dispatch(fetchContacts()),
+  deleteProductProp: (dayId, productId) =>
+    dispatch(deleteProduct(dayId, productId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DiaryProductList);

@@ -63,6 +63,7 @@ class DiaryPage extends Component {
         <div className={styles.summary}>
           <RightSideBar/>
         </div>
+
       </section>
     );
   }

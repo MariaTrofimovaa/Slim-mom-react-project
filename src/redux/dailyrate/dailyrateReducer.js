@@ -1,23 +1,85 @@
 import { createReducer } from "@reduxjs/toolkit";
-import dailyrateActions from "./dailyrateActions";
+import { getCurrentUserSuccess, logoutSuccess } from "../auth/auth.actions";
+import { updateCalculatorSuccess } from "../calculator/calculator.actions";
+import {
+  addProductSuccess,
+  deleteProductSuccess,
+  getDayInfoSuccess,
+} from "../products/products.actions";
+import { getDailyRateSuccess } from "./dailyrateActions";
 
 const initialState = {
-  id: null,
-  dailyRate: null,
-  productsArr: {
-    notAllowedProducts: [],
+  id: "",
+  dailyRate: "",
+  summaries: {
+    _id: "",
+    date: "",
+    kcalLeft: "",
+    kcalConsumed: "",
+    dailyRate: "",
+    percentsOfDailyRate: "",
+    userId: "",
   },
+
+  notAllowedProducts: [],
 };
 
-const dailyrateReducer = createReducer(initialState, {
-  [dailyrateActions.getProductsSuccess]: (state, { payload }) => ({
+const daySummaryInfo = createReducer(initialState, {
+  [getDailyRateSuccess]: (_, { payload }) => payload,
+  [getCurrentUserSuccess]: (state, { payload }) => ({
     ...state,
-    ...payload,
-    productsArr: {
-      ...state.productsArr,
-      notAllowedProducts: [...payload.notAllowedProducts],
-    },
+    notAllowedProducts: payload.userData.notAllowedProducts,
   }),
+  [addProductSuccess]: (state, { payload }) => ({
+    ...state,
+    summaries: payload.daySummary,
+  }),
+
+  [getDayInfoSuccess]: (state, { payload }) => {
+    
+
+    if ("id" in payload) {
+      return {
+        ...state,
+        summaries: payload.daySummary,
+      };
+    }
+
+    return {
+      ...state,
+      summaries: payload,
+    };
+  },
+
+  [deleteProductSuccess]: (state, { payload }) => ({
+    ...state,
+    summaries: payload.newDaySummary,
+  }),
+
+  [updateCalculatorSuccess]: (state, { payload }) => {
+    const day = payload.summaries.find(
+      (summary) => summary.date === state.summaries.date
+    );
+
+    if (day) {
+      return {
+        ...state,
+        summaries: day,
+        notAllowedProducts: payload.notAllowedProducts,
+      };
+    }
+    return {
+      ...state,
+      notAllowedProducts: payload.notAllowedProducts,
+      summaries: {
+        ...state.summaries,
+        dailyRate: payload.dailyRate,
+        kcalLeft: payload.dailyRate,
+      },
+    };
+  },
+
+  [logoutSuccess]: () => initialState,
 });
 
-export default dailyrateReducer;
+export default daySummaryInfo;

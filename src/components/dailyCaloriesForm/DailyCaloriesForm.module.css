@@ -1,15 +1,26 @@
-.container {
-  width: 320px;
+.sideBar {
+  display: none;
+}
+
+.sideBar__active {
+  background-color: #f0f1f3;
+}
+
+.calculator {
+  min-width: 320px;
   margin: 0 auto;
-  padding-top: 30px;
+
+  /* padding-top: 40px;
   padding-bottom: 60px;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 15px; */
 }
 
 .title {
   margin-top: 0;
   margin-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-family: Verdana;
   font-style: normal;
   font-weight: 700;
@@ -18,9 +29,15 @@
   color: #212121;
 }
 
+.container__active {
+  padding: 40px 15px 60px 15px;
+}
+
 .formContainer {
   width: 240px;
   margin-right: 0;
+  padding-left: 15px;
+  padding-bottom: 60px;
 }
 
 .formInput {
@@ -94,13 +111,12 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
+    width: 768px;
     margin: 0 auto;
     /* .container__active { */
     width: 100%;
     height: 1024px;
     min-height: 944px;
-    margin-left: 86px;
     margin-right: 74px;
     margin-top: 100px;
     background-image: url(../../img/Group40@1x.png);
@@ -108,22 +124,31 @@
     background-position: top 100% right 0px;
     height: 100vh;
   }
+
+  .formContainer {
+    padding-left: 87px;
+    /* padding-bottom: 60px; */
+  }
+
   .container__active {
-    max-width: 768px;
-    margin: 0 auto;
+    min-width: 768px;
+    margin: 0;
     width: 100%;
-    height: 1024px;
-    min-height: 944px;
-    margin-left: 86px;
-    margin-right: 74px;
-    margin-top: 100px;
+    /* height: 1024px;
+    min-height: 944px; */
+    padding: 100px 76px 74px 87px;
+    /* margin-left: 86px;
+    margin-right: 74px; */
+    /* margin-top: 100px; */
   }
 
   .title {
+    padding-left: 87px;
+    padding-right: 76px;
     font-size: 30px;
     line-height: 36px;
     margin-bottom: 60px;
-    width: 605px;
+    /* width: 605px; */
   }
 
   .formWrapper {
@@ -147,8 +172,12 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .calculator {
+    display: flex;
+  }
+
   .container {
-    max-width: 1280px;
+    width: 1280px;
     /* .container__active { */
     /* margin: auto auto 111px 115px; */
     margin: 0 auto;
@@ -156,9 +185,17 @@
     padding: 294px 0 0 0;
     background-image: url(../../img/Group41@1x.png);
     background-repeat: no-repeat;
-    background-position: top 25% right 122px;
+    background-position: top 25% right 0px;
     background-size: 900px, 500px, 700px, 700px;
     z-index: 100;
+  }
+  .formContainer {
+    padding-left: 115px;
+    /* padding-bottom: 60px; */
+  }
+  .container__active {
+    min-width: 745px;
+    padding: 137px 25px 111px 115px;
   }
 
   .form {
@@ -167,11 +204,14 @@
   .title {
     font-size: 34px;
     line-height: 41px;
-    margin-bottom: 85px;
+    margin-left: 115px;
+    padding: 0px;
+    margin-bottom: 68px;
+    width: 605px;
   }
-  .inputWrapper {
+  /* .inputWrapper {
     margin-bottom: 24px;
-  }
+  } */
   .button {
     margin-left: 346px;
   }

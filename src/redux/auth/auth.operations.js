@@ -29,8 +29,8 @@ export const register = (credentials) => async (dispatch) => {
   dispatch(registerRequest());
   try {
     const response = await axios.post("auth/register", credentials);
-    console.log(response);
-    token.set(response.data.accessToken);
+    // console.log(response);
+    // token.set(response.data.accessToken);
 
     dispatch(registerSuccess(response.data));
   } catch (error) {
@@ -44,11 +44,11 @@ export const logIn = (credentials) => async (dispatch) => {
     const response = await axios.post("/auth/login", credentials);
 
     token.set(response.data.accessToken);
-    console.log(response.data.accessToken);
+    // console.log(response.data.accessToken);
 
-    console.log(response.data);
-
+    // console.log(response.data);
     dispatch(loginSuccess(response.data));
+    dispatch(getCurrentUser())
   } catch (error) {
     dispatch(loginError(error.message));
   }

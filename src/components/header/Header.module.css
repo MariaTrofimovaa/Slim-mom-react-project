@@ -1,5 +1,5 @@
 .container {
-  width: 320px;
+  max-width: 320px;
   margin: 0 auto;
 }
 
@@ -107,7 +107,7 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
   }
 
   .headerNavigation {
@@ -145,15 +145,19 @@
 
   @media screen and (min-width: 1280px) {
     .container {
-      width: 1280px;
+      max-width: 1280px;
+      display: flex;
     }
 
     .headerNavigation {
       justify-content: normal;
       border-bottom: none;
 
-      padding-top: 82px;
-      padding-left: 90px;
+      /* padding-top: 82px;
+      padding-left: 90px; */
+      padding: 82px 225px 0px 90px;
+      min-width: 745px;
+      width: 100%;
     }
 
     .regisrationListItem:not(:last-child) {

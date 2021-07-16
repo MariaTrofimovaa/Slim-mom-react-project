@@ -13,8 +13,27 @@
 
 .modal {
   width: 320px;
-  height: 550px;
+  height: 500px;
   background-color: #fff;
   padding: 80px 15px 0px;
   text-align: center;
+}
+
+.input {
+  width: 290px;
+  border-color: transparent;
+  color: #9b9faa;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  border-bottom: 1px solid #e0e0e0;
+
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
+.formButton {
+  margin-top: 30px;
 }

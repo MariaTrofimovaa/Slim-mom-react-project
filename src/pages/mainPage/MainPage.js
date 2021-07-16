@@ -4,7 +4,8 @@ import { useState } from "react";
 import DailyCaloriesForm from "../../components/dailyCaloriesForm/DailyCaloriesForm";
 import Modal from "../../components/modal/Modal";
 import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
-// import BurgerModal from "../../components/header/BurgerModal/BurgerModal";
+import RightSideBar from "../../components/rightSideBar/RightSideBar";
+
 
 const BASE_URL = "https://slimmom-backend.goit.global";
 
@@ -25,16 +26,25 @@ const MainPage = () => {
     const data = transformString(values);
     const res = await axios.post(`${BASE_URL}/daily-rate`, data);
     setData(res.data);
-    console.log(res.data);
+
     setShowModal(true);
   };
-  console.log(data);
   return (
     <>
-      <DailyCaloriesForm onSubmit={onSubmit} />
+      <DailyCaloriesForm
+        onSubmit={onSubmit}
+        initialValues={{
+          height: "",
+          age: "",
+          weight: "",
+          desiredWeight: "",
+          bloodType: "1",
+        }}
+      />
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
           <DailyKkalIntake {...data} />
+          <RightSideBar {...data} />
         </Modal>
       )}
     </>

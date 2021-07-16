@@ -1,10 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/auth/auth.operations";
-import { isAuthenticated } from "../../redux/auth/auth.selectors";
+import { getUserName, isAuthenticated } from "../../redux/auth/auth.selectors";
+
 import styles from "./UserInfo.module.css";
 
 const UserInfo = () => {
+  const name = useSelector(getUserName);
   const isAuth = useSelector(isAuthenticated);
   const dispatch = useDispatch();
 
@@ -16,7 +18,8 @@ const UserInfo = () => {
     <>
       {isAuth && (
         <div className={styles.userInfo}>
-          <p className={styles.userLogin}>Nik</p>
+          <span className={styles.userLogin}>{name} </span>
+          {/* <p className={styles.userLogin}>Nik</p> */}
           <button
             type="button"
             className={styles.exitButton}

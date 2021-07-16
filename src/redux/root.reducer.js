@@ -2,7 +2,14 @@ import { combineReducers } from "redux";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
 import auth from "./auth/auth.reducer";
+import {
+  ProductsReducer,
+  selectedDateReducer,
+  getDayInfoReducer,
+} from "./products/products.reducer";
+
 import dailyrateReducer from "./dailyrate/dailyrateReducer";
+import daySummaryInfo from "./dailyrate/dailyrateReducer";
 
 const persistConfig = {
   key: "auth",
@@ -13,11 +20,21 @@ const persistConfig = {
 const persistAuthReducer = persistReducer(persistConfig, auth);
 
 const rootReducer = combineReducers({
-  // products: productsReducer,
-  // calculator: calculatorReducer,
-  rateInfo: dailyrateReducer,
-
+  products: ProductsReducer,
+  rateInfo: daySummaryInfo,
+  selectedDate: selectedDateReducer,
   auth: persistAuthReducer,
+  // user: user
 });
+
+// user:
+// - token
+// - notAllowedProducts
+
+// diary:
+// - selectedDate
+// - eatenProducts
+// - daySummary
+
 
 export default rootReducer;
