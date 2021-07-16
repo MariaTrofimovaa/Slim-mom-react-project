@@ -71,6 +71,7 @@
   margin-right: auto;
   display: block;
   margin-bottom: 60px;
+  
 }
 
 .summary {
@@ -160,4 +161,8 @@
     padding-right: 110px;
     padding-bottom: 101px;
   }
+}
+
+.iconClose {
+  fill: #9b9faa;
 }

@@ -6,6 +6,7 @@ import {
   getDayInfo,
 } from "../../redux/products/products.selectors";
 import { deleteProduct } from "../../redux/products/products.operations";
+import IconClose from '../shared/IconClose/IconClose'
 
 const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
   function handleOpenModalClick(event) {
@@ -42,8 +43,9 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
                   type="button"
                   className={styles.buttonDelete}
                   onClick={() => deleteProductProp(product.id, item.id)}
+                  
                 >
-                  x
+                 <IconClose/>
                 </button>
               </li>
             </ul>
