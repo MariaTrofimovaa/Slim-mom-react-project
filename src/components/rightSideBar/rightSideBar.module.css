@@ -1,7 +1,10 @@
 /* .userInfoBar {
   display: none;
 } */
-
+.RightSideBarProducts {
+  height: 112px;
+  overflow: scroll;
+}
 /* контейнер общий */
 
 .RightSideBarContainer {
