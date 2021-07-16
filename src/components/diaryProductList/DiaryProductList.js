@@ -30,7 +30,9 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
   console.log("product :>> ", product);
   return (
     <div>
-      {!product.eatenProducts && <span>Список пуст</span>}
+      {product.eatenProducts && !product.eatenProducts.length && (
+        <span>Список пуст</span>
+      )}
       <ul className={styles.calendarTable}>
         {product.eatenProducts?.map((item) => (
           <li key={item.id} className={styles.listItem}>
