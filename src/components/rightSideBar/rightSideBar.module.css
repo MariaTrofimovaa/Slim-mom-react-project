@@ -1,7 +1,10 @@
 /* .userInfoBar {
   display: none;
 } */
-
+.RightSideBarProducts {
+  height: 77px;
+  overflow: scroll;
+}
 /* контейнер общий */
 
 .RightSideBarContainer {
@@ -60,6 +63,10 @@
     width: 330px;
     margin-bottom: 0px;
     margin-right: 60px;
+  }
+  .RightSideBarProducts {
+    height: 112px;
+    overflow: scroll;
   }
 }
 

@@ -101,7 +101,9 @@ const RightSideBar = () => {
       </div>
       <div className={styles.RightSideBarSummary}>
         <h2 className={styles.RightSideBarHeader}>Нерекомендуемые продукты</h2>
-        <p>{notAllowedProducts.join(", ")}</p>
+        <ul className={styles.RightSideBarProducts}>
+          <li>{notAllowedProducts.join(", ")}</li>
+        </ul>
         <div className={styles.RightSideBarStatictics}>
           {!notAllowedProducts.length && (
             <ul className={styles.RightSideBarListDiet}>
