@@ -22,7 +22,7 @@ export const updateCalculator = (values) => async (dispatch, getState) => {
     const data = transformString(values);
     const userId = getUserId(getState());
     const res = await axios.post(`${BASE_URL}/daily-rate/${userId}`, data);
-    console.log(res.data.dailyRate);
+    console.log(res.data);
     dispatch(updateCalculatorSuccess(res.data));
   } catch (error) {
     dispatch(updateCalculatorError());

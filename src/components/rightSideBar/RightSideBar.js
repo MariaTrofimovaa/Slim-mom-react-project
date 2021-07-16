@@ -25,20 +25,28 @@ const RightSideBar = () => {
   const kcalLeft = useSelector(kcalLeftSelector);
   const kcalConsumed = useSelector(kcalConsumedSelector);
   const percentsOfDailyRate = useSelector(percentsOfDailyRateSelector);
-  const date = useSelector(getSelectedDate);
+
+  const [date] = useSelector(getSelectedDate);
   console.log("date :>> ", date);
 
-  // const nowDate = moment(date).format("DD.MM.YYYY");
-  // console.log("nowDate :>> ", nowDate);
+  let selectedDate = "";
+  if (date) {
+    const [year, month, day] = date.split("-");
+    selectedDate = `${day}.${month}.${year}`;
+    console.log(selectedDate);
+  }
+
+  // const momentDate = moment(date).format("YYYY-MM-DD");
+  // console.log("momentDate :>> ", momentDate);
 
   // const currDate = date.map();
   // console.log("currDate :>> ", currDate);
 
   const importantDate = new Date().toJSON().slice(0, 10);
-  console.log("importantDate :>> ", importantDate);
+  // console.log("importantDate :>> ", importantDate);
 
   const dateNow = moment(importantDate).format("DD.MM.YYYY");
-  console.log("dateNow :>> ", dateNow);
+  // console.log("dateNow :>> ", dateNow);
 
   // const date = currentDay ? currentDay : new Date().toJSON().slice(0, 10);
   // const newDate = date.split("-").reverse().join(".");
@@ -66,7 +74,7 @@ const RightSideBar = () => {
           Сводка за {date ? newDate : date}
         </h2> */}
         <h2 className={styles.RightSideBarHeader}>
-          Сводка за {date ? date : dateNow}
+          Сводка за {selectedDate || dateNow}
         </h2>
         <div className={styles.RightSideBarStatictics}>
           <ul className={styles.RightSideBarParams}>
