@@ -18,6 +18,13 @@
   height: 46px;
 }
 
+.text {
+  background-image: url("../../img/svg/Group18.svg");
+  width: 105px;
+  height: 16px;
+  display: none;
+}
+
 .burgerBtn {
   background-image: url("../../img/svg/burgerMenu.svg");
   width: 20px;
@@ -64,13 +71,6 @@
 .link:hover,
 .link:focus {
   color: #212121;
-}
-
-.text {
-  background-image: url("../../img/svg/Group18.svg");
-  width: 105px;
-  height: 16px;
-  display: none;
 }
 
 .regisrationListItem:not(:last-child) {

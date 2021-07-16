@@ -2,8 +2,6 @@ import React from "react";
 import UserInfo from "../userInfo/UserInfo";
 import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-import { isAuthenticated } from "../../redux/auth/auth.selectors";
-import { useSelector } from "react-redux";
 import Modal from "../header/BurgerModal/BurgerModal";
 import { withRouter } from "react-router-dom";
 import Navigation from "./Navigation";
@@ -11,7 +9,6 @@ import { useState } from "react";
 
 const Header = () => {
   const [state, setState] = useState(false);
-  const authToken = useSelector(isAuthenticated);
 
   const setModalState = () =>
     setState((prev) => ({ isModalOpen: !prev.isModalOpen }));
