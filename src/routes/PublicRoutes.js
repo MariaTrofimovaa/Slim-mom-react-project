@@ -10,7 +10,7 @@ const PublicRoute = ({ component: Component, redirectTo, ...routeProps }) => {
       {...routeProps}
       render={(props) =>
         isAuth && routeProps.restricted ? (
-          <Redirect to={redirectTo} />
+          <Redirect to="/calculator" />
         ) : (
           <Component {...props} />
         )

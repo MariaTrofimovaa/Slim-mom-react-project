@@ -26,7 +26,7 @@ const DailyKkalIntake = ({ dailyRate, notAllowedProducts }) => {
           Ваша рекомендуемая суточная <br /> норма калорий составляет
         </h3>
         <div className={styles.moduleDailyNormValueCcal}>
-          {dailyRate}
+          {Math.round(dailyRate)}
           <span className={styles.moduleDailyNormCcal}>ккал</span>
         </div>
       </div>
