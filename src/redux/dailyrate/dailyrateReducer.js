@@ -1,5 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { getCurrentUserSuccess, logoutSuccess } from "../auth/auth.actions";
+import { updateCalculatorSuccess } from "../calculator/calculator.actions";
 import {
   addProductSuccess,
   deleteProductSuccess,
@@ -10,7 +11,6 @@ import { getDailyRateSuccess } from "./dailyrateActions";
 const initialState = {
   id: "",
   dailyRate: "",
-  daySummary: {},
   summaries: {
     _id: "",
     date: "",
@@ -24,7 +24,7 @@ const initialState = {
   notAllowedProducts: [],
 };
 
-const dailyrateReducer = createReducer(initialState, {
+const daySummaryInfo = createReducer(initialState, {
   [getDailyRateSuccess]: (_, { payload }) => payload,
   [getCurrentUserSuccess]: (state, { payload }) => ({
     ...state,
@@ -34,11 +34,52 @@ const dailyrateReducer = createReducer(initialState, {
     ...state,
     summaries: payload.daySummary,
   }),
-  // [getDayInfoSuccess]: (_, { payload }) => ({daySummary: payload.daySummary}),
 
-  [deleteProductSuccess]: (_, { payload }) => payload,
+  [getDayInfoSuccess]: (state, { payload }) => {
+    
+
+    if ("id" in payload) {
+      return {
+        ...state,
+        summaries: payload.daySummary,
+      };
+    }
+
+    return {
+      ...state,
+      summaries: payload,
+    };
+  },
+
+  [deleteProductSuccess]: (state, { payload }) => ({
+    ...state,
+    summaries: payload.newDaySummary,
+  }),
+
+  [updateCalculatorSuccess]: (state, { payload }) => {
+    const day = payload.summaries.find(
+      (summary) => summary.date === state.summaries.date
+    );
+
+    if (day) {
+      return {
+        ...state,
+        summaries: day,
+        notAllowedProducts: payload.notAllowedProducts,
+      };
+    }
+    return {
+      ...state,
+      notAllowedProducts: payload.notAllowedProducts,
+      summaries: {
+        ...state.summaries,
+        dailyRate: payload.dailyRate,
+        kcalLeft: payload.dailyRate,
+      },
+    };
+  },
 
   [logoutSuccess]: () => initialState,
 });
 
-export default dailyrateReducer;
+export default daySummaryInfo;

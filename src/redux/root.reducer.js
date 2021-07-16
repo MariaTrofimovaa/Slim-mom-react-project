@@ -9,6 +9,7 @@ import {
 } from "./products/products.reducer";
 
 import dailyrateReducer from "./dailyrate/dailyrateReducer";
+import daySummaryInfo from "./dailyrate/dailyrateReducer";
 
 const persistConfig = {
   key: "auth",
@@ -20,9 +21,8 @@ const persistAuthReducer = persistReducer(persistConfig, auth);
 
 const rootReducer = combineReducers({
   products: ProductsReducer,
-  rateInfo: dailyrateReducer,
+  rateInfo: daySummaryInfo,
   selectedDate: selectedDateReducer,
-
   auth: persistAuthReducer,
   // user: user
 });

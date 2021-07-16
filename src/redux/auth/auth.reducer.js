@@ -1,4 +1,5 @@
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
+
 import {
   getCurrentUserError,
   getCurrentUserSuccess,
@@ -14,7 +15,7 @@ import {
 const user = createReducer({}, {
   [registerSuccess]: (_, { payload }) => payload.user,
   [loginSuccess]: (_, { payload }) => payload.user,
-  // [getCurrentUserSuccess]: (_, { payload }) => payload,
+  [getCurrentUserSuccess]: (_, { payload }) => payload,
   [logoutSuccess]: () => ({}),
 });
 

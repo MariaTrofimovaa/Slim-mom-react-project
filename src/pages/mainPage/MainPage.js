@@ -6,6 +6,7 @@ import Modal from "../../components/modal/Modal";
 import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
 import RightSideBar from "../../components/rightSideBar/RightSideBar";
 
+
 const BASE_URL = "https://slimmom-backend.goit.global";
 
 const transformString = (obj) => {
@@ -30,7 +31,16 @@ const MainPage = () => {
   };
   return (
     <>
-      <DailyCaloriesForm onSubmit={onSubmit} />
+      <DailyCaloriesForm
+        onSubmit={onSubmit}
+        initialValues={{
+          height: "",
+          age: "",
+          weight: "",
+          desiredWeight: "",
+          bloodType: "1",
+        }}
+      />
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
           <DailyKkalIntake {...data} />

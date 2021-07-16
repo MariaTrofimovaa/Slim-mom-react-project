@@ -13,11 +13,12 @@ const ProductsReducer = createReducer(
       ...state,
       eatenProducts: [...state.eatenProducts, payload.eatenProduct],
     }),
-    [deleteProductSuccess]: (state, { payload }) =>
-      state.eatenProducts.filter(
+    [deleteProductSuccess]: (state, { payload }) =>({...state,
+      eatenProducts: state.eatenProducts.filter(
         (product) => product.id !== payload.eatenProductId
-      ),
-
+//      ),
+     )}),
+    
     [getDayInfoSuccess]: (state, { payload }) => payload,
   }
 );

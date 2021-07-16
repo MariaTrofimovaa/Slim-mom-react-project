@@ -25,7 +25,7 @@ const DiaryPage = lazy(() => import("../../pages/diaryPage/DiaryPage"));
 const Main = () => {
   return (
     <div>
-      <Suspense fallback={<AppLoader/>}>
+      <Suspense fallback={<AppLoader />}>
         <Switch>
           <PublicRoutes exact path="/" component={MainPage} restricted />
           <PublicRoutes
@@ -48,6 +48,12 @@ const Main = () => {
           />
 
           <PrivateRoutes path="/diary" component={DiaryPage} redirectTo="/" />
+          {/* 
+          <PrivateRoutes
+            path="/"
+            component={CalculatorPage}
+            redirectTo="/calculator"
+          /> */}
         </Switch>
       </Suspense>
     </div>

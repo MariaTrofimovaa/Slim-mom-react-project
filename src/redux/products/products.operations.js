@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { getUserData } from "../auth/auth.selectors";
 import {
   addProductRequest,
   addProductSuccess,
@@ -33,13 +35,19 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
 
   axios
     .delete(`/day`, { data: deletedProduct })
-    .then(() => dispatch(deleteProductSuccess(deletedProduct)))
+    .then((response) =>
+      dispatch(deleteProductSuccess({ ...deletedProduct, ...response.data }))
+    )
     .catch((error) => dispatch(deleteProductError(error.message)));
 };
 
-const getDayInfo = (date) => (dispatch) => {
+const getDayInfo = (date) => (dispatch, getState) => {
+  // const userData = useSelector(getUserData);
   dispatch(getDayInfoRequest());
+  // const dayInfo = getState().rateInfo.summaries.kcalLeft;
+  // const dayInfo = getState().auth.user;
 
+  // if (!dayInfo) return;
   // const deletedProduct = { dayId, eatenProductId };
   console.log(axios.defaults.headers.common.Authorization);
 

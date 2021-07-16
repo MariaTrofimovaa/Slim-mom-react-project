@@ -16,16 +16,18 @@ import {
   getDayInfo,
 } from "../../redux/products/products.operations";
 import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
+import { getSelectedDate } from "../../redux/products/products.selectors";
 
 const RightSideBar = () => {
   const dailyKcal = useSelector(kcalSelector);
+  console.log(dailyKcal);
   const notAllowedProducts = useSelector(notAllowedProds);
   const kcalLeft = useSelector(kcalLeftSelector);
   const kcalConsumed = useSelector(kcalConsumedSelector);
   const percentsOfDailyRate = useSelector(percentsOfDailyRateSelector);
-  const date = useSelector(dateSelector);
+  const date = useSelector(getSelectedDate);
   const currentDay = new Date().toJSON().slice(0, 10);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // import { useState } from "react";
   // import { useDispatch } from "react-redux";
@@ -40,7 +42,9 @@ const RightSideBar = () => {
   return (
     <div className={styles.RightSideBarContainer}>
       <div className={styles.RightSideBarSummary}>
-        <h2 className={styles.RightSideBarHeader}>Сводка за {currentDay}</h2>
+        <h2 className={styles.RightSideBarHeader}>
+          Сводка за {date === null ? currentDay : date}
+        </h2>
         <div className={styles.RightSideBarStatictics}>
           <ul className={styles.RightSideBarParams}>
             <li className={styles.RightSideBarItem}>Осталось</li>
@@ -49,11 +53,15 @@ const RightSideBar = () => {
             <li className={styles.RightSideBarItem}>n% от нормы</li>
           </ul>
           <ul>
-            <li className={styles.RightSideBarItem}>{kcalLeft} ккал</li>
+            <li className={styles.RightSideBarItem}>
+              {Math.round(kcalLeft) || 0} ккал
+            </li>
             <li className={styles.RightSideBarItem}>
               {Math.round(kcalConsumed) || 0} ккал
             </li>
-            <li className={styles.RightSideBarItem}>{dailyKcal} ккал</li>
+            <li className={styles.RightSideBarItem}>
+              {Math.round(dailyKcal) || 0} ккал
+            </li>
             <li className={styles.RightSideBarItem}>
               {Math.round(percentsOfDailyRate) || 0} %
             </li>

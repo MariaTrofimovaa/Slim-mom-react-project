@@ -19,6 +19,8 @@
 .title {
   margin-top: 0;
   margin-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-family: Verdana;
   font-style: normal;
   font-weight: 700;
@@ -34,6 +36,8 @@
 .formContainer {
   width: 240px;
   margin-right: 0;
+  padding-left: 15px;
+  padding-bottom: 60px;
 }
 
 .formInput {
@@ -113,7 +117,6 @@
     width: 100%;
     height: 1024px;
     min-height: 944px;
-    margin-left: 86px;
     margin-right: 74px;
     margin-top: 100px;
     background-image: url(../../img/Group40@1x.png);
@@ -121,6 +124,12 @@
     background-position: top 100% right 0px;
     height: 100vh;
   }
+
+  .formContainer {
+    padding-left: 87px;
+    /* padding-bottom: 60px; */
+  }
+
   .container__active {
     min-width: 768px;
     margin: 0;
@@ -134,10 +143,12 @@
   }
 
   .title {
+    padding-left: 87px;
+    padding-right: 76px;
     font-size: 30px;
     line-height: 36px;
     margin-bottom: 60px;
-    width: 605px;
+    /* width: 605px; */
   }
 
   .formWrapper {
@@ -174,11 +185,14 @@
     padding: 294px 0 0 0;
     background-image: url(../../img/Group41@1x.png);
     background-repeat: no-repeat;
-    background-position: top 25% right 122px;
+    background-position: top 25% right 0px;
     background-size: 900px, 500px, 700px, 700px;
     z-index: 100;
   }
-
+  .formContainer {
+    padding-left: 115px;
+    /* padding-bottom: 60px; */
+  }
   .container__active {
     min-width: 745px;
     padding: 137px 25px 111px 115px;
@@ -190,7 +204,10 @@
   .title {
     font-size: 34px;
     line-height: 41px;
+    margin-left: 115px;
+    padding: 0px;
     margin-bottom: 68px;
+    width: 605px;
   }
   /* .inputWrapper {
     margin-bottom: 24px;
