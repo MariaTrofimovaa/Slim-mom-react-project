@@ -20,7 +20,7 @@ const DailyKkalIntake = ({ dailyRate, notAllowedProducts }) => {
       );
   };
   return (
-    <div>
+    <div className={styles.moduleDailyNormMainContainer}>
       <div className={styles.moduleDailyNormContainer}>
         <h3 className={styles.moduleDailyNormTitle}>
           Ваша рекомендуемая суточная <br /> норма калорий составляет
