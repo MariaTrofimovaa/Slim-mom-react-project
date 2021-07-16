@@ -9,7 +9,6 @@ import {
 const ProductsReducer = createReducer(
   { id: "", eatenProducts: [] },
   {
-    //   [fetchContactSuccess]: (_, { payload }) => payload,
     [addProductSuccess]: (state, { payload }) => ({
       ...state,
       eatenProducts: [...state.eatenProducts, payload.eatenProduct],
@@ -17,7 +16,9 @@ const ProductsReducer = createReducer(
     [deleteProductSuccess]: (state, { payload }) =>({...state,
       eatenProducts: state.eatenProducts.filter(
         (product) => product.id !== payload.eatenProductId
-      )}),
+//      ),
+     )}),
+    
     [getDayInfoSuccess]: (state, { payload }) => payload,
   }
 );

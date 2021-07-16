@@ -7,16 +7,12 @@ import {
 } from "../../redux/products/products.selectors";
 import { deleteProduct } from "../../redux/products/products.operations";
 
-const DiaryProductList = ({
-  openModalProp,
-  product,
-  deleteProductProp,
-  dayInfo,
-}) => {
+const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
   function handleOpenModalClick(event) {
     openModalProp(event);
   }
 
+  console.log(product.id);
   // handleDelete = (e) => {
   //   deleteProductProp(e.target.id);
 
