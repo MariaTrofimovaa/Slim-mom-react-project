@@ -67,18 +67,13 @@ class DiaryAddProductForm extends Component {
 
     console.log(this.props.selectedDate);
 
-    // this.props.addProductProp(
-    //   this.state.date,
-    //   this.state.productId,
-    //   this.state.weight
-    // );
     this.props.getCurrentUser();
+    // this.props.closeModal();
 
     this.setState({ searchWord: "", productId: "", weight: "" });
   };
 
   render() {
-    // console.log(this.state.foundProducts);
     return (
       <div>
         <form className={styles.productForm} onSubmit={this.handleSubmit}>
