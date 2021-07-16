@@ -29,6 +29,7 @@ const daySummaryInfo = createReducer(initialState, {
   [getCurrentUserSuccess]: (state, { payload }) => ({
     ...state,
     notAllowedProducts: payload.userData.notAllowedProducts,
+    user: payload.userData.weight,
   }),
   [addProductSuccess]: (state, { payload }) => ({
     ...state,
@@ -36,8 +37,6 @@ const daySummaryInfo = createReducer(initialState, {
   }),
 
   [getDayInfoSuccess]: (state, { payload }) => {
-    
-
     if ("id" in payload) {
       return {
         ...state,
