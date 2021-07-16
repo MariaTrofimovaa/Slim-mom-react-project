@@ -176,6 +176,7 @@
   .calculator {
     display: flex;
     padding-top: 0px;
+    width: 1280px;
   }
 
   .container {

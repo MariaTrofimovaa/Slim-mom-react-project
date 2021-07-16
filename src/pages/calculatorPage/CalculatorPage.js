@@ -1,12 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../redux/auth/auth.operations";
 import axios from "axios";
 import { useState } from "react";
 import DailyCaloriesForm from "../../components/dailyCaloriesForm/DailyCaloriesForm";
 import {
   getUserData,
-  getUserId,
+  
   isAuthenticated,
 } from "../../redux/auth/auth.selectors";
 import { useEffect } from "react";
@@ -24,8 +23,8 @@ import { updateCalculator } from "../../redux/calculator/calculator.operations";
 // };
 
 const CalculatorPage = () => {
-  const [data, setData] = useState(null);
-  const userId = useSelector(getUserId);
+  // const [data, setData] = useState(null);
+  // const userId = useSelector(getUserId);
   const userData = useSelector(getUserData);
   const token = useSelector(isAuthenticated);
   const dispatch = useDispatch();

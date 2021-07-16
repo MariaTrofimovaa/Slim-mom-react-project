@@ -77,9 +77,12 @@ const Navigation = ({ isModalOpen, setModalState }) => {
           </ul>
         </>
       )}
-      {/* <div className={styles.useInfoNav}>
-        <UserInfo />
-      </div> */}
+
+      {isWide && (
+        <div className={styles.userInfoNav}>
+          <UserInfo />
+        </div>
+      )}
 
       {!isModalOpen && authToken && (
         <svg className={styles.burgerBtn} onClick={setModalState}>

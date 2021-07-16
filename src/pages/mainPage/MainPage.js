@@ -4,8 +4,6 @@ import { useState } from "react";
 import DailyCaloriesForm from "../../components/dailyCaloriesForm/DailyCaloriesForm";
 import Modal from "../../components/modal/Modal";
 import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
-import RightSideBar from "../../components/rightSideBar/RightSideBar";
-
 
 const BASE_URL = "https://slimmom-backend.goit.global";
 

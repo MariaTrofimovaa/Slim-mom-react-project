@@ -152,9 +152,18 @@
     .headerNavigation {
       justify-content: normal;
       border-bottom: none;
-      padding: 82px 225px 0px 90px;
+      padding: 0px 225px 0px 90px;
+      /* margin-top: 82px; */
       min-width: 745px;
       width: 100%;
+    }
+
+    .listLogo {
+      margin-top: 82px;
+    }
+
+    .regisrationList {
+      margin-top: 82px;
     }
 
     .regisrationListItem:not(:last-child) {

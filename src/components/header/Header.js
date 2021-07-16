@@ -10,7 +10,9 @@ import useMedia from "use-media";
 
 const Header = () => {
   const [state, setState] = useState(false);
- const isWide = useMedia({ minWidth: "320px" });
+
+  const isWide = useMedia({ minWidth: "320px", maxWidth: "767px" });
+
   const setModalState = () =>
     setState((prev) => ({ isModalOpen: !prev.isModalOpen }));
 
@@ -46,10 +48,9 @@ const Header = () => {
           </ul>
         </Modal>
       )}
-      <div className={styles.userInfoHeader}>
-       <UserInfo />
-      </div>
-        
+
+      {isWide && <UserInfo />}
+
     </div>
   );
 };
