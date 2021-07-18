@@ -34,7 +34,7 @@ const ProductsReducer = createReducer(
 
     [getDayInfoSuccess]: (state, { payload }) => {
       if (typeof payload.eatenProducts === "undefined") {
-        return state;
+        return {...state, eatenProducts: []};
       }
 
       return {

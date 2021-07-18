@@ -46,7 +46,7 @@ const CalculatorPage = () => {
           age: userData?.age ?? "",
           weight: userData?.weight ?? "",
           desiredWeight: userData?.desiredWeight ?? "",
-          bloodType: userData?.bloodType ?? "",
+          bloodType: userData?.bloodType ?? "1",
         }}
       />
     </>

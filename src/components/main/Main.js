@@ -21,13 +21,20 @@ const CalculatorPage = lazy(() =>
   import("../../pages/calculatorPage/CalculatorPage")
 );
 const DiaryPage = lazy(() => import("../../pages/diaryPage/DiaryPage"));
+const NotFound = lazy(() => import("../../pages/notFound/NotFound"));
 
 const Main = () => {
   return (
     <div>
       <Suspense fallback={<AppLoader />}>
         <Switch>
-          <PublicRoutes exact path="/" component={MainPage} restricted redirectTo="/calculator"/>
+          <PublicRoutes
+            exact
+            path="/"
+            component={MainPage}
+            restricted
+            redirectTo="/calculator"
+          />
           <PublicRoutes
             path="/registration"
             component={RegistrationPage}
@@ -41,6 +48,9 @@ const Main = () => {
             redirectTo="/calculator"
             restricted
           />
+
+          {/* <PublicRoutes exact path="" component={NotFound} /> */}
+
           <PrivateRoutes
             path="/calculator"
             component={CalculatorPage}

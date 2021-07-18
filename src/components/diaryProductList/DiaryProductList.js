@@ -13,7 +13,7 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
     openModalProp(event);
   }
 
-  console.log(product.id);
+  // console.log(product.id);
   // handleDelete = (e) => {
   //   deleteProductProp(e.target.id);
 
@@ -42,8 +42,6 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
               <li className={styles.foodWeight}>{item.weight} г</li>
               <li className={styles.line}>{Math.round(item.kcal)} ккал</li>
               <li>
-                {console.log("item", item)}
-                {console.log(product)}
                 <button
                   type="button"
                   className={styles.buttonDelete}

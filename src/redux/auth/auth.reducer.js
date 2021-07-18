@@ -11,13 +11,19 @@ import {
   registerSuccess,
 } from "./auth.actions";
 
-
-const user = createReducer({}, {
-  [registerSuccess]: (_, { payload }) => payload.user,
-  [loginSuccess]: (_, { payload }) => payload.user,
-  [getCurrentUserSuccess]: (_, { payload }) => payload,
-  [logoutSuccess]: () => ({}),
-});
+const user = createReducer(
+  {},
+  {
+    [registerSuccess]: (_, { payload }) => payload.user,
+    [loginSuccess]: (_, { payload }) => payload.user,
+    [getCurrentUserSuccess]: (_, { payload }) => payload,
+    // [getCurrentUserSuccess]: (state, { payload }) => ({
+    //   ...state,
+    //   userData: payload.userData,
+    // }),
+    [logoutSuccess]: () => ({}),
+  }
+);
 
 const token = createReducer(null, {
   [registerSuccess]: (_, { payload }) => null,

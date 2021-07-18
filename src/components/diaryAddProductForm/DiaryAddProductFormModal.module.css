@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   /* overflow: auto; */
   z-index: 1200;
   position: fixed;
@@ -17,6 +18,11 @@
   background-color: #fff;
   padding: 80px 15px 0px;
   text-align: center;
+
+  overflow: hidden;
+
+  /* max-height: calc(100vh - 24px);
+  position: relative; */
 }
 
 /* .input {
@@ -54,4 +60,8 @@
   .closeModalButton {
     display: none;
   }
+
+  /* .formAddButton {
+    display: none;
+  } */
 }

@@ -27,13 +27,13 @@ const RightSideBar = () => {
   const percentsOfDailyRate = useSelector(percentsOfDailyRateSelector);
 
   const [date] = useSelector(getSelectedDate);
-  console.log("date :>> ", date);
+  // console.log("date :>> ", date);
 
   let selectedDate = "";
   if (date) {
     const [year, month, day] = date.split("-");
     selectedDate = `${day}.${month}.${year}`;
-    console.log(selectedDate);
+    // console.log(selectedDate);
   }
 
   // const momentDate = moment(date).format("YYYY-MM-DD");

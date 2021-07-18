@@ -31,7 +31,7 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
   dispatch(deleteProductRequest());
 
   const deletedProduct = { dayId, eatenProductId };
-  console.log(axios.defaults.headers.common.Authorization);
+  // console.log(axios.defaults.headers.common.Authorization);
 
   axios
     .delete(`/day`, { data: deletedProduct })
@@ -51,12 +51,12 @@ const getDayInfo = (date) => (dispatch, getState) => {
   // console.log("dayInfo :>> ", dayInfo);
   // if (!dayInfo) return;
 
-  console.log(axios.defaults.headers.common.Authorization);
+  // console.log(axios.defaults.headers.common.Authorization);
 
   axios
     .post(`/day/info`, { date })
     .then((response) => {
-      console.log(response, "response");
+      // console.log(response, "response");
       dispatch(getDayInfoSuccess(response.data));
     })
 
