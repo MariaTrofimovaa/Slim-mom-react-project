@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  logIn,
-} from "../../redux/auth/auth.operations";
+import { logIn } from "../../redux/auth/auth.operations";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import schema from "./validator/Validator";
 import style from "./LoginForm.module.css";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-
+import svg from "../../img/svg/eye-login.svg";
 
 const InitialState = {
   email: "",
@@ -18,10 +16,11 @@ const InitialState = {
 const AuthForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const [showPassword, showSetPassword] = useState(false);
+  const toggleShowPassword = () => showSetPassword((prevState) => !prevState);
 
   return (
     <div className={style.container}>
-
       <div className={style.formContainer}>
         <h1 className={style.authTitle}>Вход</h1>
         <Formik
@@ -45,14 +44,29 @@ const AuthForm = () => {
                 className={style.errorMessage}
               />
             </label>
-            
+
             <label>
               <Field
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Пароль *"
                 className={style.input}
               />
+              <button
+                type="button"
+                onClick={toggleShowPassword}
+                className={style.eyeIconBtn}
+              >
+                {showPassword ? (
+                  <svg className={style.eyeIcon}>
+                    <use href={`${svg}#icon-eye`}></use>
+                  </svg>
+                ) : (
+                  <svg className={style.eyeIcon}>
+                    <use href={`${svg}#icon-eye-hidden`}></use>
+                  </svg>
+                )}
+              </button>
               <ErrorMessage
                 name="password"
                 component="div"
@@ -161,23 +175,23 @@ export default AuthForm;
 //             </label>
 //           </form>
 
-          // <div className={styles.buttonContainer}>
-          //   <button className={styles.authButton} type="submit">
-          //     {location.pathname === "/registration" ? "Регистрация" : "Bход"}
-          //   </button>
+// <div className={styles.buttonContainer}>
+//   <button className={styles.authButton} type="submit">
+//     {location.pathname === "/registration" ? "Регистрация" : "Bход"}
+//   </button>
 
-          //   {location.pathname === "/registration" ? (
-          //     <Link to="/login" className={styles.authLink}>
-          //       {location.pathname === "/registration" ? "Вход" : "Регистрация"}
-          //     </Link>
-          //   ) : (
-          //     <Link to="/registration" className={styles.authLink}>
-          //       {location.pathname === "/registration"
-          //         ? "Уже есть аккаунт"
-          //         : "Регистрация"}
-          //     </Link>
-          //   )}
-          // </div>
+//   {location.pathname === "/registration" ? (
+//     <Link to="/login" className={styles.authLink}>
+//       {location.pathname === "/registration" ? "Вход" : "Регистрация"}
+//     </Link>
+//   ) : (
+//     <Link to="/registration" className={styles.authLink}>
+//       {location.pathname === "/registration"
+//         ? "Уже есть аккаунт"
+//         : "Регистрация"}
+//     </Link>
+//   )}
+// </div>
 
 //           {/* <button type="submit" className={styles.submitBtn}>
 //             Вход

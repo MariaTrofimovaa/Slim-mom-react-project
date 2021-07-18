@@ -57,6 +57,24 @@
   background-color: white;
 }
 
+.eyeIcon {
+  fill: #9b9faa;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.eyeIconBtn {
+  background-color: transparent;
+  position: absolute;
+  top: 210px;
+  right: 15px;
+  border-radius: 50%;
+  border: none;
+}
+
 .errorMessage {
   color: red;
 }
@@ -164,6 +182,11 @@
     align-items: flex-start;
   }
 
+  .eyeIconBtn {
+    top: 366px;
+    right: 393px;
+  }
+
   .buttonContainer {
     display: flex;
     flex-direction: row;
@@ -180,7 +203,7 @@
 @media screen and (min-width: 1280px) {
   .container {
     max-width: 1280px;
-    padding: 0 115px;
+    /* padding: 0 115px; */
 
     position: absolute;
     z-index: -100;
@@ -192,13 +215,13 @@
     background-position: 256px -46px, right 170px, 740px 341px, right top;
 
     width: 1280px;
-    padding: 115px 244px 783px 243px;
+    padding: 115px 137px 560px 111px;
   }
 
-  /* .formContainer {
-    margin-left: 0px;
-    padding: 0px;
-  } */
+  .eyeIconBtn {
+    top: 325px;
+    right: 748px;
+  }
 
   .navContainer {
     width: 1280px;

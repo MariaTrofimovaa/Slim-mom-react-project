@@ -3,11 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useState } from "react";
 import DailyCaloriesForm from "../../components/dailyCaloriesForm/DailyCaloriesForm";
-import {
-  getUserData,
-  
-  isAuthenticated,
-} from "../../redux/auth/auth.selectors";
+import { getUserData, isAuthenticated } from "../../redux/auth/auth.selectors";
 import { useEffect } from "react";
 import { getDayInfo } from "../../redux/products/products.operations";
 import { updateCalculator } from "../../redux/calculator/calculator.operations";
@@ -39,7 +35,6 @@ const CalculatorPage = () => {
   const onSubmit = (values) => {
     dispatch(updateCalculator(values));
   };
-
 
   return (
     <>
