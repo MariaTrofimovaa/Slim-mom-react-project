@@ -1,11 +1,16 @@
 /* .userInfoBar {
   display: none;
 } */
-
+.RightSideBarProducts {
+  height: 77px;
+  overflow: scroll;
+}
 /* контейнер общий */
 
 .RightSideBarContainer {
-  padding: 40px 10% 40px 10%;
+      margin: 0 auto;
+    max-width: 320px;
+  padding: 40px 0;
   /* background-color: #f0f1f3; */
 }
 /* заголовки секций */
@@ -43,6 +48,8 @@
 
 @media screen and (min-width: 768px) {
   .RightSideBarContainer {
+    margin: 0 auto;
+    max-width: 768px;
     display: flex;
     padding: 91px 37px 91px 87px;
     /* background-color: #f0f1f3; */
@@ -53,6 +60,10 @@
     /* max-width: 768px; */
   }
 
+  .RightSideBarSummary {
+    width: 330px;
+  }
+
   .RightSideBarHeader {
     margin-bottom: 22px;
   }
@@ -60,6 +71,10 @@
     width: 330px;
     margin-bottom: 0px;
     margin-right: 60px;
+  }
+  .RightSideBarProducts {
+    height: 112px;
+    overflow: scroll;
   }
 }
 

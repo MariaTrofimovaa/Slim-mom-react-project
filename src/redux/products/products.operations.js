@@ -44,11 +44,13 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
 const getDayInfo = (date) => (dispatch, getState) => {
   // const userData = useSelector(getUserData);
   dispatch(getDayInfoRequest());
-  // const dayInfo = getState().rateInfo.summaries.kcalLeft;
-  // const dayInfo = getState().auth.user;
 
+  // проверка: если данные о пользователе не введены, вернуть
+  // const dayInfo = getState().rateInfo.summaries.kcalLeft;
+  // const dayInfo = getState().auth.user.userData.weight;
+  // console.log("dayInfo :>> ", dayInfo);
   // if (!dayInfo) return;
-  // const deletedProduct = { dayId, eatenProductId };
+
   console.log(axios.defaults.headers.common.Authorization);
 
   axios

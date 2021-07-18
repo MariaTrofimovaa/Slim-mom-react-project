@@ -27,7 +27,7 @@ const Main = () => {
     <div>
       <Suspense fallback={<AppLoader />}>
         <Switch>
-          <PublicRoutes exact path="/" component={MainPage} restricted />
+          <PublicRoutes exact path="/" component={MainPage} restricted redirectTo="/calculator"/>
           <PublicRoutes
             path="/registration"
             component={RegistrationPage}

@@ -4,10 +4,12 @@
   align-items: center;
   margin-top: 40px;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .datePicker {
-  text-align: start;
+
+  /* text-align: start;
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
@@ -16,5 +18,24 @@
   color: #212121;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-color: transparent;
-  width: 200px !important;
+  width: 200px !important; */
+
+  text-align: left;
+  border-color: transparent;
+  font-weight: 700;
+  font-size: 18px;
+  /* line-height: 22px; */
+  width: 125px;
+}
+
+.datePickerLogo {
+  width: 20px;
+}
+
+.datePickerLogo {
+  /* padding-top: 5px; */
+  align-items: center;
+  position: absolute;
+  top: 4px;
+  left: 125px;
 }

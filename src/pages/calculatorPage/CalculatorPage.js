@@ -1,12 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../redux/auth/auth.operations";
 import axios from "axios";
 import { useState } from "react";
 import DailyCaloriesForm from "../../components/dailyCaloriesForm/DailyCaloriesForm";
 import {
   getUserData,
-  getUserId,
+  
   isAuthenticated,
 } from "../../redux/auth/auth.selectors";
 import { useEffect } from "react";
@@ -24,8 +23,8 @@ import { updateCalculator } from "../../redux/calculator/calculator.operations";
 // };
 
 const CalculatorPage = () => {
-  const [data, setData] = useState(null);
-  const userId = useSelector(getUserId);
+  // const [data, setData] = useState(null);
+  // const userId = useSelector(getUserId);
   const userData = useSelector(getUserData);
   const token = useSelector(isAuthenticated);
   const dispatch = useDispatch();
@@ -39,15 +38,8 @@ const CalculatorPage = () => {
 
   const onSubmit = (values) => {
     dispatch(updateCalculator(values));
-    // const data = transformString(values);
-    // const res = await axios.post(`${BASE_URL}/daily-rate/${userId}`, data);
-    // console.log(res.data.dailyRate);
-    // setData(res.data.dailyRate);
   };
 
-  // const onLogOut = (e) => {
-  //   dispatch(logOut());
-  // };
 
   return (
     <>
@@ -59,12 +51,9 @@ const CalculatorPage = () => {
           age: userData?.age ?? "",
           weight: userData?.weight ?? "",
           desiredWeight: userData?.desiredWeight ?? "",
-          bloodType: userData?.bloodType ?? "1",
+          bloodType: userData?.bloodType ?? "",
         }}
       />
-      {/* <button type="submit" onClick={onLogOut}>
-        Выйти
-      </button> */}
     </>
   );
 };

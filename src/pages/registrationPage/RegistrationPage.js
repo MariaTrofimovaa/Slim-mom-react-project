@@ -10,5 +10,3 @@ const RegistrationPage = () => {
 }
 
 export default RegistrationPage;
-
-// добавить уведомление об ошибке

@@ -106,7 +106,7 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
-
+  text-decoration: none;
   text-align: center;
   letter-spacing: 0.04em;
 
@@ -182,8 +182,8 @@
     max-width: 1280px;
     padding: 0 115px;
 
-    /* position: absolute; */
-
+    position: absolute;
+    z-index: -100;
     background: url(../../img/leavesLogin@1x.png),
       url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
       url(../../img/spot-login.png);

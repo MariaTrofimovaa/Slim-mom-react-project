@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import {
   dateSelector,
@@ -20,15 +21,42 @@ import { getSelectedDate } from "../../redux/products/products.selectors";
 
 const RightSideBar = () => {
   const dailyKcal = useSelector(kcalSelector);
-  console.log(dailyKcal);
   const notAllowedProducts = useSelector(notAllowedProds);
   const kcalLeft = useSelector(kcalLeftSelector);
   const kcalConsumed = useSelector(kcalConsumedSelector);
   const percentsOfDailyRate = useSelector(percentsOfDailyRateSelector);
-  const date = useSelector(getSelectedDate);
-  const currentDay = new Date().toJSON().slice(0, 10);
-  // const dispatch = useDispatch();
 
+  const [date] = useSelector(getSelectedDate);
+  console.log("date :>> ", date);
+
+  let selectedDate = "";
+  if (date) {
+    const [year, month, day] = date.split("-");
+    selectedDate = `${day}.${month}.${year}`;
+    console.log(selectedDate);
+  }
+
+  // const momentDate = moment(date).format("YYYY-MM-DD");
+  // console.log("momentDate :>> ", momentDate);
+
+  // const currDate = date.map();
+  // console.log("currDate :>> ", currDate);
+
+  const importantDate = new Date().toJSON().slice(0, 10);
+  // console.log("importantDate :>> ", importantDate);
+
+  const dateNow = moment(importantDate).format("DD.MM.YYYY");
+  // console.log("dateNow :>> ", dateNow);
+
+  // const date = currentDay ? currentDay : new Date().toJSON().slice(0, 10);
+  // const newDate = date.split("-").reverse().join(".");
+
+  // function dateNormalise(date) {
+  //   // const newNewDate = ...newDate;
+  //   return newDate;
+  // }
+
+  // const dispatch = useDispatch();
   // import { useState } from "react";
   // import { useDispatch } from "react-redux";
   // import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
@@ -42,8 +70,11 @@ const RightSideBar = () => {
   return (
     <div className={styles.RightSideBarContainer}>
       <div className={styles.RightSideBarSummary}>
+        {/* <h2 className={styles.RightSideBarHeader}>
+          Сводка за {date ? newDate : date}
+        </h2> */}
         <h2 className={styles.RightSideBarHeader}>
-          Сводка за {date === null ? currentDay : date}
+          Сводка за {selectedDate || dateNow}
         </h2>
         <div className={styles.RightSideBarStatictics}>
           <ul className={styles.RightSideBarParams}>
@@ -70,14 +101,18 @@ const RightSideBar = () => {
       </div>
       <div className={styles.RightSideBarSummary}>
         <h2 className={styles.RightSideBarHeader}>Нерекомендуемые продукты</h2>
-        <p>{notAllowedProducts.join(", ")}</p>
-        <div className={styles.RightSideBarStatictics}>
-          <ul className={styles.RightSideBarListDiet}>
-            <li className={styles.RightSideBarItem}>
-              Здесь будет отображаться Ваш рацион
-            </li>
-          </ul>
-        </div>
+        <ul className={styles.RightSideBarProducts}>
+          <li>{notAllowedProducts.join(", ")}</li>
+        </ul>
+        {/* <div className={styles.RightSideBarStatictics}> */}
+          {!notAllowedProducts.length && (
+            <ul className={styles.RightSideBarListDiet}>
+              <li className={styles.RightSideBarItem}>
+                Здесь будет отображаться Ваш рацион
+              </li>
+            </ul>
+          )}
+        {/* </div> */}
       </div>
     </div>
   );

@@ -1,69 +1,58 @@
-import React, { Component } from "react";
-// import { useSelector } from "react-redux";
-// import { NavLink } from "react-router-dom";
-// import { isAuthenticated } from "../../redux/auth/auth.selectors";
+import React from "react";
 import UserInfo from "../userInfo/UserInfo";
 import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-
 import Modal from "../header/BurgerModal/BurgerModal";
 import { withRouter } from "react-router-dom";
 import Navigation from "./Navigation";
+import { useState } from "react";
+import useMedia from "use-media";
 
-class Header extends Component {
-  state = {
-    isModalOpen: false,
-  };
+const Header = () => {
+  const [state, setState] = useState(false);
 
-  // componentDidMount() {
-  //   window.addEventListener("resize", this.handleResizeWindow);
-  // }
-  // componentWillUnmount() {
-  //   window.removeEventListener("resize", this.handleResizeWindow);
-  // }
+  const isWide = useMedia({ minWidth: "320px", maxWidth: "767px" });
 
-  // handleResizeWindow = () => this.setState({ width: window.innerWidth });
+  const setModalState = () =>
+    setState((prev) => ({ isModalOpen: !prev.isModalOpen }));
 
-  setModalState = () =>
-    this.setState((prev) => ({ isModalOpen: !prev.isModalOpen }));
+  const { isModalOpen } = state;
 
-  render() {
-    const { isModalOpen } = this.state;
-    return (
-      <div className={styles.container}>
-        <Navigation />
-        {!isModalOpen && (
-          <svg className={styles.burgerBtn} onClick={this.setModalState}>
-            <use href="../../img/svg/sprite.svg#">LOGO</use>
-          </svg>
-        )}
+  return (
+    <div className={styles.container}>
+      <Navigation isModalOpen={isModalOpen} setModalState={setModalState} />
 
-        {isModalOpen && (
-          <svg className={styles.burgerClose} onClick={this.setModalState}>
-            <use href="../../img/svg/sprite.svg#">LOGO</use>
-          </svg>
-        )}
-        {isModalOpen && (
-          <Modal hideModal={this.setModalState}>
-            <ul className={styles.listBurger}>
-              <li className={styles.listBurgerItem}>
-                <NavLink className={styles.linkBurger} to="/diary">
-                  ДНЕВНИК
-                </NavLink>
-              </li>
-              <li className={styles.listBurgerItem}>
-                <NavLink className={styles.linkBurger} to="/calculator">
-                  КАЛЬКУЛЯТОР
-                </NavLink>
-              </li>
-            </ul>
-          </Modal>
-        )}
-        <UserInfo />
-      </div>
-    );
-  }
-}
+      {isModalOpen && (
+        <Modal hideModal={setModalState}>
+          <ul className={styles.listBurger}>
+            <li className={styles.listBurgerItem}>
+              <NavLink
+                className={styles.linkBurger}
+                activeClassName={styles.linkActiveWhite}
+                onClick={setModalState}
+                to="/diary"
+              >
+                ДНЕВНИК
+              </NavLink>
+            </li>
+            <li className={styles.listBurgerItem}>
+              <NavLink
+                className={styles.linkBurger}
+                activeClassName={styles.linkActiveWhite}
+                onClick={setModalState}
+                to="/calculator"
+              >
+                КАЛЬКУЛЯТОР
+              </NavLink>
+            </li>
+          </ul>
+        </Modal>
+      )}
 
+      {isWide && <UserInfo />}
+
+    </div>
+  );
+};
 
 export default withRouter(Header);

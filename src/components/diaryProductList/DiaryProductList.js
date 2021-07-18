@@ -28,9 +28,12 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
   // const lastProduct = product.find((item) => item[product.length - 1]);
 
   // console.log(product, "product");
+  // console.log("product :>> ", product);
   return (
     <div>
-      {!product.eatenProducts && <span>Список пуст</span>}
+      {product.eatenProducts && !product.eatenProducts.length && (
+        <span>Список пуст</span>
+      )}
       <ul className={styles.calendarTable}>
         {product.eatenProducts?.map((item) => (
           <li key={item.id} className={styles.listItem}>
@@ -39,6 +42,8 @@ const DiaryProductList = ({ openModalProp, product, deleteProductProp }) => {
               <li className={styles.foodWeight}>{item.weight} г</li>
               <li className={styles.line}>{Math.round(item.kcal)} ккал</li>
               <li>
+                {console.log("item", item)}
+                {console.log(product)}
                 <button
                   type="button"
                   className={styles.buttonDelete}

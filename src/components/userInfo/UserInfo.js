@@ -19,7 +19,6 @@ const UserInfo = () => {
       {isAuth && (
         <div className={styles.userInfo}>
           <span className={styles.userLogin}>{name} </span>
-          {/* <p className={styles.userLogin}>Nik</p> */}
           <button
             type="button"
             className={styles.exitButton}

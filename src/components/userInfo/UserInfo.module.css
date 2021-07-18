@@ -35,16 +35,23 @@
 
 @media screen and (min-width: 768px) {
   .userInfo {
-    display: none;
+    background-color: white;
   }
   @media screen and (min-width: 1280px) {
     .userInfo {
       min-width: 535px;
       display: flex;
+      margin-left: 233px;
+      background-color: #f0f1f3;
       padding: 134px 115px 5px 204px;
       /* height: 32px; */
     }
+
+    .userLogin {
+      margin-bottom: 30px;
+    }
     .exitButton {
+      margin-bottom: 30px;
       margin-right: 0;
     }
   }

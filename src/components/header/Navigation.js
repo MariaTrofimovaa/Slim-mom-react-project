@@ -2,10 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
+import UserInfo from "../userInfo/UserInfo";
 import styles from "./Header.module.css";
+import useMedia from "use-media";
 
-const Navigation = () => {
+const Navigation = ({ isModalOpen, setModalState }) => {
   const authToken = useSelector(isAuthenticated);
+  const isWide = useMedia({ minWidth: "768px" });
+
   return (
     <nav className={styles.headerNavigation}>
       <ul className={styles.listLogo}>
@@ -25,15 +29,24 @@ const Navigation = () => {
           </NavLink>
         </li>
       </ul>
+
       {!authToken && (
         <ul className={styles.regisrationList}>
           <li className={styles.regisrationListItem}>
-            <NavLink className={styles.link} to="/login">
+            <NavLink
+              className={styles.link}
+              activeClassName={styles.linkActive}
+              to="/login"
+            >
               ВХОД
             </NavLink>
           </li>
           <li className={styles.regisrationListItem}>
-            <NavLink className={styles.link} to="/registration">
+            <NavLink
+              className={styles.link}
+              activeClassName={styles.linkActive}
+              to="/registration"
+            >
               РЕГИСТРАЦИЯ
             </NavLink>
           </li>
@@ -44,22 +57,43 @@ const Navigation = () => {
         <>
           <ul className={styles.regisrationList}>
             <li className={styles.navigationListItem}>
-              <NavLink className={styles.link} to="/diary">
+              <NavLink
+                className={styles.link}
+                activeClassName={styles.linkActive}
+                to="/diary"
+              >
                 ДНЕВНИК
               </NavLink>
             </li>
             <li className={styles.navigationListItem}>
-              <NavLink className={styles.link} to="/calculator">
+              <NavLink
+                className={styles.link}
+                activeClassName={styles.linkActive}
+                to="/calculator"
+              >
                 КАЛЬКУЛЯТОР
               </NavLink>
             </li>
           </ul>
-          {/* <button type="button" className={styles.burgerBtn1}>
-            <svg className={styles.burgerBtn}>
-              <use href="../../img/svg/sprite.svg#">LOGO</use>
-            </svg>
-          </button> */}
         </>
+      )}
+
+      {isWide && (
+        <div className={styles.userInfoNav}>
+          <UserInfo />
+        </div>
+      )}
+
+      {!isModalOpen && authToken && (
+        <svg className={styles.burgerBtn} onClick={setModalState}>
+          <use href="../../img/svg/sprite.svg#">LOGO</use>
+        </svg>
+      )}
+
+      {isModalOpen && (
+        <svg className={styles.burgerClose} onClick={setModalState}>
+          <use href="../../img/svg/sprite.svg#">LOGO</use>
+        </svg>
       )}
     </nav>
   );

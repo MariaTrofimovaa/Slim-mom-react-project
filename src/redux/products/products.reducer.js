@@ -5,21 +5,44 @@ import {
   getSelectedDay,
   getDayInfoSuccess,
 } from "./products.actions";
-
+// console.log = () => null;
 const ProductsReducer = createReducer(
   { id: "", eatenProducts: [] },
   {
-    [addProductSuccess]: (state, { payload }) => ({
+    [addProductSuccess]: (state, { payload }) => {
+      const eatenProducts = [...state.eatenProducts, payload.eatenProduct];
+
+      if ("newDay" in payload) {
+        return {
+          ...state,
+          id: payload.newDay.id,
+          eatenProducts,
+        };
+      }
+      return {
+        ...state,
+        eatenProducts,
+      };
+    },
+
+    [deleteProductSuccess]: (state, { payload }) => ({
       ...state,
-      eatenProducts: [...state.eatenProducts, payload.eatenProduct],
-    }),
-    [deleteProductSuccess]: (state, { payload }) =>({...state,
       eatenProducts: state.eatenProducts.filter(
         (product) => product.id !== payload.eatenProductId
-//      ),
-     )}),
-    
-    [getDayInfoSuccess]: (state, { payload }) => payload,
+      ),
+    }),
+
+    [getDayInfoSuccess]: (state, { payload }) => {
+      if (typeof payload.eatenProducts === "undefined") {
+        return state;
+      }
+
+      return {
+        ...state,
+        eatenProducts: payload.eatenProducts,
+        id: payload.id,
+      };
+    },
   }
 );
 
