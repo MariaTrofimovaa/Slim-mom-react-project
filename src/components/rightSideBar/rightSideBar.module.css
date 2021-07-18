@@ -8,7 +8,9 @@
 /* контейнер общий */
 
 .RightSideBarContainer {
-  padding: 40px 10% 40px 10%;
+      margin: 0 auto;
+    max-width: 320px;
+  padding: 40px 0;
   /* background-color: #f0f1f3; */
 }
 /* заголовки секций */
@@ -46,6 +48,8 @@
 
 @media screen and (min-width: 768px) {
   .RightSideBarContainer {
+    margin: 0 auto;
+    max-width: 768px;
     display: flex;
     padding: 91px 37px 91px 87px;
     /* background-color: #f0f1f3; */
