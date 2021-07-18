@@ -1,6 +1,4 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { getUserData } from "../auth/auth.selectors";
 import {
   addProductRequest,
   addProductSuccess,

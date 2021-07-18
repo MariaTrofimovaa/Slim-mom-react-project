@@ -5,7 +5,7 @@ import {
   getSelectedDay,
   getDayInfoSuccess,
 } from "./products.actions";
-// console.log = () => null;
+
 const ProductsReducer = createReducer(
   { id: "", eatenProducts: [] },
   {

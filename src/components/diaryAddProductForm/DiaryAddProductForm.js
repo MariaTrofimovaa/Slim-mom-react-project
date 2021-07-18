@@ -7,6 +7,7 @@ import { addProduct } from "../../redux/products/products.operations";
 import { getSelectedDate } from "../../redux/products/products.selectors";
 import { getCurrentUser } from "../../redux/auth/auth.operations";
 import useMedia from "use-media";
+// import closeModal from "../../pages/diaryPage/DiaryPage"
 
 const initialState = {
   searchWord: "",
@@ -22,7 +23,7 @@ const DiaryAddProductForm = ({ closeModal }) => {
   const token = useSelector(isAuthenticated);
   const selectedDate = useSelector(getSelectedDate);
 
-  const [modalState, setModaState] = useState(false);
+  const [modalState] = useState(false);
 
   const isWide = useMedia({ minWidth: "768px" });
 
@@ -55,12 +56,12 @@ const DiaryAddProductForm = ({ closeModal }) => {
 
   const handleProduct = (e) => {
     // console.log(this.state.foundProducts);
-    console.log(e.target.id);
+    // console.log(e.target.id);
 
     const chosenItem = state.foundProducts.find(
       (item) => item._id === e.target.id
     );
-    console.log(chosenItem);
+    // console.log(chosenItem);
 
     setState((prevState) => ({
       ...prevState,
@@ -86,9 +87,14 @@ const DiaryAddProductForm = ({ closeModal }) => {
     dispatch(getCurrentUser());
     // this.props.getCurrentUser();
 
+    // ==================== закрыть модалку
+    // if (!modalState) {
+    //   dispatch(closeModal());
+    // }
     if (!modalState) {
-      closeModal()
-    };
+      closeModal();
+    }
+    // ===================
 
     setState({ ...state, searchWord: "", productId: "", weight: "" });
   };

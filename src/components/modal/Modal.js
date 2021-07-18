@@ -40,9 +40,9 @@ const Modal = ({ onClose, children }) => {
     }
   };
 
-  {
-    /* <div className={styles.Modal}>{children}</div>; */
-  }
+  // {
+  //   /* <div className={styles.Modal}>{children}</div>; */
+  // }
 
   return (
     <div
