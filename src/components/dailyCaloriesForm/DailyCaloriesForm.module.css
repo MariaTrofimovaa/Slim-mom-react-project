@@ -190,8 +190,6 @@ margin-left: 87px;
   .global {
     max-width: 1280px;
     margin: 0 auto;
-    
-
   }
   .calculator {
     padding-left: 115px;
@@ -205,20 +203,20 @@ margin-left: 87px;
 
   .container {
     max-width: 1280px;
-    padding-left: 115px;
-    padding-top: 292;
+    padding: 292px 0px 0px 115px;
+    /* padding-left: 115px;
+    padding-top: 292; */
 
     /* .container__active { */
     /* margin: auto auto 111px 115px; */
     margin: 0 auto;
-    padding: 146px 0 0 0;
     position: absolute;
     z-index: -100;
     background-image: url(../../img/Group41@1x.png);
     background-repeat: no-repeat;
     background-position: top 0% right 0px;
     background-size: 900px, 500px, 700px, 700px;
-        top: 0;
+    top: 0;
     right: 0;
   }
   /* .formContainer {

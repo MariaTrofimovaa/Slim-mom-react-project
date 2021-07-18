@@ -220,7 +220,8 @@
 
   .eyeIconBtn {
     top: 325px;
-    right: 748px;
+    /* right: 748px; */
+    right: 875px;
   }
 
   .navContainer {
