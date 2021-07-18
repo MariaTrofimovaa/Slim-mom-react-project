@@ -1,4 +1,5 @@
 import axios from "axios";
+import NotificationError from "../../components/pnotify/Pnotify";
 import {
   getCurrentUserError,
   getCurrentUserRequest,
@@ -29,13 +30,14 @@ export const register = (credentials) => async (dispatch) => {
   dispatch(registerRequest());
   try {
     const response = await axios.post("auth/register", credentials);
-    // console.log(response);
-    // token.set(response.data.accessToken);
 
     dispatch(registerSuccess(response.data));
   } catch (error) {
-    dispatch(registerError(error.message));
-  }
+      if (error.response?.status === 409) {
+        NotificationError('Пользователь с таким логином уже зарегистрирован');
+      }
+      dispatch(registerError(error.message));
+    };
 };
 
 export const logIn = (credentials) => async (dispatch) => {
@@ -44,12 +46,13 @@ export const logIn = (credentials) => async (dispatch) => {
     const response = await axios.post("/auth/login", credentials);
 
     token.set(response.data.accessToken);
-    // console.log(response.data.accessToken);
 
-    // console.log(response.data);
     dispatch(loginSuccess(response.data));
     dispatch(getCurrentUser())
   } catch (error) {
+    if (error.response?.status === 403) {
+      NotificationError("Неверный логин или пароль");
+    }
     dispatch(loginError(error.message));
   }
 };
@@ -86,17 +89,3 @@ export const getCurrentUser = () => async (dispatch, getState) => {
     dispatch(getCurrentUserError(error.message));
   }
 };
-
-
-
-// export const getCurrentUser = () => async (dispatch, getState) => {
-//   token.set(getState().auth.accessToken);
-//   // console.log(getState().auth.data.accessToken);
-//   dispatch(getCurrentUserRequest());
-//   try {
-//     const { data } = await axios.get("/user");
-//     dispatch(getCurrentUserSuccess(data));
-//   } catch (error) {
-//     dispatch(getCurrentUserError(error));
-//   }
-// };

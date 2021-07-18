@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import moment from "moment";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
-  dateSelector,
   kcalConsumedSelector,
   kcalLeftSelector,
   kcalSelector,
@@ -11,12 +9,12 @@ import {
 } from "../../redux/dailyrate/dailyrateSelectors";
 
 import styles from "./rightSideBar.module.css";
-import {
-  addProduct,
-  deleteProduct,
-  getDayInfo,
-} from "../../redux/products/products.operations";
-import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
+// import {
+//   addProduct,
+//   deleteProduct,
+//   getDayInfo,
+// } from "../../redux/products/products.operations";
+// import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
 import { getSelectedDate } from "../../redux/products/products.selectors";
 
 const RightSideBar = () => {
@@ -105,13 +103,13 @@ const RightSideBar = () => {
           <li>{notAllowedProducts.join(", ")}</li>
         </ul>
         {/* <div className={styles.RightSideBarStatictics}> */}
-          {!notAllowedProducts.length && (
-            <ul className={styles.RightSideBarListDiet}>
-              <li className={styles.RightSideBarItem}>
-                Здесь будет отображаться Ваш рацион
-              </li>
-            </ul>
-          )}
+        {!notAllowedProducts.length && (
+          <ul className={styles.RightSideBarListDiet}>
+            <li className={styles.RightSideBarItem}>
+              Здесь будет отображаться Ваш рацион
+            </li>
+          </ul>
+        )}
         {/* </div> */}
       </div>
     </div>

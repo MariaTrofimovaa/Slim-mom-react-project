@@ -5,10 +5,10 @@ import auth from "./auth/auth.reducer";
 import {
   ProductsReducer,
   selectedDateReducer,
-  getDayInfoReducer,
+  // getDayInfoReducer,
 } from "./products/products.reducer";
 
-import dailyrateReducer from "./dailyrate/dailyrateReducer";
+// import dailyrateReducer from "./dailyrate/dailyrateReducer";
 import daySummaryInfo from "./dailyrate/dailyrateReducer";
 
 const persistConfig = {
@@ -24,7 +24,6 @@ const rootReducer = combineReducers({
   rateInfo: daySummaryInfo,
   selectedDate: selectedDateReducer,
   auth: persistAuthReducer,
-  // user: user
 });
 
 // user:
