@@ -35,7 +35,7 @@ class DiaryAddProductForm extends Component {
         );
 
         this.setState({ foundProducts: searchedProducts.data });
-        // console.log(searchedProducts.data);
+        console.log(searchedProducts.data);
       }
     } else if (e.target.name === "weight") {
       this.setState({ weight: Number(e.target.value) });
@@ -44,13 +44,20 @@ class DiaryAddProductForm extends Component {
   };
 
   handleProduct = (e) => {
-    // console.log(e.currentTarget.id);
+    console.log(this.state.foundProducts);
+    console.log(e.target.id);
+
+    const chosenItem = this.state.foundProducts.find(
+      (item) => item._id === e.target.id
+    );
+    console.log(chosenItem);
 
     this.setState((prevState) => ({
       ...prevState,
       foundProducts: [],
       searchWord: e.target.textContent,
       productId: e.target.id,
+      weight: chosenItem.weight,
     }));
 
     // document.querySelector("input[name=search]").value = e.target.textContent;
