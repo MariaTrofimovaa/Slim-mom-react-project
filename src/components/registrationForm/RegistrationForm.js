@@ -1,11 +1,12 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { register } from "../../redux/auth/auth.operations";
 import schema from "../loginForm/validator/Validator";
 import style from "./RegistrationForm.module.css";
+import svg from "../../img/svg/eye-login.svg";
 
 const InitialState = {
   username: "",
@@ -14,10 +15,12 @@ const InitialState = {
 };
 
 const RegistrationForm = () => {
-  // const [user, setUser] = useState(InitialState);
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
+
+    const [showPassword, showSetPassword] = useState(false);
+    const toggleShowPassword = () => showSetPassword((prevState) => !prevState);
 
   // const onHandleChange = (event) => {
   //   const { name, value } = event.target;
@@ -74,11 +77,27 @@ const RegistrationForm = () => {
 
             <label>
               <Field
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Пароль *"
                 className={style.input}
               />
+
+              <button
+                type="button"
+                onClick={toggleShowPassword}
+                className={style.eyeIconBtn}
+              >
+                {showPassword ? (
+                  <svg className={style.eyeIcon}>
+                    <use href={`${svg}#icon-eye`}></use>
+                  </svg>
+                ) : (
+                  <svg className={style.eyeIcon}>
+                    <use href={`${svg}#icon-eye-hidden`}></use>
+                  </svg>
+                )}
+              </button>
               <ErrorMessage
                 name="password"
                 component="div"

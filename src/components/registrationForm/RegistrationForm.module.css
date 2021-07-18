@@ -57,6 +57,25 @@
   background-color: white;
 }
 
+.eyeIcon {
+  fill: #9b9faa;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  /* background-color: transparent; */
+  border-radius: 50%;
+}
+
+.eyeIconBtn {
+  /* background-color: teal; */
+  background-color: transparent;
+  position: absolute;
+  top: 255px;
+  right: 15px;
+  border-radius: 50%;
+  border: none;
+}
+
 .errorMessage {
   color: red;
 }
@@ -163,6 +182,12 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .eyeIconBtn {
+    top: 415px;
+    right: 393px;
+  }
+
   .buttonContainer {
     display: flex;
     flex-direction: row;
@@ -191,8 +216,14 @@
     background-position: 256px -46px, right 170px, 740px 341px, right top;
 
     width: 1280px;
-    padding: 115px 244px 783px 243px;
+    padding: 115px 137px 560px 111px;
   }
+
+  .eyeIconBtn {
+    top: 370px;
+    right: 875px;
+  }
+
   .navContainer {
     width: 1280px;
     padding: 115px;
@@ -204,209 +235,3 @@
     padding: 0px;
   }
 }
-
-/* .container {
-  max-width: 320px;
-  margin: 0 auto;
-  padding: 0 15зч;
-}
-
-.registerContainer {
-  display: flex;
-  flex-direction: column;
-
-  font-size: 14px;
-  line-height: 0.93;
-  letter-spacing: 0.04px;
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-.formContainer {
-  z-index: 2;
-  padding-top: 40px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
-
-.authTitle {
-
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 0.92em;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 60px;
-  line-height: 1;
-  color: #fc842d;
-}
-
-.registerForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 290px;
-  margin-bottom: 60px;
-}
-
-.label {
-  margin: 0px auto;
-  font-size: 20px;
-  justify-content: center;
-  text-align: center;
-}
-
-.inputData {
-  border-bottom: 1px solid rgb(224, 224, 224);
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  padding: 15px 15px 15px 0px;
-  width: 289px;
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.21em;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
-  outline: none;
-
-}
-
-.input:focus {
-  outline: none;
-}
-
-.buttonContainer {
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-  height: 108px;
-  justify-content: space-between;
-}
-
-.authButton {
-  background: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  border: none;
-  width: 176px;
-  height: 44px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  text-transform: capitalize;
-  color: white;
-}
-
-.authButton:hover {
-  transform: scaleX(1.1) scaleY(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.authLink {
-  background: #ffffff;
-  border: 2px solid #fc842d;
-  box-sizing: border-box;
-  border-radius: 30px;
-  width: 176px;
-  height: 44px;
-  display: flex;
-
-
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-
-  text-align: center;
-  letter-spacing: 0.04em;
-
-  color: #fc842d;
-}
-.authLink:hover {
-  transform: scaleX(1.1) scaleY(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding: 0 87px;
-
-    display: block;
-    z-index: 1;
-    width: inherit;
-
-    height: 100vh;
-    background-size: cover;
-
-    top: 0;
-    right: 0;
-    background: url(../../img/leavesLoginTablet@1x.png),
-      url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
-      url(../../img/spot.png);
-
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-position: -33px -98px, 477px 294px, 210px 540px, 216px 281px;
-
-    width: 768px;
-    padding-left: 87px;
-    align-items: flex-start;
-    padding-top: 157px;
-  }
-
-  .formContainer {
-    align-items: flex-start;
-  }
-
-  .registerContainer {
-    align-items: flex-start;
-  }
-
-  .authTitle {
-    margin-bottom: 40px;
-  }
-
-  .buttonContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    margin: 0;
-  }
-
-  .authButton:not(:last-child) {
-    margin-right: 30px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-    padding: 0 115px;
-
-    background: url(../../img/leavesLogin@1x.png),
-      url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
-      url(../../img/spot-login.png);
-
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-position: 256px -46px, right 170px, 740px 341px, right top;
-
-    width: 1280px;
-    padding: 115px 244px 783px 243px;
-  }
-}
-
- */
