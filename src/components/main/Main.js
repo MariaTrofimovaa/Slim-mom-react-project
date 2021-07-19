@@ -18,7 +18,6 @@ const CalculatorPage = lazy(() =>
 );
 const DiaryPage = lazy(() => import("../../pages/diaryPage/DiaryPage"));
 
-
 const Main = () => {
   return (
     <div>
@@ -55,7 +54,6 @@ const Main = () => {
           <PrivateRoutes path="/diary" component={DiaryPage} redirectTo="/" />
 
           <Route component={NotFound} />
-
         </Switch>
       </Suspense>
     </div>

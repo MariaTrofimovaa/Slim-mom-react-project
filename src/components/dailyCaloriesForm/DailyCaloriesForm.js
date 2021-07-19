@@ -2,9 +2,12 @@ import React from "react";
 import { Formik, Field, Form } from "formik";
 import DailyCaloriesFormValidator from "./DailyCaloriesFormValidator";
 import styles from "./DailyCaloriesForm.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
 import RightSideBar from "../../components/rightSideBar/RightSideBar";
+import { useHistory } from "react-router-dom";
+
+import { updateCalculator } from "../../redux/calculator/calculator.operations";
 
 const DailyCaloriesForm = ({
   onSubmit,
@@ -12,8 +15,13 @@ const DailyCaloriesForm = ({
   enableReinitialize = false,
 }) => {
   const isAuth = useSelector(isAuthenticated);
-  
-  // console.log("initialValues :>> ", initialValues);
+  // const history = useHistory();
+  // const dispatch = useDispatch()
+
+  //  const onRedirect = (values) => {
+  //    dispatch(updateCalculator(values));
+  //    history.push("/diary");
+  //  };
 
   return (
     <div className={styles.calculator}>
@@ -28,7 +36,7 @@ const DailyCaloriesForm = ({
             validationSchema={DailyCaloriesFormValidator}
             onSubmit={onSubmit}
             render={({ errors, touched, values }) => (
-              <Form className={styles.formContainer}>
+              <Form className={styles.formContainer} >
                 <div className={styles.formWrapper}>
                   <div>
                     <label htmlFor="height" className={styles.formInput}>
@@ -146,6 +154,5 @@ const DailyCaloriesForm = ({
     </div>
   );
 };
-// const iaAuth = useSelector()
 
 export default DailyCaloriesForm;
