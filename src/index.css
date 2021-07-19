@@ -14,8 +14,6 @@ html {
   src: url("./components/shared/fonts/GothamPro-Bold.woff");
 }
 
-
-
 @font-face {
   font-family: "GothamPro-Light";
   src: url("./components/shared/fonts/GothamPro-Light.woff");
@@ -34,10 +32,9 @@ html {
 @font-face {
   font-family: "Verdana";
   src: url("./components/shared/fonts/Verdana.woff");
-} 
+}
 
 body {
-  
   margin: 0;
   font-family: Verdana;
   background-color: white;
