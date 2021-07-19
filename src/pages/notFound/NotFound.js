@@ -1,12 +1,12 @@
 import React from "react";
-import { NotFoundContainer } from "./NotFounfStyled";
+import styles from "./NotFound.module.css";
 
 const NotFound = () => {
   return (
-    <NotFoundContainer>
-      <h2 className="title">404 Not Found</h2>
-      <p className="text">Whoops... Something went wrong!</p>
-    </NotFoundContainer>
+    <div className={styles.container}>
+      <h2 className={styles.title}>404 Not Found</h2>
+      <p className={styles.text}>Whoops... Something went wrong!</p>
+    </div>
   );
 };
 
