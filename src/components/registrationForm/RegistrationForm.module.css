@@ -10,7 +10,7 @@
   letter-spacing: 0.04em;
   position: relative;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .formContainer {

@@ -1,3 +1,7 @@
+/* .section{
+  overflow-y: hidden;
+} */
+
 .container {
   box-sizing: border-box;
 }

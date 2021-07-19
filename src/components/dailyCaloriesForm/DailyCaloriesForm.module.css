@@ -11,7 +11,7 @@
 .calculator {
   min-width: 320px;
   margin: 0 auto;
-  padding-top: 30px;
+  /* padding-top: 30px; */
   /* padding-top: 40px;
   padding-bottom: 60px;
   padding-left: 15px;
@@ -48,7 +48,7 @@
   margin-right: 0;
 
   /* padding-left: 15px; */
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
 }
 
 .formInput {
@@ -132,6 +132,7 @@ margin-left: 87px;
   .container {
     margin-right: 0px;
     padding-left: 87px;
+    padding-top: 0px;
     max-width: 768px;
     margin: 0 auto;
     /* .container__active { */
@@ -145,6 +146,9 @@ margin-left: 87px;
     background-position: top 60% right 0px;
     height: 100vh;
   }
+
+
+ 
 
   .formContainer {
     padding-bottom: 0px;

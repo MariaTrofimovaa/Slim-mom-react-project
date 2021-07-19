@@ -25,9 +25,11 @@ const DiaryPage = () => {
   return (
     <section className={styles.diarySection}>
       {state && (
-        <DiaryAddProductFormModal closeModal={closeModal}>
-          <DiaryAddProductForm closeModal={closeModal} />
-        </DiaryAddProductFormModal>
+        <div className={styles.section}>
+          <DiaryAddProductFormModal closeModal={closeModal}>
+            <DiaryAddProductForm closeModal={closeModal} />
+          </DiaryAddProductFormModal>
+        </div>
       )}
 
       <div className={styles.container}>
