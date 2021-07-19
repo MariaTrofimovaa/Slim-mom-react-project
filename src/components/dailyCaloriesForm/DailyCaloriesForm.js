@@ -34,7 +34,12 @@ const DailyCaloriesForm = ({
                     <label htmlFor="height" className={styles.formInput}>
                       Рост*
                     </label>
-                    <Field name="height" type="text" className={styles.field} />
+                    <Field
+                      name="height"
+                      type="text"
+                      className={styles.field}
+                      // placeholder="Ваш рост"
+                    />
 
                     {errors.height && touched.height && (
                       <div className={styles.fieldError}>{errors.height}</div>

@@ -4,6 +4,9 @@
   height: 100%;
   top: 120px;
   left: 0;
+  right: 0;
+  /* top: 0; */
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +17,7 @@
 }
 
 .moduleMainContainer {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 320px;
   height: 599px;
@@ -25,7 +28,7 @@
 
 @media screen and (min-width: 768px) {
   .moduleMainContainer {
-    position: absolute;
+    /* position: absolute; */
     top: 100px;
     width: 594px;
     height: 580;
@@ -34,7 +37,7 @@
 
 @media screen and (min-width: 1280px) {
   .moduleMainContainer {
-    position: absolute;
+    /* position: absolute; */
     top: 10px;
     width: 690px;
     height: 580;

@@ -35,14 +35,14 @@ const DiaryAddProductForm = ({ closeModal }) => {
 
   const handleChange = async (e) => {
 
-    console.log("e :>> ", e.target.name);
+    // console.log("e :>> ", e.target.name);
 
       if (e.target.name === "search") {
         setState({
           ...state,
           searchWord: e.target.value,
         });
-        console.log("e.target.value :>> ", e.target.value);
+        // console.log("e.target.value :>> ", e.target.value);
         if (e.target.value) {
           // const { token } = this.props;
           axios.defaults.headers.common.Authorization = `Bearer ${token}`;

@@ -10,8 +10,7 @@ import { updateCalculator } from "../../redux/calculator/calculator.operations";
 import { getCurrentUser } from "../../redux/auth/auth.operations";
 
 const CalculatorPage = () => {
-  // const [data, setData] = useState(null);
-  // const userId = useSelector(getUserId);
+
   const userData = useSelector(getUserData);
   const token = useSelector(isAuthenticated);
   const dispatch = useDispatch();
@@ -33,11 +32,11 @@ const CalculatorPage = () => {
         onSubmit={onSubmit}
         enableReinitialize
         initialValues={{
-          height: userData?.height ?? "",
-          age: userData?.age ?? "",
-          weight: userData?.weight ?? "",
-          desiredWeight: userData?.desiredWeight ?? "",
-          bloodType: userData?.bloodType.toString() ?? "",
+          height: !!userData?.height ? userData?.height : "",
+          age: !!userData?.age ? userData?.age : "",
+          weight: !!userData?.weight ? userData?.weight : "",
+          desiredWeight: !!userData?.desiredWeight ? userData?.desiredWeight : "",
+          bloodType: !!userData?.bloodType.toString() ? userData?.bloodType.toString() : "",
         }}
       />
     </>
