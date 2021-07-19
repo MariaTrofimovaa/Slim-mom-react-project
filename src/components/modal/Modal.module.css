@@ -7,19 +7,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background-color: transparent;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   z-index: 1000;
   overflow: auto;
 }
 
 .moduleMainContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 320px;
   height: 599px;
   overflow: hidden;
-  position: absolute;
+
   background-color: white;
 }
 

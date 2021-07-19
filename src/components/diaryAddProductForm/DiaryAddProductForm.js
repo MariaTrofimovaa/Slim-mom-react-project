@@ -7,6 +7,8 @@ import { addProduct } from "../../redux/products/products.operations";
 import { getSelectedDate } from "../../redux/products/products.selectors";
 import { getCurrentUser } from "../../redux/auth/auth.operations";
 import useMedia from "use-media";
+import debounce from "lodash.debounce";
+
 // import closeModal from "../../pages/diaryPage/DiaryPage"
 
 const initialState = {
@@ -20,11 +22,11 @@ const initialState = {
 };
 
 const DiaryAddProductForm = ({ closeModal }) => {
-  console.log(closeModal);
+  // console.log(closeModal);
   const token = useSelector(isAuthenticated);
   const selectedDate = useSelector(getSelectedDate);
 
-  const [modalState] = useState(false);
+  // const [modalState] = useState(false);
 
   const isWide = useMedia({ minWidth: "768px" });
 
@@ -32,27 +34,33 @@ const DiaryAddProductForm = ({ closeModal }) => {
   const dispatch = useDispatch();
 
   const handleChange = async (e) => {
-    if (e.target.name === "search") {
-      setState({
-        ...state,
-        searchWord: e.target.value,
-      });
-      if (e.target.value) {
-        // const { token } = this.props;
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        // console.log(this.state.searchWord);
 
-        const searchedProducts = await axios.get(
-          `https://slimmom-backend.goit.global/product?search=${e.target.value}`
-        );
+    console.log("e :>> ", e.target.name);
 
-        setState({ ...state, foundProducts: searchedProducts.data });
-        // console.log(searchedProducts.data);
+      if (e.target.name === "search") {
+        setState({
+          ...state,
+          searchWord: e.target.value,
+        });
+        console.log("e.target.value :>> ", e.target.value);
+        if (e.target.value) {
+          // const { token } = this.props;
+          axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+          // console.log(this.state.searchWord);
+
+          const searchedProducts = await axios.get(
+            `https://slimmom-backend.goit.global/product?search=${e.target.value}`
+          );
+          // console.log("object :>> ", searchedProducts);
+
+          setState({ ...state, foundProducts: searchedProducts.data });
+          // console.log(searchedProducts.data);
+        }
+      } else if (e.target.name === "weight") {
+        setState({ ...state, weight: Number(e.target.value) });
+        // console.log(e.target.value);
       }
-    } else if (e.target.name === "weight") {
-      setState({ ...state, weight: Number(e.target.value) });
-      // console.log(e.target.value);
-    }
+  
   };
 
   const handleProduct = (e) => {
@@ -89,17 +97,9 @@ const DiaryAddProductForm = ({ closeModal }) => {
     // this.props.getCurrentUser();
 
     // ==================== закрыть модалку
-    // if (!modalState) {
-    //  closeModal();
-    // }
-    if (isWide) {
-      if (!modalState) {
-        dispatch(closeModal());
-      }
+    if (!isWide) {
+      closeModal();
     }
-    return;
-
-    // ===================
 
     setState({ ...state, searchWord: "", productId: "", weight: "" });
   };
@@ -142,7 +142,7 @@ const DiaryAddProductForm = ({ closeModal }) => {
           />
         </label>
         <br className={styles.break} />
-        {modalState || isWide ? (
+        {isWide ? (
           <button type="submit" className={styles.formButton}>
             +
           </button>

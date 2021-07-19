@@ -39,7 +39,7 @@ const DiaryPage = () => {
           </svg>
         </div>
 
-        {isWide && <DiaryAddProductForm />}
+        {isWide && <DiaryAddProductForm closeModal={closeModal} />}
 
         <DiaryProductList openModalProp={openModal} />
       </div>
