@@ -4,6 +4,8 @@
 
 .sideBar__active {
   background-color: #f0f1f3;
+  width: 320px;
+  margin: 0 auto;
 }
 
 .calculator {
@@ -122,6 +124,10 @@
   /* .calculator {
 margin-left: 87px;
   } */
+
+  .sideBar__active {
+    width: 768px;
+  }
 
   .container {
     margin-right: 0px;

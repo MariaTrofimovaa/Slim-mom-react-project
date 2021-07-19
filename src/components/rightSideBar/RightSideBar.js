@@ -105,13 +105,13 @@ const RightSideBar = () => {
           <li>{notAllowedProducts.join(", ")}</li>
         </ul>
         {/* <div className={styles.RightSideBarStatictics}> */}
-          {!notAllowedProducts.length && (
-            <ul className={styles.RightSideBarListDiet}>
-              <li className={styles.RightSideBarItem}>
-                Здесь будет отображаться Ваш рацион
-              </li>
-            </ul>
-          )}
+        {!notAllowedProducts.length && (
+          <ul className={styles.RightSideBarListDiet}>
+            <li className={styles.RightSideBarItem}>
+              Здесь будет отображаться Ваш рацион
+            </li>
+          </ul>
+        )}
         {/* </div> */}
       </div>
     </div>
