@@ -150,7 +150,7 @@
     background-size: cover;
 
     top: 0;
-    right: 0;
+    /* right: 0; */
     background: url(../../img/leavesLoginTablet@1x.png),
       url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
       url(../../img/spot.png);
