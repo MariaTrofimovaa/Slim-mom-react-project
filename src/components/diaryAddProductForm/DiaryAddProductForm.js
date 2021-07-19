@@ -20,6 +20,7 @@ const initialState = {
 };
 
 const DiaryAddProductForm = ({ closeModal }) => {
+  console.log(closeModal);
   const token = useSelector(isAuthenticated);
   const selectedDate = useSelector(getSelectedDate);
 
@@ -89,11 +90,15 @@ const DiaryAddProductForm = ({ closeModal }) => {
 
     // ==================== закрыть модалку
     // if (!modalState) {
-    //   dispatch(closeModal());
+    //  closeModal();
     // }
-    if (!modalState) {
-      closeModal();
+    if (isWide) {
+      if (!modalState) {
+        dispatch(closeModal());
+      }
     }
+    return;
+
     // ===================
 
     setState({ ...state, searchWord: "", productId: "", weight: "" });

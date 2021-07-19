@@ -7,7 +7,6 @@ import PrivateRoutes from "../../routes/PrivateRoutes";
 import PublicRoutes from "../../routes/PublicRoutes";
 import AppLoader from "../loader/Loader";
 
-
 const MainPage = lazy(() => import("../../pages/mainPage/MainPage"));
 const RegistrationPage = lazy(() =>
   import("../../pages/registrationPage/RegistrationPage")
@@ -17,7 +16,7 @@ const CalculatorPage = lazy(() =>
   import("../../pages/calculatorPage/CalculatorPage")
 );
 const DiaryPage = lazy(() => import("../../pages/diaryPage/DiaryPage"));
-// const NotFound = lazy(() => import("../../pages/notFound/NotFound"));
+const NotFound = lazy(() => import("../../pages/notFound/NotFound"));
 
 const Main = () => {
   return (
@@ -32,6 +31,7 @@ const Main = () => {
             redirectTo="/calculator"
           />
           <PublicRoutes
+            exact
             path="/registration"
             component={RegistrationPage}
             redirectTo="/login"
@@ -45,7 +45,7 @@ const Main = () => {
             restricted
           />
 
-          {/* <PublicRoutes exact path="" component={NotFound} /> */}
+          {/* <PublicRoutes path="" component={NotFound} /> */}
 
           <PrivateRoutes
             path="/calculator"
