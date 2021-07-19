@@ -12,8 +12,13 @@ const DailyCaloriesForm = ({
   enableReinitialize = false,
 }) => {
   const isAuth = useSelector(isAuthenticated);
-  
-  // console.log("initialValues :>> ", initialValues);
+  // const history = useHistory();
+  // const dispatch = useDispatch()
+
+  //  const onRedirect = (values) => {
+  //    dispatch(updateCalculator(values));
+  //    history.push("/diary");
+  //  };
 
   return (
     <div className={styles.calculator}>
@@ -34,12 +39,7 @@ const DailyCaloriesForm = ({
                     <label htmlFor="height" className={styles.formInput}>
                       Рост*
                     </label>
-                    <Field
-                      name="height"
-                      type="text"
-                      className={styles.field}
-                      // placeholder="Ваш рост"
-                    />
+                    <Field name="height" type="text" className={styles.field} />
 
                     {errors.height && touched.height && (
                       <div className={styles.fieldError}>{errors.height}</div>
@@ -146,6 +146,5 @@ const DailyCaloriesForm = ({
     </div>
   );
 };
-// const iaAuth = useSelector()
 
 export default DailyCaloriesForm;

@@ -7,14 +7,7 @@ import {
   notAllowedProds,
   percentsOfDailyRateSelector,
 } from "../../redux/dailyrate/dailyrateSelectors";
-
 import styles from "./rightSideBar.module.css";
-// import {
-//   addProduct,
-//   deleteProduct,
-//   getDayInfo,
-// } from "../../redux/products/products.operations";
-// import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
 import { getSelectedDate } from "../../redux/products/products.selectors";
 
 const RightSideBar = () => {
@@ -25,52 +18,19 @@ const RightSideBar = () => {
   const percentsOfDailyRate = useSelector(percentsOfDailyRateSelector);
 
   const [date] = useSelector(getSelectedDate);
-  // console.log("date :>> ", date);
 
   let selectedDate = "";
   if (date) {
     const [year, month, day] = date.split("-");
     selectedDate = `${day}.${month}.${year}`;
-    // console.log(selectedDate);
   }
 
-  // const momentDate = moment(date).format("YYYY-MM-DD");
-  // console.log("momentDate :>> ", momentDate);
-
-  // const currDate = date.map();
-  // console.log("currDate :>> ", currDate);
-
   const importantDate = new Date().toJSON().slice(0, 10);
-  // console.log("importantDate :>> ", importantDate);
-
   const dateNow = moment(importantDate).format("DD.MM.YYYY");
-  // console.log("dateNow :>> ", dateNow);
-
-  // const date = currentDay ? currentDay : new Date().toJSON().slice(0, 10);
-  // const newDate = date.split("-").reverse().join(".");
-
-  // function dateNormalise(date) {
-  //   // const newNewDate = ...newDate;
-  //   return newDate;
-  // }
-
-  // const dispatch = useDispatch();
-  // import { useState } from "react";
-  // import { useDispatch } from "react-redux";
-  // import { getDailyRateOperation } from "../../redux/dailyrate/dailyrateOperations";
-
-  // useEffect(() => {
-  //   // dispatch(addProduct());
-  //   dispatch(getDayInfo());
-  //   // dispatch(deleteProduct());
-  // }, [dispatch]);
 
   return (
     <div className={styles.RightSideBarContainer}>
       <div className={styles.RightSideBarSummary}>
-        {/* <h2 className={styles.RightSideBarHeader}>
-          Сводка за {date ? newDate : date}
-        </h2> */}
         <h2 className={styles.RightSideBarHeader}>
           Сводка за {selectedDate || dateNow}
         </h2>
@@ -100,9 +60,10 @@ const RightSideBar = () => {
       <div className={styles.RightSideBarSummary}>
         <h2 className={styles.RightSideBarHeader}>Нерекомендуемые продукты</h2>
         <ul className={styles.RightSideBarProducts}>
-          <li className={styles.productsList}>{notAllowedProducts.join(", ")}</li>
+          <li className={styles.productsList}>
+            {notAllowedProducts.join(", ")}
+          </li>
         </ul>
-        {/* <div className={styles.RightSideBarStatictics}> */}
         {!notAllowedProducts.length && (
           <ul className={styles.RightSideBarListDiet}>
             <li className={styles.RightSideBarItem}>
@@ -110,7 +71,6 @@ const RightSideBar = () => {
             </li>
           </ul>
         )}
-        {/* </div> */}
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const UserInfo = () => {
     <>
       {isAuth && (
         <div className={styles.userInfo}>
-          <span className={styles.userLogin}>{name} </span>
+          <span className={styles.userLogin}> {name} </span>
           <button
             type="button"
             className={styles.exitButton}

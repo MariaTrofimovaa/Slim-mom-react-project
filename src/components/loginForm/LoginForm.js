@@ -13,7 +13,7 @@ const InitialState = {
   password: "",
 };
 
-const AuthForm = () => {
+const LoginForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [showPassword, showSetPassword] = useState(false);
@@ -102,109 +102,4 @@ const AuthForm = () => {
   );
 };
 
-export default AuthForm;
-
-// ============================================================
-// import { Form, Formik } from "formik";
-// import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { Link, useLocation } from "react-router-dom";
-// import { logIn } from "../../redux/auth/auth.operations";
-// import styles from "./LoginForm.module.css";
-// import schema from "./validator/Validator";
-
-// const InitialState = {
-//   email: "",
-//   password: "",
-// };
-
-// const LoginForm = () => {
-//   const [user, setUser] = useState(InitialState);
-//   const location = useLocation();
-//   const dispatch = useDispatch();
-
-//   const onHandleChange = (event) => {
-//     const { name, value } = event.target;
-//     setUser((prevState) => ({ ...prevState, [name]: value }));
-//   };
-
-//   const onHandleSubmit = (e) => {
-//     e.preventDefault();
-
-//     dispatch(logIn(user));
-//     setUser(InitialState);
-//   };
-
-//   return (
-//     <div className={styles.container}>
-//       <div className={styles.registerContainer}>
-//         <div className={styles.formContainer}></div>
-//         <h1 className={styles.authTitle}>Вход</h1>
-
-//         {/* <Formik
-//           initialValues={{ email: "", password: ""}}
-//           validationSchema={schema}
-//         > */}
-//           <form onSubmit={onHandleSubmit} className={styles.registerForm}>
-//             <label htmlFor="email" className={styles.label}>
-//               {/* Логин* */}
-//               <input
-//                 id="email"
-//                 name="email"
-//                 type="mail"
-//                 className={styles.inputData}
-//                 placeholder="Логин*"
-//                 value={user.email}
-//                 onChange={onHandleChange}
-//                 required
-//               />
-//             </label>
-
-//             <label htmlFor="password" className={styles.label}>
-//               {/* Пароль* */}
-//               <input
-//                 id="password"
-//                 name="password"
-//                 type="password"
-//                 className={styles.inputData}
-//                 placeholder="Пароль*"
-//                 value={user.password}
-//                 onChange={onHandleChange}
-//                 required
-//               />
-//             </label>
-//           </form>
-
-// <div className={styles.buttonContainer}>
-//   <button className={styles.authButton} type="submit">
-//     {location.pathname === "/registration" ? "Регистрация" : "Bход"}
-//   </button>
-
-//   {location.pathname === "/registration" ? (
-//     <Link to="/login" className={styles.authLink}>
-//       {location.pathname === "/registration" ? "Вход" : "Регистрация"}
-//     </Link>
-//   ) : (
-//     <Link to="/registration" className={styles.authLink}>
-//       {location.pathname === "/registration"
-//         ? "Уже есть аккаунт"
-//         : "Регистрация"}
-//     </Link>
-//   )}
-// </div>
-
-//           {/* <button type="submit" className={styles.submitBtn}>
-//             Вход
-//           </button>
-
-//           <button type="button">Регистрация</button> */}
-
-//         {/* </Formik> */}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LoginForm;
-
-// Регитрация - как ссылка (ведет на страницу Registration)
+export default LoginForm;
