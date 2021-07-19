@@ -3,7 +3,7 @@ import DiaryAddProductForm from "../../components/diaryAddProductForm/DiaryAddPr
 import DiaryAddProductFormModal from "../../components/diaryAddProductForm/DiaryAddProductFormModal";
 import DiaryProductList from "../../components/diaryProductList/DiaryProductList";
 import styles from "./DiaryPage.module.css";
-import { Component } from "react";
+// import { Component } from "react";
 import Calendar from "../../components/diaryDateCalendar/DiaryDateCalendar";
 // import Autocomplete from "react-autocomplete";
 import RightSideBar from "../../components/rightSideBar/RightSideBar";
@@ -39,7 +39,7 @@ const DiaryPage = () => {
           </svg>
         </div>
 
-        {isWide && <DiaryAddProductForm />}
+        {isWide && <DiaryAddProductForm closeModal={closeModal} />}
 
         <DiaryProductList openModalProp={openModal} />
       </div>

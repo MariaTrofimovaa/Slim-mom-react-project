@@ -4,7 +4,7 @@ import { useState } from "react";
 import DailyCaloriesForm from "../../components/dailyCaloriesForm/DailyCaloriesForm";
 import Modal from "../../components/modal/Modal";
 import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
-
+import styles from "./MainPage.module.css";
 const BASE_URL = "https://slimmom-backend.goit.global";
 
 const transformString = (obj) => {
@@ -29,16 +29,18 @@ const MainPage = () => {
   };
   return (
     <>
-      <DailyCaloriesForm
-        onSubmit={onSubmit}
-        initialValues={{
-          height: "",
-          age: "",
-          weight: "",
-          desiredWeight: "",
-          bloodType: "1",
-        }}
-      />
+      <div className={styles.mainContainer}>
+        <DailyCaloriesForm
+          onSubmit={onSubmit}
+          initialValues={{
+            height: "",
+            age: "",
+            weight: "",
+            desiredWeight: "",
+            bloodType: "1",
+          }}
+        />
+      </div>
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
           <DailyKkalIntake {...data} />

@@ -13,7 +13,7 @@ const DailyCaloriesForm = ({
 }) => {
   const isAuth = useSelector(isAuthenticated);
   
-  console.log("initialValues :>> ", initialValues);
+  // console.log("initialValues :>> ", initialValues);
 
   return (
     <div className={styles.calculator}>
@@ -27,14 +27,19 @@ const DailyCaloriesForm = ({
             initialValues={initialValues}
             validationSchema={DailyCaloriesFormValidator}
             onSubmit={onSubmit}
-            render={({ errors, touched }) => (
+            render={({ errors, touched, values }) => (
               <Form className={styles.formContainer}>
                 <div className={styles.formWrapper}>
                   <div>
                     <label htmlFor="height" className={styles.formInput}>
                       Рост*
                     </label>
-                    <Field name="height" type="text" className={styles.field} />
+                    <Field
+                      name="height"
+                      type="text"
+                      className={styles.field}
+                      // placeholder="Ваш рост"
+                    />
 
                     {errors.height && touched.height && (
                       <div className={styles.fieldError}>{errors.height}</div>
@@ -84,7 +89,7 @@ const DailyCaloriesForm = ({
                           type="radio"
                           name="bloodType"
                           value="1"
-                          checked="checked"
+                          checked={values.bloodType === "1"}
                           className={styles.customRadio}
                         />
                         <span></span>
@@ -95,6 +100,7 @@ const DailyCaloriesForm = ({
                           type="radio"
                           name="bloodType"
                           value="2"
+                          checked={values.bloodType === "2"}
                           className={styles.customRadio}
                         />
                         <span></span>
@@ -105,6 +111,7 @@ const DailyCaloriesForm = ({
                           type="radio"
                           name="bloodType"
                           value="3"
+                          checked={values.bloodType === "3"}
                           className={styles.customRadio}
                         />
                         <span></span>
@@ -115,6 +122,7 @@ const DailyCaloriesForm = ({
                           type="radio"
                           name="bloodType"
                           value="4"
+                          checked={values.bloodType === "4"}
                           className={styles.customRadio}
                         />
                         <span></span>

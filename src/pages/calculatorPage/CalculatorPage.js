@@ -7,20 +7,10 @@ import { getUserData, isAuthenticated } from "../../redux/auth/auth.selectors";
 import { useEffect } from "react";
 import { getDayInfo } from "../../redux/products/products.operations";
 import { updateCalculator } from "../../redux/calculator/calculator.operations";
-
-// const BASE_URL = "https://slimmom-backend.goit.global";
-
-// const transformString = (obj) => {
-//   const newObj = {};
-//   for (const [key, value] of Object.entries(obj)) {
-//     newObj[key] = Number(value);
-//   }
-//   return newObj;
-// };
+import { getCurrentUser } from "../../redux/auth/auth.operations";
 
 const CalculatorPage = () => {
-  // const [data, setData] = useState(null);
-  // const userId = useSelector(getUserId);
+
   const userData = useSelector(getUserData);
   const token = useSelector(isAuthenticated);
   const dispatch = useDispatch();
@@ -30,10 +20,10 @@ const CalculatorPage = () => {
   useEffect(() => {
     dispatch(getDayInfo(startDate.toISOString().slice(0, 10)));
   }, [dispatch, startDate]);
-  // const dispatch = useDispatch();
 
   const onSubmit = (values) => {
     dispatch(updateCalculator(values));
+    setTimeout(() => dispatch(getCurrentUser()), 1500);
   };
 
   return (
@@ -42,11 +32,11 @@ const CalculatorPage = () => {
         onSubmit={onSubmit}
         enableReinitialize
         initialValues={{
-          height: userData?.height ?? "",
-          age: userData?.age ?? "",
-          weight: userData?.weight ?? "",
-          desiredWeight: userData?.desiredWeight ?? "",
-          bloodType: userData?.bloodType ?? "1",
+          height: !!userData?.height ? userData?.height : "",
+          age: !!userData?.age ? userData?.age : "",
+          weight: !!userData?.weight ? userData?.weight : "",
+          desiredWeight: !!userData?.desiredWeight ? userData?.desiredWeight : "",
+          bloodType: !!userData?.bloodType.toString() ? userData?.bloodType.toString() : "",
         }}
       />
     </>

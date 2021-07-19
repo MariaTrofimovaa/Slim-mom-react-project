@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Modal.module.css";
 import { useEffect } from "react";
+import ReactDom from "react-dom";
 // import { useDispatch, useSelector } from "react-redux";
 // import { openModal } from "../../redux/modal/modalActions";
 // import { openModalSelector } from "../../redux/modal/modalSelertors";
@@ -40,11 +41,11 @@ const Modal = ({ onClose, children }) => {
     }
   };
 
-  {
-    /* <div className={styles.Modal}>{children}</div>; */
-  }
+  // {
+  //   /* <div className={styles.Modal}>{children}</div>; */
+  // }
 
-  return (
+  return ReactDom.createPortal(
     <div
       className={styles.moduleMainContainerOverlay}
       onClick={handleBackdropClick}
@@ -53,7 +54,8 @@ const Modal = ({ onClose, children }) => {
         <button className={styles.closeModalBtn} onClick={handleButtonClick} />
         {children}
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 };
 

@@ -142,14 +142,14 @@ margin-left: 87px;
     margin-top: 100px;
     background-image: url(../../img/Group40@1x.png);
     background-repeat: no-repeat;
-    background-position: top 100% right 0px;
+    background-position: top 60% right 0px;
     height: 100vh;
   }
 
-  /* .formContainer {
-    padding-left: 87px;
+  .formContainer {
+    padding-bottom: 0px;
     /* padding-bottom: 60px; */
-  /* } */
+   }
 
   .container__active {
     max-width: 768px;
@@ -162,6 +162,7 @@ margin-left: 87px;
     margin-right: 74px; */
     /* margin-top: 100px; */
   }
+
 
   .title {
     /* padding-left: 87px; */
@@ -209,7 +210,7 @@ margin-left: 87px;
 
   .container {
     max-width: 1280px;
-    padding: 292px 0px 0px 115px;
+    padding: 292px 0px 0px 0px;
     /* padding-left: 115px;
     padding-top: 292; */
 
@@ -220,10 +221,11 @@ margin-left: 87px;
     z-index: -100;
     background-image: url(../../img/Group41@1x.png);
     background-repeat: no-repeat;
-    background-position: top 0% right 0px;
+    /* background-position: top 0% right 34px; */
+    background-position: top 0% right 115px;
     background-size: 900px, 500px, 700px, 700px;
     top: 0;
-    right: 0;
+    /* right: 0; */
   }
   /* .formContainer {
     padding-left: 115px; */

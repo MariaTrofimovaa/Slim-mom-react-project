@@ -26,11 +26,13 @@ const initialState = {
 
 const daySummaryInfo = createReducer(initialState, {
   [getDailyRateSuccess]: (_, { payload }) => payload,
+
   [getCurrentUserSuccess]: (state, { payload }) => ({
     ...state,
     notAllowedProducts: payload.userData.notAllowedProducts,
-    user: payload.userData.weight,
+    // user: payload.userData,
   }),
+
   [addProductSuccess]: (state, { payload }) => ({
     ...state,
     summaries:

@@ -14,6 +14,7 @@ html {
   src: url("./components/shared/fonts/GothamPro-Bold.woff");
 }
 
+
 @font-face {
   font-family: "GothamPro-Light";
   src: url("./components/shared/fonts/GothamPro-Light.woff");

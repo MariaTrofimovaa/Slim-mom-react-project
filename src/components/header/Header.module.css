@@ -35,7 +35,7 @@
 .burgerClose {
   background-image: url("../../img/svg/BurgerClose.svg");
   width: 20px;
-  height: 20px;
+  height: 14px;
   margin-right: 14px;
 }
 
@@ -105,6 +105,10 @@
   color: white;
 }
 
+.linkActiveWhite {
+  color: #fff;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -117,14 +121,6 @@
     padding-bottom: 18px;
   }
 
-  /* .userInfoHeader {
-    display: none;
-  } */
-/* 
-  .useInfoNav {
-    display: none;
-  } */
-
   .text {
     display: block;
   }
@@ -132,11 +128,17 @@
   .listLogo {
     display: flex;
     align-items: center;
+    margin-right: auto;
   }
 
   .linkBurger {
     font-size: 24px;
     line-height: 29px;
+  }
+
+  .linkBurger:hover,
+  .linkBurger:focus {
+    color: white;
   }
 
   .listBurger {
@@ -160,6 +162,7 @@
 
     .listLogo {
       margin-top: 82px;
+      margin-right: 0px;
     }
 
     .regisrationList {

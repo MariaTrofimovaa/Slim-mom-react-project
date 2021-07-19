@@ -78,7 +78,7 @@ const AuthForm = () => {
             </button> */}
             <div className={style.buttonContainer}>
               <button className={style.authButton} type="submit">
-                {location.pathname === "/registration" ? "Регистрация" : "Bход"}
+                {location.pathname === "/registration" ? "Регистрация" : "Вход"}
               </button>
 
               {location.pathname === "/registration" ? (
@@ -90,7 +90,7 @@ const AuthForm = () => {
               ) : (
                 <Link to="/registration" className={style.authLink}>
                   {location.pathname === "/registration"
-                    ? "Уже есть аккаунт"
+                    ? "Вход"
                     : "Регистрация"}
                 </Link>
               )}

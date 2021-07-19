@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DiaryAddProductForm from "./DiaryAddProductForm";
+// import DiaryAddProductForm from "./DiaryAddProductForm";
 import styles from "./DiaryAddProductFormModal.module.css";
 
 class DiaryAddProductFormModal extends Component {
