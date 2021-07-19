@@ -1,16 +1,18 @@
 /* .userInfoBar {
   display: none;
 } */
+
 .RightSideBarProducts {
   height: 77px;
   overflow: scroll;
+  color: #9b9faa;
 }
 /* контейнер общий */
 
 .RightSideBarContainer {
-      margin: 0 auto;
-    max-width: 320px;
-  padding: 40px 0;
+  padding: 40px 15px;
+  /* margin: 0 auto; */
+  /* max-width: 320px; */
   /* background-color: #f0f1f3; */
 }
 /* заголовки секций */
