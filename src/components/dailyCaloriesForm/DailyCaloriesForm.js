@@ -2,12 +2,9 @@ import React from "react";
 import { Formik, Field, Form } from "formik";
 import DailyCaloriesFormValidator from "./DailyCaloriesFormValidator";
 import styles from "./DailyCaloriesForm.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { isAuthenticated } from "../../redux/auth/auth.selectors";
 import RightSideBar from "../../components/rightSideBar/RightSideBar";
-import { useHistory } from "react-router-dom";
-
-import { updateCalculator } from "../../redux/calculator/calculator.operations";
 
 const DailyCaloriesForm = ({
   onSubmit,
@@ -36,18 +33,13 @@ const DailyCaloriesForm = ({
             validationSchema={DailyCaloriesFormValidator}
             onSubmit={onSubmit}
             render={({ errors, touched, values }) => (
-              <Form className={styles.formContainer} >
+              <Form className={styles.formContainer}>
                 <div className={styles.formWrapper}>
                   <div>
                     <label htmlFor="height" className={styles.formInput}>
                       Рост*
                     </label>
-                    <Field
-                      name="height"
-                      type="text"
-                      className={styles.field}
-                      // placeholder="Ваш рост"
-                    />
+                    <Field name="height" type="text" className={styles.field} />
 
                     {errors.height && touched.height && (
                       <div className={styles.fieldError}>{errors.height}</div>
