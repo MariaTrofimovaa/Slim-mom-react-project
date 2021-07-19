@@ -9,7 +9,7 @@ import { getCurrentUser } from "../../redux/auth/auth.operations";
 import useMedia from "use-media";
 // import debounce from "lodash.debounce";
 import { useEffect } from "react";
-
+import IconClose from '../shared/IconClose/IconClose'
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 
@@ -212,7 +212,7 @@ const DiaryAddProductForm = ({ closeModal }) => {
         <br className={styles.break} />
         {isWide ? (
           <button type="submit" className={styles.formButton}>
-            +
+            <IconClose/>
           </button>
         ) : (
           <button

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import DiaryAddProductForm from "./DiaryAddProductForm";
 import styles from "./DiaryAddProductFormModal.module.css";
-
+import IconClose from '../shared/IconClose/IconClose'
 class DiaryAddProductFormModal extends Component {
   componentDidMount() {
     window.addEventListener("keydown", (event) => {
@@ -29,7 +29,7 @@ class DiaryAddProductFormModal extends Component {
             type="button"
             className={styles.closeModalButton}
           >
-            X
+            <IconClose/>
           </button>
           {/* <DiaryAddProductForm /> */}
           {this.props.children}
