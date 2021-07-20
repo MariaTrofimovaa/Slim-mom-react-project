@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
-// import { useSelector, connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./DailyKkalIntake.module.css";
-// import dailyrateSelectors from "../../redux/dailyrate/dailyrateSelectors";
 
 const DailyKkalIntake = ({ dailyRate, notAllowedProducts }) => {
   const [find, setFind] = useState("");
@@ -60,12 +57,5 @@ const DailyKkalIntake = ({ dailyRate, notAllowedProducts }) => {
     </div>
   );
 };
-
-// const mapStateToProps = (state) => ({
-//   calories: dailyrateSelectors.getDailyRateSelector(state),
-//   products: dailyrateSelectors.getAllNotSuitableProductsSelector(state),
-// });
-
-// export default connect(mapStateToProps)(DailyKkalIntake);
 
 export default DailyKkalIntake;

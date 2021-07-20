@@ -1,6 +1,5 @@
 html {
   box-sizing: border-box;
-  /* overflow-y: hidden; */
 }
 
 *,
@@ -13,7 +12,6 @@ html {
   font-family: "GothamPro-Bold";
   src: url("./components/shared/fonts/GothamPro-Bold.woff");
 }
-
 
 @font-face {
   font-family: "GothamPro-Light";

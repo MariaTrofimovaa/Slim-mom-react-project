@@ -12,7 +12,6 @@
 
 .foodName {
   width: 138px;
-  /* min-height: 26px; */
   margin-right: 10px;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -59,7 +58,6 @@
   }
 
   .calendarTable {
-    /* height: 210px; */
     overflow-y: auto;
   }
   .calendarTable::-webkit-scrollbar-thumb {
@@ -73,18 +71,8 @@
   }
 }
 
-/* .calendarTable {
-  margin-bottom: 40px;
-} */
-
 .button {
-  /* width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-bottom: 60px; */
+  
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 60px;

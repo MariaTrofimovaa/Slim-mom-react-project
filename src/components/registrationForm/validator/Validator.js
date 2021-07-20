@@ -5,7 +5,6 @@ let schema = yup.object().shape({
     .string()
     .min(3, "*Поле должно содержать минимум 3 символа")
     .max(50, "*Слишком длинное имя"),
-  // .required("*Поле обязательно"),
   email: yup
     .string()
     .min(3, "*Поле должно содержать минимум 3 символа")
@@ -20,5 +19,3 @@ let schema = yup.object().shape({
 });
 
 export default schema;
-
-// email: yup.string().email().required("*Обязательное поле"),

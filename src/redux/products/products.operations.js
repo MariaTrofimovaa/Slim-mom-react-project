@@ -15,7 +15,6 @@ axios.defaults.baseURL = "https://slimmom-backend.goit.global";
 
 const addProduct = (date, productId, weight) => (dispatch) => {
   const product = { date, productId, weight };
-  // console.log(product);
 
   dispatch(addProductRequest());
 
@@ -29,7 +28,6 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
   dispatch(deleteProductRequest());
 
   const deletedProduct = { dayId, eatenProductId };
-  // console.log(axios.defaults.headers.common.Authorization);
 
   axios
     .delete(`/day`, { data: deletedProduct })
@@ -40,21 +38,11 @@ const deleteProduct = (dayId, eatenProductId) => (dispatch) => {
 };
 
 const getDayInfo = (date) => (dispatch, getState) => {
-  // const userData = useSelector(getUserData);
   dispatch(getDayInfoRequest());
-
-  // проверка: если данные о пользователе не введены, вернуть
-  // const dayInfo = getState().rateInfo.summaries.kcalLeft;
-  // const dayInfo = getState().auth.user.userData.weight;
-  // console.log("dayInfo :>> ", dayInfo);
-  // if (!dayInfo) return;
-
-  // console.log(axios.defaults.headers.common.Authorization);
 
   axios
     .post(`/day/info`, { date })
     .then((response) => {
-      // console.log(response, "response");
       dispatch(getDayInfoSuccess(response.data));
     })
 

@@ -73,9 +73,7 @@ const LoginForm = () => {
                 className={style.errorMessage}
               />
             </label>
-            {/* <button type="submit" className={style.buttons}>
-              Вход
-            </button> */}
+
             <div className={style.buttonContainer}>
               <button className={style.authButton} type="submit">
                 {location.pathname === "/registration" ? "Регистрация" : "Вход"}

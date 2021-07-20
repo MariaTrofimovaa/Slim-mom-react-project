@@ -12,13 +12,6 @@ const DailyCaloriesForm = ({
   enableReinitialize = false,
 }) => {
   const isAuth = useSelector(isAuthenticated);
-  // const history = useHistory();
-  // const dispatch = useDispatch()
-
-  //  const onRedirect = (values) => {
-  //    dispatch(updateCalculator(values));
-  //    history.push("/diary");
-  //  };
 
   return (
     <div className={styles.calculator}>

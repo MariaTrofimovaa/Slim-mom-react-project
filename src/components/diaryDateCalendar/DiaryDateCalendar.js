@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { ReactComponent as CalendarLogo } from "../../img/svg/calendar.svg";
-
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./DiaryDateCalendar.module.css";
-
 import { useDispatch } from "react-redux";
 import { getSelectedDay } from "../../redux/products/products.actions";
 import { getDayInfo } from "../../redux/products/products.operations";
 
 const Calendar = () => {
-  // const loading = useSelector(-выбрать селектор лоадера)
   const dispatch = useDispatch();
-
   const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
@@ -22,7 +18,6 @@ const Calendar = () => {
 
   return (
     <div className={styles.сalendar}>
-      {/* {loading && <Loader />} */}
       <label>
         <DatePicker
           className={styles.datePicker}

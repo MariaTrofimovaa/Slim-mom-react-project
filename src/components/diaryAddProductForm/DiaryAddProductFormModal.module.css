@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
 
-  /* overflow: auto; */
   z-index: 1200;
   position: fixed;
 }
@@ -20,32 +19,14 @@
   text-align: center;
 
   overflow: hidden;
-
-  /* max-height: calc(100vh - 24px);
-  position: relative; */
 }
-
-/* .input {
-  width: 290px;
-  border-color: transparent;
-  color: #9b9faa;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-
-  border-bottom: 1px solid #e0e0e0;
-
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-} */
 
 .formButton {
   margin-top: 30px;
 }
 
-.iconBack{
- width: 15px;
+.iconBack {
+  width: 15px;
 }
 
 .closeModalButton {
@@ -64,8 +45,4 @@
   .closeModalButton {
     display: none;
   }
-
-  /* .formAddButton {
-    display: none;
-  } */
 }

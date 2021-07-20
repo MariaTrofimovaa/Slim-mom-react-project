@@ -2,18 +2,13 @@ import React from "react";
 import styles from "./Modal.module.css";
 import { useEffect } from "react";
 import ReactDom from "react-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { openModal } from "../../redux/modal/modalActions";
-// import { openModalSelector } from "../../redux/modal/modalSelertors";
 
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
-    // это componentDidMount
     window.addEventListener("keydown", handleEscape);
     const body = document.querySelector("body");
     body.style.overflow = "hidden";
 
-    // это componentWillUnmount
     return () => {
       window.removeEventListener("keydown", handleEscape);
       window.removeEventListener("click", handleButtonClick);
@@ -40,10 +35,6 @@ const Modal = ({ onClose, children }) => {
       onClose();
     }
   };
-
-  // {
-  //   /* <div className={styles.Modal}>{children}</div>; */
-  // }
 
   return ReactDom.createPortal(
     <div

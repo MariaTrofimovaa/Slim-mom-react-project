@@ -17,10 +17,6 @@ const user = createReducer(
     [registerSuccess]: (_, { payload }) => payload.user,
     [loginSuccess]: (_, { payload }) => payload.user,
     [getCurrentUserSuccess]: (_, { payload }) => payload,
-    // [getCurrentUserSuccess]: (state, { payload }) => ({
-    //   ...state,
-    //   userData: payload.userData,
-    // }),
     [logoutSuccess]: () => ({}),
   }
 );

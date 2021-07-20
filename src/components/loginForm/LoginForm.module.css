@@ -10,7 +10,6 @@
   letter-spacing: 0.04em;
   position: relative;
   width: 100vw;
-  /* height: 100vh; */
 }
 
 .formContainer {
@@ -147,9 +146,7 @@
 
     height: 100vh;
     background-size: cover;
-    /* position: absolute; */
     top: 0;
-    /* right: 0; */
     background: url(../../img/leavesLoginTablet@1x.png),
       url(../../img/strawberry@1x.png), url(../../img/banana@1x.png),
       url(../../img/spot.png);
@@ -203,7 +200,6 @@
 @media screen and (min-width: 1280px) {
   .container {
     max-width: 1280px;
-    /* padding: 0 115px; */
 
     position: absolute;
     z-index: -100;
@@ -220,7 +216,6 @@
 
   .eyeIconBtn {
     top: 325px;
-    /* right: 748px; */
     right: 875px;
   }
 

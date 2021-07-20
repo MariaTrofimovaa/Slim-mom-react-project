@@ -26,6 +26,7 @@ const RightSideBar = () => {
   }
 
   const importantDate = new Date().toJSON().slice(0, 10);
+
   const dateNow = moment(importantDate).format("DD.MM.YYYY");
 
   return (
